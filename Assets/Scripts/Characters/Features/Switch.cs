@@ -4,6 +4,8 @@ using System.Collections;
 public class Switch : MonoBehaviour
 {
     [SerializeField]
+    private LayerMask _obstacleMask;
+    [SerializeField]
     private int _damageOnOverlapping;
     [SerializeField]
     private float _timeToSwitchBackAfterDamage;
@@ -17,7 +19,6 @@ public class Switch : MonoBehaviour
     void Start()
     {
         _worldSwitch = GameObject.FindObjectOfType<WorldSwitch>();
-        _worldSwitch.OnCheckCollider = onCheckCollider;
 
         _collider = GetComponent<BoxCollider2D>();
         _motor = GetComponent<CharacterMotor>();
@@ -27,15 +28,18 @@ public class Switch : MonoBehaviour
     public void DoSwitch()
     {
         _worldSwitch.Switch();
+        checkForCollider();
     }
 
-    private void onCheckCollider(Collider2D collider)
+    private void checkForCollider()
     {
-        var offset = 0.01f;
+        var offset = 0.1f;
         var myBounds = _collider.bounds;
         myBounds.size = new Vector3(myBounds.size.x - offset, myBounds.size.y - offset);
 
-        if (collider.bounds.Intersects(myBounds))
+        var hit = Physics2D.BoxCast(myBounds.center, myBounds.size, 0, Vector2.zero, 0, _obstacleMask);
+
+        if (hit)
         {
             _motor.enabled = false;
             _motor.Velocity = Vector2.zero;

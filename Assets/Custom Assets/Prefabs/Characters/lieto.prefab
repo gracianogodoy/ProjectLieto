@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010244931282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -226,7 +226,7 @@ MonoBehaviour:
     Offset: 0.8
     HitLayer:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 3072
 --- !u!114 &114000012235417504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8882eb2553bc5f54ea61403374aa783d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: {x: 10, y: 20}
+  _force: {x: 10, y: 5}
 --- !u!114 &114000012477646060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,6 +357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130e81b061127a9419ad74bfab151919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
   _damageOnOverlapping: 2
   _timeToSwitchBackAfterDamage: 0.1
 --- !u!114 &114000013916518786
@@ -385,9 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _totalLife: 10
   _scriptsToDisable:
-  - {fileID: 114000010238860358}
   - {fileID: 114000010520157084}
-  - {fileID: 114000013916518786}
   - {fileID: 114000011987444604}
   - {fileID: 114000012229377972}
 --- !u!212 &212000010255095834

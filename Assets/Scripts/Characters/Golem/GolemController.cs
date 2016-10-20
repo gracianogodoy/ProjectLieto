@@ -26,6 +26,8 @@ public class GolemController : MonoBehaviour, IStrikeable
         _sensor.ReadySensor.OnInsideSensor += onEnterInsideSensor;
 
         _attack.OnAttackHit += onAttackHit;
+
+        _life.OnDead += onDead;
     }
 
     private void onInsideAttackSensor(GameObject target)
@@ -54,6 +56,11 @@ public class GolemController : MonoBehaviour, IStrikeable
                 life.TakeDamage(_strikeDamage, gameObject);
             }
         }
+    }
+
+    public void onDead()
+    {
+        Destroy(gameObject);
     }
 
     public void Striked(int damage, GameObject other)

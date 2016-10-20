@@ -174,22 +174,7 @@ Prefab:
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: orthographic size
-      value: 3.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013558226492, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
-        type: 2}
-      propertyPath: NativeResolution.Width
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013558226492, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
-        type: 2}
-      propertyPath: NativeResolution.Height
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013558226492, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
-        type: 2}
-      propertyPath: PixelPerUnit
-      value: 20
+      value: 3.3786407
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}

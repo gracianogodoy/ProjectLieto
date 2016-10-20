@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Prime31;
 using System;
+using UnityEngine.Assertions;
 
 public class CharacterMotor : MonoBehaviour
 {
@@ -17,13 +18,20 @@ public class CharacterMotor : MonoBehaviour
 
     public Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
     public CharacterController2D.CharacterCollisionState2D CollisionState { get { return _controller.collisionState; } }
+    public Action<Collider2D> OnTriggerEnter { get; set; }
 
     public bool IsGrounded { get { return _controller.isGrounded; } }
+
+    void Start()
+    {
+        _controller = GetComponent<CharacterController2D>();
+        Assert.IsNotNull(_controller);
+        _controller.onTriggerEnterEvent += OnTriggerEnter;
+    }
 
     void Update()
     {
         applyGravity();
-
         _controller.move(_velocity * Time.deltaTime);
     }
 
