@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
-public class SquireController : MonoBehaviour
+public class SquireController : MonoBehaviour, IStrikeable
 {
     [SerializeField]
     private float _idleTime;
@@ -19,6 +20,7 @@ public class SquireController : MonoBehaviour
     private Move _move;
     private FaceDirection _faceDirection;
     private CharacterMotor _motor;
+    private Life _life;
 
     void Start()
     {
@@ -27,6 +29,9 @@ public class SquireController : MonoBehaviour
         _motor = GetComponent<CharacterMotor>();
 
         _motor.OnTriggerEnter += onTriggerEnter;
+
+        _life = GetComponent<Life>();
+        _life.OnDead += onDead;
 
         StartCoroutine(idle());
     }
@@ -45,7 +50,7 @@ public class SquireController : MonoBehaviour
 
     private void startWalk()
     {
-        _moveDistance = Random.Range(_minMoveDistance, _maxMoveDistance);
+        _moveDistance = UnityEngine.Random.Range(_minMoveDistance, _maxMoveDistance);
         _lastPositionX = transform.position.x;
         _moveCurrentDistance = 0;
         _isWalking = true;
@@ -69,12 +74,22 @@ public class SquireController : MonoBehaviour
 
     private void randomizeFaceDirection()
     {
-        var direction = Random.Range(0, 1.0f) < 0.5f ? -1 : 1;
+        var direction = UnityEngine.Random.Range(0, 1.0f) < 0.5f ? -1 : 1;
         _faceDirection.SetDirection(direction);
     }
 
     private void onTriggerEnter(Collider2D other)
     {
         _faceDirection.SetDirection(-_faceDirection.Direction);
+    }
+
+    private void onDead()
+    {
+        Destroy(gameObject);
+    }
+
+    public void Striked(int damage, GameObject other)
+    {
+        _life.TakeDamage(damage);
     }
 }
