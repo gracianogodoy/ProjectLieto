@@ -24,6 +24,11 @@ public class FaceDirection : MonoBehaviour
         SetDirection((int)_initialDirection);
     }
 
+    void Start()
+    {
+        SetDirection((int)_initialDirection);
+    }
+
     public void SetDirection(int direction)
     {
         _direction = direction;

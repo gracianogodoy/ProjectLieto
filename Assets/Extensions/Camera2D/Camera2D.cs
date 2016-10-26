@@ -18,6 +18,14 @@ public class Camera2D : MonoBehaviour
         calculateOrtographicSize();
     }
 
+    void Start()
+    {
+        _camera = GetComponent<Camera>();
+        UnityEngine.Assertions.Assert.IsNotNull(_camera);
+
+        calculateOrtographicSize();
+    }
+
     void OnGUI()
     {
         calculateOrtographicSize();

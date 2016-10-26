@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(EventSystem))]
 public class GlobalEventSystem : MonoBehaviour

@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class WorldSwitch : MonoBehaviour
 {
+    public delegate void ChangeWorldEvent();
+
+    [SerializeField]
+    private float playingPositionY;
+    [SerializeField]
+    private float hidingPositionY;
+
     [SerializeField]
     private int _numberOfGlitches;
     [SerializeField]
@@ -13,23 +20,40 @@ public class WorldSwitch : MonoBehaviour
     private GameObject _world2;
 
     private bool _isOnFirstWorld = true;
+    private bool _isChanging;
+
+    public ChangeWorldEvent OnChangeWorld { get; set; }
 
     public void Switch()
     {
-        StartCoroutine(glitch());
+        if (!_isChanging)
+            StartCoroutine(glitch());
     }
 
     private bool startSwitch()
     {
-        var worldToEnable = _world1.activeInHierarchy ? _world2 : _world1;
-        var worldToDisable = _world1.activeInHierarchy ? _world1 : _world2;
+        var world1playing = _world1.transform.position.y == playingPositionY;
+        var worldToEnable = world1playing ? _world2 : _world1;
+        var worldToDisable = world1playing ? _world1 : _world2;
 
-        toggleWorldElement(worldToDisable.transform, false);
-        worldToDisable.SetActive(false);
-        toggleWorldElement(worldToEnable.transform, true);
-        worldToEnable.SetActive(true);
+        //toggleWorldElement(worldToDisable.transform, false);
+        //worldToDisable.SetActive(false);
+        //toggleWorldElement(worldToEnable.transform, true);
+        //worldToEnable.SetActive(true);
 
-        return _world1.activeInHierarchy;
+        changePositionY(worldToDisable.transform, hidingPositionY);
+        changePositionY(worldToEnable.transform, playingPositionY);
+
+        if (OnChangeWorld != null)
+            OnChangeWorld();
+
+        world1playing = _world1.transform.position.y == playingPositionY;
+        return world1playing;
+    }
+
+    private void changePositionY(Transform world, float positionY)
+    {
+        world.position = new Vector3(world.position.x, positionY, world.position.z);
     }
 
     private void toggleWorldElement(Transform worldElement, bool enable)
@@ -46,6 +70,7 @@ public class WorldSwitch : MonoBehaviour
 
     private IEnumerator glitch()
     {
+        _isChanging = true;
         var currentGlitch = 0;
         var changeColor = false;
 
@@ -65,5 +90,7 @@ public class WorldSwitch : MonoBehaviour
             startSwitch();
 
         _isOnFirstWorld = !_isOnFirstWorld;
+
+        _isChanging = false;
     }
 }

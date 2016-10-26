@@ -12,12 +12,24 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        _target = GameObject.Find(TargetName).transform;
+        var targetGameObject = GameObject.Find(TargetName);
+
+        if (targetGameObject != null)
+            _target = targetGameObject.transform;
     }
 
     void Update()
     {
-        followTarget();
+        if (_target == null)
+        {
+            var targetGameObject = GameObject.Find(TargetName);
+
+            if (targetGameObject != null)
+                _target = targetGameObject.transform;
+        }
+
+        if (_target != null)
+            followTarget();
     }
 
     private void followTarget()

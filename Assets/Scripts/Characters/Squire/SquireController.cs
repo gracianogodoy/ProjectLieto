@@ -80,7 +80,10 @@ public class SquireController : MonoBehaviour, IStrikeable
 
     private void onTriggerEnter(Collider2D other)
     {
-        _faceDirection.SetDirection(-_faceDirection.Direction);
+        if (gameObject.activeInHierarchy)
+        {
+            _faceDirection.SetDirection(-_faceDirection.Direction);
+        }
     }
 
     private void onDead()

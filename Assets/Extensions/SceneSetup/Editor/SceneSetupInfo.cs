@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor.SceneManagement;
 using UnityEditor;
-using UnityEngine.Assertions;
 
 [CreateAssetMenu(menuName = "SceneSetupInfo")]
 public class SceneSetupInfo : ScriptableObject

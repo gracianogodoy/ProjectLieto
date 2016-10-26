@@ -16,6 +16,18 @@ public class FlipView : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        if (_faceDirection == null)
+            _faceDirection = GetComponentInParent<FaceDirection>();
+
+        if (_faceDirection != null)
+        {
+            _faceDirection.OnChangeDirection -= onChangeDirection;
+            _faceDirection.OnChangeDirection += onChangeDirection;
+        }
+    }
+
     private void onChangeDirection(int direction)
     {
         if (direction > 0)

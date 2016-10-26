@@ -33,7 +33,7 @@ public class Switch : MonoBehaviour
 
     private void checkForCollider()
     {
-        var offset = 0.1f;
+        var offset = 0.4f;
         var myBounds = _collider.bounds;
         myBounds.size = new Vector3(myBounds.size.x - offset, myBounds.size.y - offset);
 
