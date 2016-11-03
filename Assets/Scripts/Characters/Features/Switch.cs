@@ -15,7 +15,6 @@ public class Switch : MonoBehaviour
     private bool _isTouching;
     private CharacterMotor _motor;
     private Life _life;
-    private Jump _jump;
 
     void Start()
     {
@@ -24,7 +23,6 @@ public class Switch : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
         _motor = GetComponent<CharacterMotor>();
         _life = GetComponent<Life>();
-        _jump = GetComponent<Jump>();
     }
 
     public void DoSwitch()
@@ -46,7 +44,7 @@ public class Switch : MonoBehaviour
             _motor.enabled = false;
             _motor.Velocity = Vector2.zero;
             _isTouching = true;
-            _motor.ToggleGravity(false);
+
             StartCoroutine(waitToSwitchBack(_timeToSwitchBackAfterDamage));
         }
     }
@@ -62,8 +60,5 @@ public class Switch : MonoBehaviour
             _isTouching = false;
             _motor.enabled = true;
         }
-
-        yield return new WaitForSeconds(0.1f); 
-        _motor.ToggleGravity(true);
     }
 }

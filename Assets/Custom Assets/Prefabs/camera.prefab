@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012800250282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.105, y: 0.74, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -65,7 +65,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.3750002
+  orthographic size: 3.375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04285532a28bfb4fb147ba0b683db43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetName: cameraTarget
+  TargetName: lieto
   Speed: 10
-  MinCameraPosition: {x: 0.105, y: 0.74}
+  MinCameraPosition: {x: -100, y: 0}
   MaxCameraPosition: {x: 100, y: 100}
 --- !u!114 &114000013558226492
 MonoBehaviour:

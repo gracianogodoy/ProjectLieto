@@ -88,8 +88,7 @@ public class SquireController : MonoBehaviour, IStrikeable
 
     private void onDead()
     {
-        enabled = false;
-        _motor.enabled = false;
+        Destroy(gameObject);
     }
 
     public void Striked(int damage, GameObject other)

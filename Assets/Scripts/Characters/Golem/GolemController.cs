@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Assertions;
 
 public class GolemController : MonoBehaviour, IStrikeable
 {
     [SerializeField]
     private int _strikeDamage;
-    [SerializeField]
-    private float _timeBetweenAttacks;
 
     private ProximitySensor _sensor;
     private Attack _attack;
     private FaceDirection _faceDirection;
     private Life _life;
-    private bool _isInsideAttackArea;
 
     void Start()
     {
@@ -30,7 +25,6 @@ public class GolemController : MonoBehaviour, IStrikeable
         _sensor.AttackSensor.OnInsideSensor += onInsideAttackSensor;
         _sensor.ReadySensor.OnInsideSensor += onEnterInsideSensor;
 
-
         _attack.OnAttackHit += onAttackHit;
 
         _life.OnDead += onDead;
@@ -38,19 +32,8 @@ public class GolemController : MonoBehaviour, IStrikeable
 
     private void onInsideAttackSensor(GameObject target)
     {
-        if (!_isInsideAttackArea)
-            StartCoroutine(doAttack());
-    }
-
-    private IEnumerator doAttack()
-    {
-        _isInsideAttackArea = true;
-
-        if (enabled)
+        if (!_attack.enabled)
             _attack.DoAttack(_faceDirection.Direction);
-
-        yield return new WaitForSeconds(_timeBetweenAttacks);
-        _isInsideAttackArea = false;
     }
 
     private void onEnterInsideSensor(GameObject target)
@@ -77,10 +60,7 @@ public class GolemController : MonoBehaviour, IStrikeable
 
     public void onDead()
     {
-        enabled = false;
-        var collider = GetComponent<Collider2D>();
-        collider.enabled = false;
-        _sensor.enabled = false;
+        Destroy(gameObject);
     }
 
     public void Striked(int damage, GameObject other)
