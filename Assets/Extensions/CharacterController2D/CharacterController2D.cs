@@ -549,6 +549,7 @@ namespace Prime31
             {
                 // bail out if we have no slope
                 var angle = Vector2.Angle(_raycastHit.normal, Vector2.up);
+                var dot = Vector2.Dot(_raycastHit.normal, Vector2.right);
                 if (angle == 0)
                     return;
 
@@ -562,8 +563,10 @@ namespace Prime31
                     deltaMovement.y += _raycastHit.point.y - slopeRay.y - skinWidth;
                     deltaMovement.x *= slopeModifier;
                     collisionState.movingDownSlope = true;
-                    collisionState.slopeAngle = angle;
                 }
+
+                //angle = dot < 0 ? angle : 180 - angle;
+                collisionState.slopeAngle = angle * -Mathf.Sign(dot);
             }
         }
 
