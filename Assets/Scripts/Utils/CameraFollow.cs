@@ -40,6 +40,6 @@ public class CameraFollow : MonoBehaviour
         posX = Mathf.Clamp(posX, MinCameraPosition.x, MaxCameraPosition.x);
         posY = Mathf.Clamp(posY, MinCameraPosition.y, MaxCameraPosition.y);
 
-        transform.position = new Vector3(posX, posY, transform.position.z);
+        transform.position = new Vector3( posX, posY, transform.position.z);
     }
 }
