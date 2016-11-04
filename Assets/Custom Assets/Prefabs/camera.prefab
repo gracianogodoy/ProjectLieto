@@ -25,7 +25,7 @@ GameObject:
   - 81: {fileID: 81000011771005472}
   - 114: {fileID: 114000013558226492}
   - 114: {fileID: 114000011763578896}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.3750002
+  orthographic size: 3.375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -12,9 +12,10 @@ public class CharacterMotor : MonoBehaviour
     private float _maxFallSpeed;
     [SerializeField]
     private CharacterController2D _controller;
+    [SerializeField]
+    private bool _hasGravity = true;
 
     private Vector2 _velocity;
-    private bool _hasGravity = true;
 
     public Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
     public CharacterController2D.CharacterCollisionState2D CollisionState { get { return _controller.collisionState; } }
@@ -26,7 +27,6 @@ public class CharacterMotor : MonoBehaviour
     {
         _controller = GetComponent<CharacterController2D>();
         Assert.IsNotNull(_controller);
-        _controller.onTriggerEnterEvent += OnTriggerEnter;
     }
 
     void Update()

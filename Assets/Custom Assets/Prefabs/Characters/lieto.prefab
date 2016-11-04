@@ -256,7 +256,7 @@ MonoBehaviour:
     Offset: 0.8
     HitLayer:
       serializedVersion: 2
-      m_Bits: 3072
+      m_Bits: 35840
 --- !u!114 &114000012235417504
 MonoBehaviour:
   m_ObjectHideFlags: 1

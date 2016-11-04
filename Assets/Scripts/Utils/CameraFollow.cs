@@ -13,6 +13,8 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         var targetGameObject = GameObject.Find(TargetName);
+        //var VerticalHightSeen = _camera.orthographicSize * 2f;
+        //var HorizontalHeightSeen = VerticalHightSeen * Screen.width / Screen.height;
 
         if (targetGameObject != null)
             _target = targetGameObject.transform;
@@ -29,7 +31,14 @@ public class CameraFollow : MonoBehaviour
         }
 
         if (_target != null)
+        {
             followTarget();
+        }
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
     }
 
     private void followTarget()
@@ -40,6 +49,6 @@ public class CameraFollow : MonoBehaviour
         posX = Mathf.Clamp(posX, MinCameraPosition.x, MaxCameraPosition.x);
         posY = Mathf.Clamp(posY, MinCameraPosition.y, MaxCameraPosition.y);
 
-        transform.position = new Vector3( posX, posY, transform.position.z);
+        transform.position = new Vector3(posX, posY, transform.position.z);
     }
 }
