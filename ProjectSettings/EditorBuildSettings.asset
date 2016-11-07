@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Custom Assets/Scenes/core.unity
   - enabled: 1
-    path: Assets/Custom Assets/Scenes/scene1.unity
+    path: Assets/Custom Assets/Scenes/bootcamp2.unity
+  - enabled: 1
+    path: Assets/Custom Assets/Scenes/bg.unity

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLieto.CSharp.Plugins", "ProjectLieto.CSharp.Plugins.csproj", "{01CA4E47-C360-88B6-C858-C3FB366DF11F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLieto.CSharp", "ProjectLieto.CSharp.csproj", "{90D43321-A1A6-7296-2788-7F07F87680E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLieto.CSharp.Editor", "ProjectLieto.CSharp.Editor.csproj", "{53EF0C7B-AFE3-1F36-8306-09BB5FCC5002}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01CA4E47-C360-88B6-C858-C3FB366DF11F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01CA4E47-C360-88B6-C858-C3FB366DF11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01CA4E47-C360-88B6-C858-C3FB366DF11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01CA4E47-C360-88B6-C858-C3FB366DF11F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90D43321-A1A6-7296-2788-7F07F87680E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90D43321-A1A6-7296-2788-7F07F87680E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90D43321-A1A6-7296-2788-7F07F87680E3}.Release|Any CPU.ActiveCfg = Release|Any CPU

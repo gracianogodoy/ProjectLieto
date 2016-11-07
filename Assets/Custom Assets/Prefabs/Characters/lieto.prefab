@@ -32,6 +32,8 @@ GameObject:
   - 114: {fileID: 114000013898094690}
   - 114: {fileID: 114000012235417504}
   - 114: {fileID: 114000012472532668}
+  - 114: {fileID: 114000013051369816}
+  - 114: {fileID: 114000011031653712}
   m_Layer: 9
   m_Name: lieto
   m_TagString: Player
@@ -208,6 +210,7 @@ MonoBehaviour:
   _gravity: 50
   _maxFallSpeed: 40
   _controller: {fileID: 114000012446195800}
+  _hasGravity: 1
 --- !u!114 &114000010520157084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,6 +226,17 @@ MonoBehaviour:
   _jumpButton: Jump
   _attackButton: Fire1
   _worldSwitchButton: Switch
+--- !u!114 &114000011031653712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010244931282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a73d9b6858846246b47f17fa965d693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011987444604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +270,7 @@ MonoBehaviour:
     Offset: 0.8
     HitLayer:
       serializedVersion: 2
-      m_Bits: 35840
+      m_Bits: 101376
 --- !u!114 &114000012235417504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,7 +298,7 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 132352
   triggerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -365,6 +379,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialDirection: 1
+--- !u!114 &114000013051369816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010244931282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294eeda6d067b6447b69cca80dfc891f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToReset: 3
 --- !u!114 &114000013395380968
 MonoBehaviour:
   m_ObjectHideFlags: 1

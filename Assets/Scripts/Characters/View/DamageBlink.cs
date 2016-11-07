@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UniRx;
 using System.Collections;
 using UnityEngine.Assertions;
 
@@ -20,9 +21,8 @@ public class DamageBlink : MonoBehaviour
         _life = GetComponentInParent<Life>();
         Assert.IsNotNull(_life);
 
-        _life.OnTakeDamage += onTakeDamage;
-
         _renderer = GetComponent<SpriteRenderer>();
+        _life.OnTakeDamage += onTakeDamage;
     }
 
     private void onTakeDamage(int amount)

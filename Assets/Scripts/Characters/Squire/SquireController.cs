@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UniRx;
 using System.Collections;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ public class SquireController : MonoBehaviour, IStrikeable
         _faceDirection = GetComponent<FaceDirection>();
         _motor = GetComponent<CharacterMotor>();
 
-        _motor.OnTriggerEnter += onTriggerEnter;
+        //_motor.OnTriggerEnter += onTriggerEnter;
 
         _life = GetComponent<Life>();
         _life.OnDead += onDead;
@@ -78,12 +78,10 @@ public class SquireController : MonoBehaviour, IStrikeable
         _faceDirection.SetDirection(direction);
     }
 
-    private void onTriggerEnter(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (gameObject.activeInHierarchy)
-        {
+        if (other.tag == "SquireChangeDirection")
             _faceDirection.SetDirection(-_faceDirection.Direction);
-        }
     }
 
     private void onDead()

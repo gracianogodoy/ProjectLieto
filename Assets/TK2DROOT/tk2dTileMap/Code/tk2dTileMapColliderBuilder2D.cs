@@ -35,7 +35,7 @@ namespace tk2dRuntime.TileMap
 
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
 						PhysicsMaterial2D material = tileMap.data.Layers[layerId].physicsMaterial2D;
-						foreach (EdgeCollider2D ec in chunk.edgeColliders) {
+						foreach (PolygonCollider2D ec in chunk.edgeColliders) {
 							if (ec != null) {
 								ec.sharedMaterial = material;
 							}
@@ -107,12 +107,12 @@ namespace tk2dRuntime.TileMap
 				// Make sure existing ones are not null
 				for (int i = 0; i < chunk.edgeColliders.Count; ++i) {
 					if (chunk.edgeColliders[i] == null) {
-						chunk.edgeColliders[i] = tk2dUtil.AddComponent<EdgeCollider2D>(chunk.gameObject);
+						chunk.edgeColliders[i] = tk2dUtil.AddComponent<PolygonCollider2D>(chunk.gameObject);
 					}
 				}
 				// Create missing
 				while (chunk.edgeColliders.Count < numEdges) {
-					chunk.edgeColliders.Add( tk2dUtil.AddComponent<EdgeCollider2D>(chunk.gameObject) );
+					chunk.edgeColliders.Add( tk2dUtil.AddComponent<PolygonCollider2D>(chunk.gameObject) );
 				}
 
 				for (int i = 0; i < numEdges; ++i) {

@@ -19,15 +19,20 @@ public class WorldSwitch : MonoBehaviour
     [SerializeField]
     private GameObject _world2;
 
+
     private bool _isOnFirstWorld = true;
     private bool _isChanging;
 
     public ChangeWorldEvent OnChangeWorld { get; set; }
 
+  
+
     public void Switch()
     {
         if (!_isChanging)
+        {
             StartCoroutine(glitch());
+        }
     }
 
     private bool startSwitch()

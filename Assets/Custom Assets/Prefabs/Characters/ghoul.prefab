@@ -25,7 +25,6 @@ GameObject:
   - 114: {fileID: 114000012335338720}
   - 114: {fileID: 114000013975517062}
   - 114: {fileID: 114000011804023400}
-  - 114: {fileID: 114000013592190620}
   - 114: {fileID: 114000012985086812}
   - 114: {fileID: 114000012904495902}
   - 114: {fileID: 114000012780137338}
@@ -209,7 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1fc0d5a6e25004c8d1195f7f84d955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseVelocity: 3
+  _chaseSpeed: 3
+  _patrolSpeed: 2
   _distanceToStop: 1
 --- !u!114 &114000012780137338
 MonoBehaviour:
@@ -259,7 +259,7 @@ MonoBehaviour:
     Duration: 0.417
     TimeToAttack: 0.2
     Distance: 1
-    BaseSize: 0.3
+    BaseSize: 1
     NumberOfRays: 2
     Offset: 1.4
     HitLayer:
@@ -323,19 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44140e9212c61014eba5abdf8406d4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000013592190620
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010729525470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e56cae9501aad4d4c9afab1a808774bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxSpeed: 20
-  _acceleration: 40
 --- !u!114 &114000013975517062
 MonoBehaviour:
   m_ObjectHideFlags: 1

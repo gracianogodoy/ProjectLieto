@@ -32,6 +32,7 @@ public class CharacterMotor : MonoBehaviour
     void Update()
     {
         applyGravity();
+
         _controller.move(_velocity * Time.deltaTime);
     }
 

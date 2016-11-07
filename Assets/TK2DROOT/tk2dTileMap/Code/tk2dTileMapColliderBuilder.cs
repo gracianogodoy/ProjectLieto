@@ -65,7 +65,7 @@ namespace tk2dRuntime.TileMap
 			}
 	
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
-			foreach (EdgeCollider2D c2d in chunk.edgeColliders) {
+			foreach (PolygonCollider2D c2d in chunk.edgeColliders) {
 				if (c2d != null) {
 					tk2dUtil.DestroyImmediate(c2d);
 				}

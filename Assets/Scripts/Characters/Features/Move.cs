@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UniRx;
 
 [RequireComponent(typeof(CharacterMotor))]
 public class Move : MonoBehaviour
@@ -26,9 +27,9 @@ public class Move : MonoBehaviour
         _life = GetComponent<Life>();
 
         _life.OnDead += () =>
-        {
-            _direction = 0;
-        };
+         {
+             _direction = 0;
+         };
     }
 
     void Update()

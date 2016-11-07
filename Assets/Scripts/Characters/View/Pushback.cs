@@ -18,6 +18,16 @@ public class Pushback : MonoBehaviour
         Assert.IsNotNull(_life);
 
         _life.OnTakeDamageFromObject += onTakeDamageFromObject;
+        enabled = false;
+    }
+
+    void Update()
+    {
+        if (_motor.IsGrounded)
+        {
+            _motor.Velocity = Vector2.zero;
+            enabled = false;
+        }
     }
 
     private void onTakeDamageFromObject(int amount, GameObject sourceDamageObject)
@@ -28,5 +38,6 @@ public class Pushback : MonoBehaviour
         pushbackDirection.y = _force.y;
 
         _motor.Velocity = pushbackDirection;
+        enabled = true;
     }
 }

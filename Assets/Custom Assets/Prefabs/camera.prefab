@@ -107,7 +107,7 @@ MonoBehaviour:
   TargetName: cameraTarget
   Speed: 10
   MinCameraPosition: {x: 0.105, y: 0.74}
-  MaxCameraPosition: {x: 100, y: 100}
+  MaxCameraPosition: {x: 56.48, y: 100}
 --- !u!114 &114000013558226492
 MonoBehaviour:
   m_ObjectHideFlags: 1

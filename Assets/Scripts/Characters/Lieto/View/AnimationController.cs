@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UniRx;
 
 [RequireComponent(typeof(Animator))]
 public class AnimationController : MonoBehaviour
@@ -19,7 +20,10 @@ public class AnimationController : MonoBehaviour
         _life = GetComponentInParent<Life>();
         _animator = GetComponent<Animator>();
 
-        _life.OnDead += ()=> _animator.SetTrigger("Dead");
+        _life.OnDead += () =>
+          {
+              _animator.SetTrigger("Dead");
+          };
     }
 
     void Update()

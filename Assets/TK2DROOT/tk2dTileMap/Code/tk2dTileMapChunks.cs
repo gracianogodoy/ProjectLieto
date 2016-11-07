@@ -24,7 +24,7 @@ namespace tk2dRuntime.TileMap
 		public MeshCollider meshCollider;
 		public Mesh colliderMesh;
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
-		public List<EdgeCollider2D> edgeColliders = new List<EdgeCollider2D>();
+		public List<PolygonCollider2D> edgeColliders = new List<PolygonCollider2D>();
 #endif
 		public SpriteChunk() { spriteIds = new int[0]; }
 		

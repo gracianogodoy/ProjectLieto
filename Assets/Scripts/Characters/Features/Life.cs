@@ -17,6 +17,14 @@ public class Life : MonoBehaviour
     public TakeDamageEvent OnTakeDamage { get; set; }
     public TakeDamageFromObjectEvent OnTakeDamageFromObject { get; set; }
 
+    public int CurrentLife
+    {
+        get
+        {
+            return _currentLife;
+        }
+    }
+
     void Start()
     {
         _currentLife = _totalLife;
@@ -53,6 +61,15 @@ public class Life : MonoBehaviour
     public void Heal(int amount)
     {
         changeLife(amount);
+    }
+
+    public void Ressurect()
+    {
+        _currentLife = _totalLife;
+        foreach (var script in _scriptsToDisable)
+        {
+            script.enabled = true;
+        }
     }
 
     private void changeLife(int amount)

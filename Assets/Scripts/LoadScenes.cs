@@ -9,7 +9,8 @@ public class LoadScenes : MonoBehaviour
     {
         SceneManager.LoadScene("core");
 
-        SceneManager.LoadScene("scene1", LoadSceneMode.Additive);
+        SceneManager.LoadScene("bootcamp2", LoadSceneMode.Additive);
+        SceneManager.LoadScene("bg", LoadSceneMode.Additive);
 
         //StartCoroutine(AsynchronousLoad("core"));
     }

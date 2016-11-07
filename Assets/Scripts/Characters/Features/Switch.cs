@@ -16,7 +16,14 @@ public class Switch : MonoBehaviour
     private CharacterMotor _motor;
     private Life _life;
     private Jump _jump;
-
+    private bool _isOnBadWorld;
+    public bool IsOnBadWorld
+    {
+        get
+        {
+            return _isOnBadWorld;
+        }
+    }
     void Start()
     {
         _worldSwitch = GameObject.FindObjectOfType<WorldSwitch>();
@@ -30,6 +37,7 @@ public class Switch : MonoBehaviour
     public void DoSwitch()
     {
         _worldSwitch.Switch();
+        _isOnBadWorld = !_isOnBadWorld;
         checkForCollider();
     }
 
@@ -58,12 +66,13 @@ public class Switch : MonoBehaviour
         if (_isTouching)
         {
             _worldSwitch.Switch();
+            _isOnBadWorld = !_isOnBadWorld;
             _life.TakeDamage(_damageOnOverlapping);
             _isTouching = false;
             _motor.enabled = true;
         }
 
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.1f);
         _motor.ToggleGravity(true);
     }
 }

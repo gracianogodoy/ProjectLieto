@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UniRx;
 using UnityEngine.Assertions;
 
 public class GhoulAnimationController : MonoBehaviour
@@ -19,7 +20,6 @@ public class GhoulAnimationController : MonoBehaviour
 
         _life = GetComponentInParent<Life>();
         _life.OnDead += onDead;
-
     }
 
     void Update()

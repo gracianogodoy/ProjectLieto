@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UniRx;
 
 public class SquireAnimationController : MonoBehaviour
 {
