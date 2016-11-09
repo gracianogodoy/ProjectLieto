@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Zenject;
-using System;
 
 namespace GG
 {

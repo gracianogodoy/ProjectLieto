@@ -1,18 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace GG
+﻿namespace GG
 {
-    public class Move
+    public class Move : BaseCharacterBehaviour
     {
-        public void OnMove(int direction)
+        private Settings _settings;
+
+        public Move(CharacterMotor motor, Settings settings) : base(motor)
         {
-            Debug.Log("Moving " + direction);
+            _settings = settings;
         }
 
-        public void OnJump()
+        public void OnMove(int direction)
         {
+            if (_isEnable)
+                _motor.SetVelocityX(_settings.speed * direction);
+        }
 
+        [System.Serializable]
+        public class Settings
+        {
+            public float speed;
         }
     }
 }

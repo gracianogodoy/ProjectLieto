@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e43973744190c41b1a81b3b9079731, type: 3}
+  m_Name: LietoSettings
+  m_EditorClassIdentifier: 
+  InputSetttings:
+    horizontalAxis: Horizontal
+    jumpButton: Jump
+    attackButton: Fire1
+    worldSwitchButton: Fire2
+  MotorSettings:
+    gravity: 40
+    maxFallSpeed: 10
+  MoveSettings:
+    speed: 10
+  JumpSettings:
+    jumpPower: 40
+    shortJumpPower: 20
