@@ -547,7 +547,18 @@ MonoBehaviour:
     floatVal: 0
     enablePrefabOffset: 0
   tileMapLayers:
-  - name: Layer 0
+  - name: bg
+    hash: 1379560644
+    useColor: 1
+    generateCollider: 1
+    z: 0.1
+    unityLayer: 0
+    sortingLayerName: Default
+    sortingOrder: -2
+    skipMeshGeneration: 0
+    physicMaterial: {fileID: 0}
+    physicsMaterial2D: {fileID: 0}
+  - name: ground
     hash: 1892887448
     useColor: 1
     generateCollider: 1
@@ -569,14 +580,14 @@ MonoBehaviour:
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
-  - name: squire
-    hash: 1598469607
+  - name: Platforms
+    hash: 1194567778
     useColor: 1
     generateCollider: 1
     z: 0.1
-    unityLayer: 12
+    unityLayer: 8
     sortingLayerName: Default
-    sortingOrder: -1
+    sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}

@@ -171,6 +171,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
+        type: 2}
+      propertyPath: orthographic size
+      value: 3.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011763578896, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
+        type: 2}
+      propertyPath: MaxCameraPosition.x
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
   m_IsPrefabParent: 0
