@@ -21,6 +21,9 @@ namespace GG
 
             Container.Bind<LietoDeath>().AsSingle();
 
+            Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
+
+
             CharacterMotorInstaller.Install(Container, gameObject);
         }
 

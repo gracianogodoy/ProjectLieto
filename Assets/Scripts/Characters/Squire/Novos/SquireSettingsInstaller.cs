@@ -9,12 +9,16 @@ namespace GG
         public CharacterMotor.Settings CharacterMotorSettings;
         public Move.Settings MoveSettings;
         public FaceDirection.Settings FaceDirectionSettings;
+        public Life.Settings LifeSettings;
+        public SquireAI.Settings AISettings;
 
         public override void InstallBindings()
         {
             Container.BindInstance(FaceDirectionSettings);
             Container.BindInstance(MoveSettings);
             Container.BindInstance(CharacterMotorSettings);
+            Container.BindInstance(AISettings);
+            Container.BindInstance(LifeSettings);
         }
     }
 }

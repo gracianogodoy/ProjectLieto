@@ -18,3 +18,9 @@ MonoBehaviour:
     speed: 3
   FaceDirectionSettings:
     InitialDirection: 1
+  LifeSettings:
+    TotalLife: 3
+  AISettings:
+    idleTime: 3.2
+    minMoveDistance: 1
+    maxMoveDistance: 3

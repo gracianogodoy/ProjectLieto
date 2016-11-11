@@ -18,8 +18,8 @@ namespace GG
         private Settings _settings;
         private CharacterMotor _motor;
 
-        private StateMachine<States> _stateMachine;
-        private Clock _clock;
+        private StateMachine<States> _stateMachine = new StateMachine<States>();
+        private Clock _clock = new Clock();
         private float _moveDistance;
         private float _moveCurrentDistance;
         private float _lastPositionX;
@@ -30,14 +30,14 @@ namespace GG
             _move = move;
             _settings = settings;
             _motor = motor;
-
-            _clock = new Clock();
         }
 
         public void Initialize()
         {
-            _stateMachine.AddState(States.Idle, enterIdle);
-            _stateMachine.AddState(States.Moving, enterMoving, updateMove);
+            _stateMachine.AddState(States.Idle, enterIdle, updateIdle);
+            _stateMachine.AddState(States.Moving, enterMoving, updateMoving);
+
+            _stateMachine.CurrentState = States.Idle;
         }
 
         public void Tick()
@@ -45,16 +45,12 @@ namespace GG
             _stateMachine.Update();
         }
 
-        public class Settings
-        {
-            public float IdleTime;
-        }
-
         #region Idle State
         private void enterIdle()
         {
-            randomizeFaceDirection();
-            _clock.Reset(_settings.IdleTime);
+            _move.OnMove(0);
+            _clock.Reset(_settings.idleTime);
+            _clock.Unpause();
         }
 
         private void updateIdle()
@@ -62,17 +58,22 @@ namespace GG
             _clock.Update(Time.deltaTime);
 
             if (_clock.IsDone)
+            {
                 _stateMachine.CurrentState = States.Moving;
+            }
         }
         #endregion
 
         #region Moving State
         private void enterMoving()
         {
-
+            randomizeFaceDirection();
+            _moveCurrentDistance = 0;
+            _moveDistance = UnityEngine.Random.Range(_settings.minMoveDistance, _settings.maxMoveDistance);
+            _lastPositionX = _motor.Position.x;
         }
 
-        private void updateMove()
+        private void updateMoving()
         {
             _moveCurrentDistance += Mathf.Abs(_motor.Position.x - _lastPositionX);
             _lastPositionX = _motor.Position.x;
@@ -90,6 +91,14 @@ namespace GG
         {
             var direction = UnityEngine.Random.Range(0, 1.0f) < 0.5f ? -1 : 1;
             _faceDirection.SetDirection(direction);
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public float idleTime;
+            public float minMoveDistance;
+            public float maxMoveDistance;
         }
     }
 }

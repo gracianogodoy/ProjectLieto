@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
+using Zenject;
 
-public class SquireAnimationController : MonoBehaviour
+namespace GG
 {
-    private Animator _animator;
-    private Move _move;
-    private Life _life;
-
-    void Start()
+    public class SquireAnimationController : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        _move = GetComponentInParent<Move>();
-        _life = GetComponentInParent<Life>();
-        _life.OnDead += onDead;
+        private Animator _animator;
+
+        [Inject]
+        private CharacterMotor _motor;
+        [Inject]
+        private Life _life;
+
+        void Start()
+        {
+            _animator = GetComponent<Animator>();
+            _life.OnDead += onDead;
+        }
+
+        void Update()
+        {
+            _animator.SetBool("IsWalking", Mathf.Abs(_motor.Velocity.x) > 0f);
+        }
+
+        private void onDead()
+        {
+            _animator.SetTrigger("Die");
+        }
     }
 
-    void Update()
-    {
-        _animator.SetBool("IsWalking", _move.enabled);
-    }
-
-    private void onDead()
-    {
-        _animator.SetTrigger("Die");
-    }
 }
