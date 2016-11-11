@@ -1,37 +1,22 @@
 ﻿using UnityEngine;
 using Zenject;
+using System;
 
 namespace GG
 {
-    public class InputCommands
-    {
-        public class MoveCommand : Command<int> { }
-        public class JumpCommand : Command { }
-        public class StopJumpCommand : Command { }
-        public class AttackCommand : Command { }
-        public class SwitchCommand : Command { }
-    }
-
     public class InputHandler : ITickable
     {
         private Settings _settings;
 
-        public InputCommands.MoveCommand OnMove;
-        public InputCommands.JumpCommand OnJump;
-        public InputCommands.StopJumpCommand OnStopJump;
-        public InputCommands.AttackCommand OnAttack;
-        public InputCommands.SwitchCommand OnSwitch;
+        public Action<int> OnMove;
+        public Action OnJump;
+        public Action OnStopJump;
+        public Action OnAttack;
+        public Action OnSwitch;
 
-        public InputHandler(Settings settings, InputCommands.MoveCommand move,
-            InputCommands.JumpCommand jump, InputCommands.StopJumpCommand stopJump,
-            InputCommands.AttackCommand attack, InputCommands.SwitchCommand switchCommand)
+        public InputHandler(Settings settings)
         {
             _settings = settings;
-            OnMove = move;
-            OnJump = jump;
-            OnStopJump = stopJump;
-            OnAttack = attack;
-            OnSwitch = switchCommand;
         }
 
         public void Tick()
@@ -46,28 +31,35 @@ namespace GG
         {
             var axis = Input.GetAxisRaw(_settings.horizontalAxis);
 
-            OnMove.Execute((int)axis);
+            if (OnMove != null)
+                OnMove((int)axis);
         }
 
         private void jumpCommand()
         {
             if (Input.GetButtonDown(_settings.jumpButton))
-                OnJump.Execute();
+                if (OnJump != null)
+                    OnJump();
 
             if (Input.GetButtonUp(_settings.jumpButton))
-                OnStopJump.Execute();
+                if (OnStopJump != null)
+                    OnStopJump();
         }
 
         private void attackCommand()
         {
             if (Input.GetButtonDown(_settings.attackButton))
-                OnAttack.Execute();
+            {
+                if (OnAttack != null)
+                    OnAttack();
+            }
         }
 
         private void switchWorldCommand()
         {
             if (Input.GetButtonDown(_settings.worldSwitchButton))
-                OnSwitch.Execute();
+                if (OnSwitch != null)
+                    OnSwitch();
         }
 
         [System.Serializable]

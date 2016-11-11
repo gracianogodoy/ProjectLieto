@@ -22,6 +22,9 @@ GameObject:
   - 212: {fileID: 212000011084546954}
   - 95: {fileID: 95000012310779534}
   - 114: {fileID: 114000010852586976}
+  - 114: {fileID: 114000013497441700}
+  - 114: {fileID: 114000012859290702}
+  - 114: {fileID: 114000010522941210}
   m_Layer: 0
   m_Name: view
   m_TagString: Untagged
@@ -38,9 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010582667198}
   - 114: {fileID: 114000010332062832}
-  - 114: {fileID: 114000012956568048}
   - 114: {fileID: 114000010737833624}
-  - 114: {fileID: 114000013450944034}
   - 61: {fileID: 61000013019585132}
   - 50: {fileID: 50000011667916542}
   - 114: {fileID: 114000013400136632}
@@ -199,8 +200,20 @@ MonoBehaviour:
   _installers:
   - {fileID: 114000010737833624}
   _installerPrefabs: []
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: ec29c1d4ae448404eabf562e2c79235c, type: 2}
   _kernel: {fileID: 0}
+--- !u!114 &114000010522941210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011191479724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b0f1addfd2cc49a232ad7df28c7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010737833624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,19 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0979d63171c314641a83459eeb14db50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputSetttings:
-    horizontalAxis: Horizontal
-    jumpButton: Jump
-    attackButton: Fire1
-    worldSwitchButton: Fire2
-  MotorSettings:
-    gravity: 50
-    maxFallSpeed: 10
-  MoveSettings:
-    speed: 10
-  JumpSettings:
-    jumpPower: 40
-    shortJumpPower: 20
 --- !u!114 &114000010852586976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,22 +238,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateSpeed: 360
   _viewPositionOffset: -0.1
---- !u!114 &114000012956568048
+--- !u!114 &114000012859290702
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011514210600}
+  m_GameObject: {fileID: 1000011191479724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Script: {fileID: 11500000, guid: 44140e9212c61014eba5abdf8406d4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 114000013450944034}
-  _identifier: 
-  _context: {fileID: 0}
-  _bindType: 0
 --- !u!114 &114000013400136632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,17 +296,23 @@ MonoBehaviour:
     m_RotationOrder: 4
   totalHorizontalRays: 8
   totalVerticalRays: 4
---- !u!114 &114000013450944034
+--- !u!114 &114000013497441700
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011514210600}
+  m_GameObject: {fileID: 1000011191479724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c425cc360ff2548a3c920f64b5a50f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 114000012859290702}
+  - {fileID: 114000010522941210}
+  _identifier: 
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!212 &212000010062060286
 SpriteRenderer:
   m_ObjectHideFlags: 1

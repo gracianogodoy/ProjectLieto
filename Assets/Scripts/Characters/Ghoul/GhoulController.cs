@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UniRx;
 
 public class GhoulController : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class GhoulController : MonoBehaviour
 
         _direction = Vector2.right;
         _isPatrolling = true;
-        MainThreadDispatcher.StartUpdateMicroCoroutine(patrolling());
+        //MainThreadDispatcher.StartUpdateMicroCoroutine(patrolling());
 
         var parent = GameObject.Find("Characters2");
 
@@ -62,7 +61,7 @@ public class GhoulController : MonoBehaviour
     {
         _motor.Velocity = Vector2.zero;
         _isPatrolling = true;
-        MainThreadDispatcher.StartUpdateMicroCoroutine(backToInitialPosition());
+        //MainThreadDispatcher.StartUpdateMicroCoroutine(backToInitialPosition());
     }
 
     private void onEnterSensor(GameObject target)
@@ -91,7 +90,7 @@ public class GhoulController : MonoBehaviour
             yield return null;
         }
 
-        MainThreadDispatcher.StartUpdateMicroCoroutine(patrolling());
+        //MainThreadDispatcher.StartUpdateMicroCoroutine(patrolling());
         _isChasing = false;
     }
 

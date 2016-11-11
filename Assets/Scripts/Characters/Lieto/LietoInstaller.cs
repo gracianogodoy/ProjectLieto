@@ -1,3 +1,4 @@
+using System;
 using Zenject;
 
 namespace GG
@@ -6,41 +7,59 @@ namespace GG
     {
         public override void InstallBindings()
         {
-            Container.Bind<InputHandler>().AsSingle();
-            Container.BindAllInterfaces<InputHandler>().To<InputHandler>().AsSingle();
+            Container.BindAllInterfacesAndSelf<WireEvents>().To<WireEvents>().AsSingle();
+
+            Container.BindAllInterfacesAndSelf<InputHandler>().To<InputHandler>().AsSingle();
 
             Container.Bind<Move>().AsSingle();
-            Container.Bind<Jump>().AsSingle();
-            Container.BindAllInterfaces<Jump>().To<Jump>().AsSingle();
 
-            bindCharacterMotor();
+            Container.BindAllInterfacesAndSelf<Jump>().To<Jump>().AsSingle();
 
-            bindInputCommands();
-            bindJumpCommands();
+            AttackInstaller.Install(Container, gameObject);
+
+            Container.BindAllInterfacesAndSelf<Life>().To<Life>().AsSingle();
+
+            Container.Bind<LietoDeath>().AsSingle();
+
+            CharacterMotorInstaller.Install(Container, gameObject);
         }
 
-        private void bindJumpCommands()
+        public class WireEvents : IInitializable
         {
-            Container.BindCommand<Jump.JumpStartCommand>().ToNothing();/*To<Move>(m => () => { m.SetEnable(false); }).AsSingle();*/
+            [Inject]
+            private Move _move;
+            [Inject]
+            private Jump _jump;
+            [Inject]
+            private Attack _attack;
+            [Inject]
+            private FaceDirection _faceDirection;
+            [Inject]
+            private Life _life;
+            [Inject]
+            private LietoDeath _dead;
+            [Inject]
+            private InputHandler _input;
 
-            Container.BindCommand<Jump.JumpEndCommand>().ToNothing();/*To<Move>(m => () => { m.SetEnable(true); }).AsSingle();*/
-        }
+            public void Initialize()
+            {
+                wireInputs();
+            }
 
-        private void bindInputCommands()
-        {
-            Container.BindCommand<InputCommands.MoveCommand, int>().To<Move>(m => m.OnMove).AsSingle();
-            Container.BindCommand<InputCommands.JumpCommand>().To<Jump>(j => j.StartJump).AsSingle();
-            Container.BindCommand<InputCommands.StopJumpCommand>().To<Jump>(j => j.StopJump).AsSingle();
-            Container.BindCommand<InputCommands.AttackCommand>().ToNothing();
-            Container.BindCommand<InputCommands.SwitchCommand>().ToNothing();
-        }
+            private void wireInputs()
+            {
+                _input.OnMove += _move.OnMove;
+                _input.OnMove += _faceDirection.SetDirection;
+                _input.OnJump += _jump.StartJump;
+                _input.OnAttack += _attack.OnAttack;
+                _input.OnStopJump += _jump.StopJump;
 
-        private void bindCharacterMotor()
-        {
-            var characterController2d = GetComponent<Prime31.CharacterController2D>();
-            Container.BindInstance(characterController2d);
-            Container.Bind<CharacterMotor>().AsSingle();
-            Container.BindAllInterfaces<CharacterMotor>().To<CharacterMotor>().AsSingle();
+                _life.OnDead += _dead.OnDead;
+                _life.OnRessurect += _dead.Ressurect;
+
+                _jump.OnJump += () => _attack.SetEnable(false);
+                _jump.OnStopJump += () => _attack.SetEnable(true);
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UniRx;
 
 [RequireComponent(typeof(CharacterMotor))]
 public class Move : MonoBehaviour

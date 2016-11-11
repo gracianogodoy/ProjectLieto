@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UniRx;
 using UnityEngine.Assertions;
 
 public class GolemAnimationController : MonoBehaviour

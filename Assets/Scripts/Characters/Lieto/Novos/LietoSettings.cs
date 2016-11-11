@@ -10,6 +10,9 @@ namespace GG
         public CharacterMotor.Settings MotorSettings;
         public Move.Settings MoveSettings;
         public Jump.Settings JumpSettings;
+        public Attack.Settings AttackSettings;
+        public FaceDirection.Settings FaceDirectionSettings;
+        public Life.Settings LifeSettings;
 
         public override void InstallBindings()
         {
@@ -17,6 +20,9 @@ namespace GG
             Container.BindInstance(InputSetttings);
             Container.BindInstance(MoveSettings);
             Container.BindInstance(JumpSettings);
+            Container.BindInstance(AttackSettings);
+            Container.BindInstance(FaceDirectionSettings);
+            Container.BindInstance(LifeSettings);
         }
     }
 }

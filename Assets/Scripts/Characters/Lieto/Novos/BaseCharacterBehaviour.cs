@@ -2,14 +2,15 @@
 {
     public class BaseCharacterBehaviour
     {
-        protected CharacterMotor _motor;
-
-        public BaseCharacterBehaviour(CharacterMotor motor)
-        {
-            _motor = motor;
-        }
-
         protected bool _isEnable = true;
+
+        public bool IsEnable
+        {
+            get
+            {
+                return _isEnable;
+            }
+        }
 
         public void SetEnable(bool enable)
         {

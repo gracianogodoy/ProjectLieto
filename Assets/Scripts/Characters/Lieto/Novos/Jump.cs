@@ -5,19 +5,24 @@ namespace GG
 {
     public class Jump : BaseCharacterBehaviour, ITickable
     {
-        public class JumpStartCommand : Command { }
-        public class JumpEndCommand : Command { }
+        public Action OnJump;
+        public Action OnStopJump;
 
-        private JumpStartCommand _startCommand;
-        private JumpEndCommand _endCommand;
         private Settings _settings;
+        private CharacterMotor _motor;
 
         private bool _isJumping;
 
-        public Jump(JumpStartCommand start, JumpEndCommand end, CharacterMotor motor, Settings setings) : base(motor)
+        public bool IsJumping
         {
-            _startCommand = start;
-            _endCommand = end;
+            get
+            {
+                return _isJumping;
+            }
+        }
+
+        public Jump(CharacterMotor motor, Settings setings)
+        {
             _motor = motor;
             _settings = setings;
         }
@@ -38,7 +43,8 @@ namespace GG
             if (_motor.IsGrounded && _isJumping && fallingDown)
             {
                 _isJumping = false;
-                _endCommand.Execute();
+                if (OnStopJump != null)
+                    OnStopJump();
             }
         }
 
@@ -47,7 +53,9 @@ namespace GG
             if (_motor.IsGrounded && _isEnable)
             {
                 _isJumping = true;
-                _startCommand.Execute();
+                if (OnJump != null)
+                    OnJump();
+
                 _motor.SetVelocityY(_settings.jumpPower);
             }
         }
