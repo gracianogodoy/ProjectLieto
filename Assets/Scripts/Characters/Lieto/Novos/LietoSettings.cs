@@ -13,6 +13,7 @@ namespace GG
         public Attack.Settings AttackSettings;
         public FaceDirection.Settings FaceDirectionSettings;
         public Life.Settings LifeSettings;
+        public Strike.Settings StrikeSettings;
 
         public override void InstallBindings()
         {
@@ -23,6 +24,7 @@ namespace GG
             Container.BindInstance(AttackSettings);
             Container.BindInstance(FaceDirectionSettings);
             Container.BindInstance(LifeSettings);
+            Container.BindInstance(StrikeSettings);
         }
     }
 }

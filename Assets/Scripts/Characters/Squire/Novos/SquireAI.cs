@@ -11,6 +11,7 @@ namespace GG
         {
             Idle,
             Moving,
+            Dead
         }
 
         private Move _move;
@@ -36,6 +37,7 @@ namespace GG
         {
             _stateMachine.AddState(States.Idle, enterIdle, updateIdle);
             _stateMachine.AddState(States.Moving, enterMoving, updateMoving);
+            _stateMachine.AddState(States.Dead);
 
             _stateMachine.CurrentState = States.Idle;
         }
@@ -43,6 +45,11 @@ namespace GG
         public void Tick()
         {
             _stateMachine.Update();
+        }
+
+        public void SetState(States newState)
+        {
+            _stateMachine.CurrentState = newState;
         }
 
         #region Idle State
@@ -84,6 +91,8 @@ namespace GG
             {
                 _stateMachine.CurrentState = States.Idle;
             }
+
+            checkForDirectionChange();
         }
         #endregion
 
@@ -91,6 +100,24 @@ namespace GG
         {
             var direction = UnityEngine.Random.Range(0, 1.0f) < 0.5f ? -1 : 1;
             _faceDirection.SetDirection(direction);
+        }
+
+        private void checkForDirectionChange()
+        {
+            var direction = new Vector2(_faceDirection.Direction, 0);
+            var position = new Vector2(_motor.Position.x, _motor.Position.y + 0.3f);
+
+            var hits = Physics2D.RaycastAll(position, direction, 0.5f);
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                var hit = hits[i];
+                Debug.Log(hit);
+                if (hit.transform.tag == "SquireChangeDirection")
+                {
+                    _faceDirection.SetDirection(-(int)direction.x);
+                }
+            }
         }
 
         [System.Serializable]

@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
-  - ChangeGhoulDirection
+  - GhoulChangeDirection
   - Checkpoint
   - Hazard
   - SquireChangeDirection
@@ -22,13 +22,13 @@ TagManager:
   - Player
   - Golem
   - Squire
-  - ChangeDirection
+  - SquireChangeDirection
   - BG
   - Camera
   - Ghoul
   - Boss
   - Hazard
-  - 
+  - GhoulChangeDirection
   - 
   - 
   - 

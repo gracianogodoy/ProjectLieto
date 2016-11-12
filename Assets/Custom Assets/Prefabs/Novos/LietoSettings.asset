@@ -33,8 +33,10 @@ MonoBehaviour:
     Offset: 0.8
     HitLayer:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 2048
   FaceDirectionSettings:
     InitialDirection: 1
   LifeSettings:
     TotalLife: 10
+  StrikeSettings:
+    Damage: 1

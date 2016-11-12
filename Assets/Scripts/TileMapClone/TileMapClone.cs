@@ -25,7 +25,9 @@ public class TileMapClone : MonoBehaviour
         _tileMap = GetComponent<tk2dTileMap>();
         _targetNameIndexes = new Dictionary<int, int>();
         _myNameIndexes = new Dictionary<int, int>();
-        createNames();
+
+        if (_tileMapTarget != null)
+            createNames();
     }
 
     private void createNames()
@@ -75,7 +77,6 @@ public class TileMapClone : MonoBehaviour
                         {
                             tileToChange = getSpriteId("tileset/" + (nameIndex + _offset));
                         }
-
 
                         switch (mode)
                         {

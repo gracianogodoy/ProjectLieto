@@ -25,7 +25,7 @@ namespace GG
             }
         }
 
-        public Attack(Settings settings, FaceDirection faceDirection, GameObject owner)
+        public Attack(Settings settings, FaceDirection faceDirection, [Inject(Id = InjectId.Owner)] GameObject owner)
         {
             _settings = settings;
             _owner = owner;

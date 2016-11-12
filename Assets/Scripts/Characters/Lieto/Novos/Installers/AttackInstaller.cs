@@ -14,10 +14,7 @@ namespace GG
 
         public override void InstallBindings()
         {
-            Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
-
-            Container.BindAllInterfacesAndSelf<Attack>().To<Attack>().AsSingle();
-            Container.BindInstance(_onwer).WhenInjectedInto<Attack>();
+          
         }
     }
 }

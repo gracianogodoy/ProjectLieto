@@ -350,8 +350,8 @@ MonoBehaviour:
     intVal: 55
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: n
-    intVal: 56
+  - stringVal: c
+    intVal: 75
     floatVal: 0
     enablePrefabOffset: 0
   - stringVal: 

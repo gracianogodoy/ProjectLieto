@@ -10,11 +10,11 @@ namespace GG
 
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<Move>().To<Move>().AsSingle();
-            Container.BindAllInterfacesAndSelf<Life>().To<Life>().AsSingle();
 
+            Container.BindAllInterfacesAndSelf<SquireDeath>().To<SquireDeath>().AsSingle();
             Container.BindAllInterfacesAndSelf<SquireAI>().To<SquireAI>().AsSingle();
 
-            Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
+            LifeInstaller.Install(Container, gameObject);
         }
     }
 }

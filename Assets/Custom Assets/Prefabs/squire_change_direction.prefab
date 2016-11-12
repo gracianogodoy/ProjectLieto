@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011550633196}
   - 61: {fileID: 61000010896742024}
   m_Layer: 12
-  m_Name: change_direction
+  m_Name: squire_change_direction
   m_TagString: SquireChangeDirection
   m_Icon: {fileID: 7882823752137805990, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

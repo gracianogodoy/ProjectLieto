@@ -19,5 +19,5 @@ namespace GG
             Container.Bind<CharacterMotor>().AsSingle();
             Container.BindAllInterfaces<CharacterMotor>().To<CharacterMotor>().AsSingle();
         }
-    } 
+    }
 }
