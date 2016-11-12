@@ -13,7 +13,7 @@
 
         public void OnMove(int direction)
         {
-            if (_isEnable)
+            if (_isEnable && direction != 0)
                 _motor.SetVelocityX(_settings.speed * direction);
         }
 

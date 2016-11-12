@@ -11,6 +11,7 @@ namespace GG
         public FaceDirection.Settings FaceDirectionSettings;
         public Life.Settings LifeSettings;
         public SquireAI.Settings AISettings;
+        public Pushback.Settings PushbackSettings;
 
         public override void InstallBindings()
         {
@@ -19,6 +20,7 @@ namespace GG
             Container.BindInstance(CharacterMotorSettings);
             Container.BindInstance(AISettings);
             Container.BindInstance(LifeSettings);
+            Container.BindInstance(PushbackSettings);
         }
     }
 }

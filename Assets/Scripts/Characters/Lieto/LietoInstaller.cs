@@ -9,7 +9,6 @@ namespace GG
             Container.BindInstance(gameObject).WithId(InjectId.Owner).AsSingle();
 
             Container.BindAllInterfacesAndSelf<WireEvents>().To<WireEvents>().AsSingle();
-
             Container.BindAllInterfacesAndSelf<InputHandler>().To<InputHandler>().AsSingle();
 
             Container.Bind<Move>().AsSingle();
@@ -18,9 +17,10 @@ namespace GG
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<Attack>().To<Attack>().AsSingle();
             Container.BindAllInterfacesAndSelf<Strike>().To<Strike>().AsSingle();
-
+            Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<LietoDeath>().To<LietoDeath>().AsSingle();
+            Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
 
             LifeInstaller.Install(Container, gameObject);
             CharacterMotorInstaller.Install(Container, gameObject);

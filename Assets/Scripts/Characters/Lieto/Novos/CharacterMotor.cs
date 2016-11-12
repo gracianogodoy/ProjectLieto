@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using Prime31;
 using Zenject;
+using System;
 
 namespace GG
 {
-    public class CharacterMotor : ITickable
+    public class CharacterMotor : ITickable, ILateTickable
     {
         private CharacterController2D _controller;
         private Settings _settings;
@@ -39,12 +40,24 @@ namespace GG
             _velocity.y = y;
         }
 
+        public void SetVelocity(Vector2 velocity)
+        {
+            SetVelocityX(velocity.x);
+            SetVelocityY(velocity.y);
+        }
+
         private void applyGravity()
         {
             if (!_controller.isGrounded)
                 _velocity.y -= _settings.gravity * Time.deltaTime;
 
             _velocity.y = Mathf.Max(_velocity.y, -_settings.maxFallSpeed);
+        }
+
+        public void LateTick()
+        {
+            if (_controller.isGrounded && _velocity.y <= 0)
+                _velocity.x = 0;
         }
 
         [System.Serializable]

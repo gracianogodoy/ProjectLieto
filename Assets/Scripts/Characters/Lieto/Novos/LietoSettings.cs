@@ -14,6 +14,7 @@ namespace GG
         public FaceDirection.Settings FaceDirectionSettings;
         public Life.Settings LifeSettings;
         public Strike.Settings StrikeSettings;
+        public Pushback.Settings PushbackSettings;
 
         public override void InstallBindings()
         {
@@ -25,6 +26,7 @@ namespace GG
             Container.BindInstance(FaceDirectionSettings);
             Container.BindInstance(LifeSettings);
             Container.BindInstance(StrikeSettings);
+            Container.BindInstance(PushbackSettings);
         }
     }
 }

@@ -2,6 +2,7 @@
 using Gamelogic;
 using Gamelogic.Extensions;
 using UnityEngine;
+using System;
 
 namespace GG
 {
@@ -11,13 +12,15 @@ namespace GG
         {
             Idle,
             Moving,
-            Dead
+            Dead,
+            TakingHit
         }
 
         private Move _move;
         private FaceDirection _faceDirection;
         private Settings _settings;
         private CharacterMotor _motor;
+        private Life _life;
 
         private StateMachine<States> _stateMachine = new StateMachine<States>();
         private Clock _clock = new Clock();
@@ -25,12 +28,13 @@ namespace GG
         private float _moveCurrentDistance;
         private float _lastPositionX;
 
-        public SquireAI(FaceDirection faceDirection, Move move, Settings settings, CharacterMotor motor)
+        public SquireAI(FaceDirection faceDirection, Move move, Settings settings, CharacterMotor motor, Life life)
         {
             _faceDirection = faceDirection;
             _move = move;
             _settings = settings;
             _motor = motor;
+            _life = life;
         }
 
         public void Initialize()
@@ -38,8 +42,11 @@ namespace GG
             _stateMachine.AddState(States.Idle, enterIdle, updateIdle);
             _stateMachine.AddState(States.Moving, enterMoving, updateMoving);
             _stateMachine.AddState(States.Dead);
+            _stateMachine.AddState(States.TakingHit, null, updateTakingHit);
 
             _stateMachine.CurrentState = States.Idle;
+
+            _life.OnTakeDamage += onTakeDamage;
         }
 
         public void Tick()
@@ -55,7 +62,6 @@ namespace GG
         #region Idle State
         private void enterIdle()
         {
-            _move.OnMove(0);
             _clock.Reset(_settings.idleTime);
             _clock.Unpause();
         }
@@ -86,13 +92,21 @@ namespace GG
             _lastPositionX = _motor.Position.x;
 
             _move.OnMove(_faceDirection.Direction);
-
+            Debug.Log(_faceDirection.Direction);
             if (_moveCurrentDistance > _moveDistance)
             {
                 _stateMachine.CurrentState = States.Idle;
             }
 
             checkForDirectionChange();
+        }
+        #endregion
+
+        #region TakingHit State
+        private void updateTakingHit()
+        {
+            if (_motor.IsGrounded && _motor.Velocity.y <= 0)
+                _stateMachine.CurrentState = States.Idle;
         }
         #endregion
 
@@ -118,6 +132,11 @@ namespace GG
                     _faceDirection.SetDirection(-(int)direction.x);
                 }
             }
+        }
+
+        private void onTakeDamage(int damage)
+        {
+            _stateMachine.CurrentState = States.TakingHit;
         }
 
         [System.Serializable]

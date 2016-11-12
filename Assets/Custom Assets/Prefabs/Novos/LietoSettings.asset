@@ -40,3 +40,5 @@ MonoBehaviour:
     TotalLife: 10
   StrikeSettings:
     Damage: 1
+  PushbackSettings:
+    force: {x: 40, y: 50}
