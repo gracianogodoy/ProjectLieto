@@ -20,7 +20,7 @@ namespace GG
         private FaceDirection _faceDirection;
         private Settings _settings;
         private CharacterMotor _motor;
-        private Life _life;
+        private Pushback _pushback;
 
         private StateMachine<States> _stateMachine = new StateMachine<States>();
         private Clock _clock = new Clock();
@@ -28,13 +28,13 @@ namespace GG
         private float _moveCurrentDistance;
         private float _lastPositionX;
 
-        public SquireAI(FaceDirection faceDirection, Move move, Settings settings, CharacterMotor motor, Life life)
+        public SquireAI(FaceDirection faceDirection, Move move, Settings settings, CharacterMotor motor, Pushback pushback)
         {
             _faceDirection = faceDirection;
             _move = move;
             _settings = settings;
             _motor = motor;
-            _life = life;
+            _pushback = pushback;
         }
 
         public void Initialize()
@@ -42,11 +42,12 @@ namespace GG
             _stateMachine.AddState(States.Idle, enterIdle, updateIdle);
             _stateMachine.AddState(States.Moving, enterMoving, updateMoving);
             _stateMachine.AddState(States.Dead);
-            _stateMachine.AddState(States.TakingHit, null, updateTakingHit);
+            _stateMachine.AddState(States.TakingHit);
 
             _stateMachine.CurrentState = States.Idle;
 
-            _life.OnTakeDamage += onTakeDamage;
+            _pushback.OnPushbackStart += () => _stateMachine.CurrentState = States.TakingHit;
+            _pushback.OnPushbackEnd += () => _stateMachine.CurrentState = States.Idle;
         }
 
         public void Tick()
@@ -92,21 +93,13 @@ namespace GG
             _lastPositionX = _motor.Position.x;
 
             _move.OnMove(_faceDirection.Direction);
-            Debug.Log(_faceDirection.Direction);
+
             if (_moveCurrentDistance > _moveDistance)
             {
                 _stateMachine.CurrentState = States.Idle;
             }
 
             checkForDirectionChange();
-        }
-        #endregion
-
-        #region TakingHit State
-        private void updateTakingHit()
-        {
-            if (_motor.IsGrounded && _motor.Velocity.y <= 0)
-                _stateMachine.CurrentState = States.Idle;
         }
         #endregion
 
@@ -126,7 +119,7 @@ namespace GG
             for (int i = 0; i < hits.Length; i++)
             {
                 var hit = hits[i];
-                Debug.Log(hit);
+
                 if (hit.transform.tag == "SquireChangeDirection")
                 {
                     _faceDirection.SetDirection(-(int)direction.x);

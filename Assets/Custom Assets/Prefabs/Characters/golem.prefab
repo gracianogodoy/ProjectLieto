@@ -19,12 +19,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011704107332}
-  - 114: {fileID: 114000010903376410}
-  - 114: {fileID: 114000012594273918}
-  - 114: {fileID: 114000010870236206}
   - 114: {fileID: 114000013505969644}
   - 61: {fileID: 61000010659141242}
-  - 114: {fileID: 114000014168646320}
+  - 114: {fileID: 114000012918252396}
+  - 114: {fileID: 114000011989357768}
   m_Layer: 10
   m_Name: golem
   m_TagString: Untagged
@@ -45,6 +43,7 @@ GameObject:
   - 114: {fileID: 114000011467516142}
   - 114: {fileID: 114000012196228190}
   - 114: {fileID: 114000012601359834}
+  - 114: {fileID: 114000011957250460}
   m_Layer: 0
   m_Name: view
   m_TagString: Untagged
@@ -72,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010061516064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.33, y: -2.24, z: 0}
+  m_LocalPosition: {x: 6.98, y: -2.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -110,31 +109,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010870236206
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010061516064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277273546340d694891e71203dac2ab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalLife: 4
-  _scriptsToDisable: []
---- !u!114 &114000010903376410
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010061516064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae3dcffa8f9f7641b6a9be1fa16ac1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialDirection: -1
 --- !u!114 &114000011467516142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +120,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44140e9212c61014eba5abdf8406d4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000011957250460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013499069644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 114000011467516142}
+  - {fileID: 114000012196228190}
+  - {fileID: 114000012601359834}
+  _identifier: 
+  _context: {fileID: 0}
+  _bindType: 0
+--- !u!114 &114000011989357768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010061516064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _installers:
+  - {fileID: 114000012918252396}
+  _installerPrefabs: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 2b17b5560e6247b4997f0f1501da0ab9, type: 2}
+  _kernel: {fileID: 0}
 --- !u!114 &114000012196228190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,27 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf1c7ef0ba0bfb478afce89b7555df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000012594273918
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010061516064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30d092da3465ed46b3ae66b6bf19e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _settings:
-    Duration: 0.5
-    TimeToAttack: 0.01
-    Distance: 2.4
-    BaseSize: 1.9
-    NumberOfRays: 3
-    Offset: 1.4
-    HitLayer:
-      serializedVersion: 2
-      m_Bits: 512
 --- !u!114 &114000012601359834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,9 +177,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50e0fbfca3e65e4e8e20ca7b857ee61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blinkColor: {r: 0.9705882, g: 0.121323526, b: 0.121323526, a: 1}
-  _numberOfBlinks: 3
-  _intervalBetweenBlinks: 0.1
+--- !u!114 &114000012918252396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010061516064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7859d1ba4189ce34590a12650f22ae24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013505969644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,19 +208,6 @@ MonoBehaviour:
   _attackSensor:
     _sensorOffset: 1.51
     _sensorSize: {x: 4.47, y: 2.62}
---- !u!114 &114000014168646320
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010061516064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4479e33d654df489161cf23bd70ff3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _strikeDamage: 2
-  _timeBetweenAttacks: 2
 --- !u!212 &212000010444401272
 SpriteRenderer:
   m_ObjectHideFlags: 1

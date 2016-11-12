@@ -6,7 +6,6 @@ namespace GG
     {
         public override void InstallBindings()
         {
-
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<Move>().To<Move>().AsSingle();
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();

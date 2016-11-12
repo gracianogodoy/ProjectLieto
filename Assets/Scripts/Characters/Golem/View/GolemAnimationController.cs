@@ -1,57 +1,63 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
-public class GolemAnimationController : MonoBehaviour
+namespace GG
 {
-    private ProximitySensor _sensor;
-    private Animator _animator;
-    private Attack _attack;
-    private Life _life;
-
-    private bool _doAttack;
-
-    void Start()
+    public class GolemAnimationController : MonoBehaviour
     {
-        _sensor = GetComponentInParent<ProximitySensor>();
-        Assert.IsNotNull(_sensor);
+        private ProximitySensor _sensor;
+        private Animator _animator;
+        private Attack _attack;
+        private Life _life;
 
-        _animator = GetComponent<Animator>();
-        Assert.IsNotNull(_animator);
+        private bool _doAttack;
 
-        _attack = GetComponentInParent<Attack>();
-        Assert.IsNotNull(_attack);
-
-        _life = GetComponentInParent<Life>();
-        _life.OnDead += onDead;
-
-        _sensor.ReadySensor.OnEnterSensor += onEnterReadySensor;
-        _sensor.ReadySensor.OnLeaveSensor += onLeaveReadySensor;
-    }
-
-    void Update()
-    {
-        if (_attack.enabled && !_doAttack)
+        [Zenject.Inject]
+        public void Construct(Life life, Attack attack)
         {
-            _animator.SetTrigger("Attack");
-            _doAttack = true;
+            _attack = attack;
+            _life = life;
         }
 
-        if (!_attack.enabled && _doAttack)
-            _doAttack = false;
-    }
+        void Start()
+        {
+            _sensor = GetComponentInParent<ProximitySensor>();
+            Assert.IsNotNull(_sensor);
 
-    private void onEnterReadySensor(GameObject target)
-    {
-        _animator.SetBool("IsReady", true);
-    }
+            _animator = GetComponent<Animator>();
+            Assert.IsNotNull(_animator);
 
-    private void onLeaveReadySensor(GameObject target)
-    {
-        _animator.SetBool("IsReady", false);
-    }
+            _life.OnDead += onDead;
 
-    private void onDead()
-    {
-        _animator.SetTrigger("Die");
+            _sensor.ReadySensor.OnEnterSensor += onEnterReadySensor;
+            _sensor.ReadySensor.OnLeaveSensor += onLeaveReadySensor;
+        }
+
+        void Update()
+        {
+            if (_attack.IsAttacking && !_doAttack)
+            {
+                _animator.SetTrigger("Attack");
+                _doAttack = true;
+            }
+
+            if (!_attack.IsAttacking && _doAttack)
+                _doAttack = false;
+        }
+
+        private void onEnterReadySensor(GameObject target)
+        {
+            _animator.SetBool("IsReady", true);
+        }
+
+        private void onLeaveReadySensor(GameObject target)
+        {
+            _animator.SetBool("IsReady", false);
+        }
+
+        private void onDead()
+        {
+            _animator.SetTrigger("Die");
+        }
     }
 }

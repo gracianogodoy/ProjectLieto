@@ -34,12 +34,12 @@ namespace GG
 
         public void TakeDamage(int amount)
         {
-            damage(amount, Vector2.zero);
+            damage(amount, Vector2.zero, false);
         }
 
         public void TakeDamage(int amount, Vector2 damageSourcePoint)
         {
-            damage(amount, damageSourcePoint);
+            damage(amount, damageSourcePoint, true);
         }
 
         public void Heal(int amount)
@@ -64,14 +64,14 @@ namespace GG
                 OnDead();
         }
 
-        private void damage(int amount, Vector2 damageSourcePoint)
+        private void damage(int amount, Vector2 damageSourcePoint, bool hasPoint)
         {
             if (_currentLife <= 0)
                 return;
 
             changeLife(-amount);
 
-            if (OnTakeDamageFromPoint != null)
+            if (OnTakeDamageFromPoint != null && hasPoint)
                 OnTakeDamageFromPoint(amount, damageSourcePoint);
 
             if (OnTakeDamage != null)

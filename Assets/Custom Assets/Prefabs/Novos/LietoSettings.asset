@@ -33,7 +33,7 @@ MonoBehaviour:
     Offset: 0.8
     HitLayer:
       serializedVersion: 2
-      m_Bits: 2048
+      m_Bits: 3072
   FaceDirectionSettings:
     InitialDirection: 1
   LifeSettings:

@@ -24,6 +24,7 @@ GameObject:
   - 114: {fileID: 114000012146296208}
   - 114: {fileID: 114000011145674030}
   - 114: {fileID: 114000013804887760}
+  - 114: {fileID: 114000013707007430}
   m_Layer: 11
   m_Name: view
   m_TagString: Untagged
@@ -140,6 +141,7 @@ MonoBehaviour:
   _components:
   - {fileID: 114000012146296208}
   - {fileID: 114000013804887760}
+  - {fileID: 114000013707007430}
   _identifier: 
   _context: {fileID: 0}
   _bindType: 0
@@ -171,6 +173,20 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 6f5345593d6a9f44f871b096dc2e7b86, type: 2}
   _kernel: {fileID: 0}
+--- !u!114 &114000013707007430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011756015500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50e0fbfca3e65e4e8e20ca7b857ee61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  _numberOfBlinks: 3
+  _intervalBetweenBlinks: 0.08
 --- !u!114 &114000013762806502
 MonoBehaviour:
   m_ObjectHideFlags: 1

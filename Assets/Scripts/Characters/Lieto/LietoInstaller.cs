@@ -15,13 +15,14 @@ namespace GG
 
             Container.BindAllInterfacesAndSelf<Jump>().To<Jump>().AsSingle();
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
-            Container.BindAllInterfacesAndSelf<Attack>().To<Attack>().AsSingle();
-            Container.BindAllInterfacesAndSelf<Strike>().To<Strike>().AsSingle();
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<LietoDeath>().To<LietoDeath>().AsSingle();
+            Container.BindAllInterfacesAndSelf<LietoPushed>().To<LietoPushed>().AsSingle();
+
             Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
 
+            AttackInstaller.Install(Container);
             LifeInstaller.Install(Container, gameObject);
             CharacterMotorInstaller.Install(Container, gameObject);
         }

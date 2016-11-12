@@ -3,18 +3,12 @@ using Zenject;
 
 namespace GG
 {
-    public class AttackInstaller : Installer<GameObject, AttackInstaller>
+    public class AttackInstaller : Installer<AttackInstaller>
     {
-        private GameObject _onwer;
-
-        public AttackInstaller(GameObject owner)
-        {
-            _onwer = owner;
-        }
-
         public override void InstallBindings()
         {
-          
+            Container.BindAllInterfacesAndSelf<Attack>().To<Attack>().AsSingle();
+            Container.BindAllInterfacesAndSelf<Strike>().To<Strike>().AsSingle();
         }
     }
 }
