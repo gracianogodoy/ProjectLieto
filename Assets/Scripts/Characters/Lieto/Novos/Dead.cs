@@ -1,5 +1,5 @@
-﻿using System;
-using Zenject;
+﻿using Zenject;
+
 namespace GG
 {
     public class LietoDeath : IInitializable
@@ -9,14 +9,16 @@ namespace GG
         private Jump _jump;
         private Move _move;
         private Life _life;
+        private LietoPushed _pushed;
 
-        public LietoDeath(FaceDirection faceDirection, Attack attack, Jump jump, Move move, Life life)
+        public LietoDeath(FaceDirection faceDirection, Attack attack, Jump jump, Move move, Life life, LietoPushed pushed)
         {
             _faceDirection = faceDirection;
             _attack = attack;
             _jump = jump;
             _move = move;
             _life = life;
+            _pushed = pushed;
         }
 
         public void Initialize()
@@ -41,6 +43,7 @@ namespace GG
             _attack.SetEnable(value);
             _jump.SetEnable(value);
             _move.SetEnable(value);
+            _pushed.SetEnable(value);
         }
     }
 }

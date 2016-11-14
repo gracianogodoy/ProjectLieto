@@ -22,8 +22,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 512
   FaceDirectionSettings:
-    InitialDirection: 1
+    InitialDirection: -1
   LifeSettings:
     TotalLife: 4
   StrikeSettings:
     Damage: 2
+  EnemyAttackAISettings:
+    timeBetweenAttacks: 3

@@ -8,7 +8,10 @@ namespace GG
         {
             Container.BindInstance(gameObject).WithId(InjectId.Owner).AsSingle();
 
-            Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>();
+            Container.BindInstance(GetComponent<ProximitySensor>()).AsSingle();
+
+            Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
+            Container.BindAllInterfacesAndSelf<EnemyAttackAI>().To<EnemyAttackAI>().AsSingle();
 
             LifeInstaller.Install(Container, gameObject);
             AttackInstaller.Install(Container);

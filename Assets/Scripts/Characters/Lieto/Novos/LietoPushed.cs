@@ -3,7 +3,7 @@ using Zenject;
 
 namespace GG
 {
-    public class LietoPushed : IInitializable
+    public class LietoPushed : BaseCharacterBehaviour, IInitializable
     {
         private Pushback _pushback;
         private Move _move;
@@ -26,6 +26,9 @@ namespace GG
 
         private void setEnable(bool value)
         {
+            if (!_isEnable)
+                return;
+
             _move.SetEnable(value);
             _jump.SetEnable(value);
             _attack.SetEnable(value);

@@ -10,6 +10,7 @@ namespace GG
         public FaceDirection.Settings FaceDirectionSettings;
         public Life.Settings LifeSettings;
         public Strike.Settings StrikeSettings;
+        public EnemyAttackAI.Settings EnemyAttackAISettings;
 
         public override void InstallBindings()
         {
@@ -17,6 +18,7 @@ namespace GG
             Container.BindInstance(FaceDirectionSettings);
             Container.BindInstance(LifeSettings);
             Container.BindInstance(StrikeSettings);
+            Container.BindInstance(EnemyAttackAISettings);
         }
     }
 }

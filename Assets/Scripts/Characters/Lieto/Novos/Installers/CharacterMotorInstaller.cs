@@ -15,7 +15,7 @@ namespace GG
         public override void InstallBindings()
         {
             var characterController2d = _owner.GetComponent<Prime31.CharacterController2D>();
-            Container.BindInstance(characterController2d);
+            Container.BindInstance(characterController2d).AsSingle();
             Container.Bind<CharacterMotor>().AsSingle();
             Container.BindAllInterfaces<CharacterMotor>().To<CharacterMotor>().AsSingle();
         }

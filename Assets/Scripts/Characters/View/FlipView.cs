@@ -27,6 +27,8 @@ public class FlipView : MonoBehaviour
             _faceDirection.OnChangeDirection -= onChangeDirection;
             _faceDirection.OnChangeDirection += onChangeDirection;
         }
+
+        onChangeDirection(_faceDirection.Direction);
     }
 
     private void onChangeDirection(int direction)

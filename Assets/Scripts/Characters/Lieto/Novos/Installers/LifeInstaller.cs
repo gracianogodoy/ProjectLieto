@@ -15,7 +15,7 @@ namespace GG
         public override void InstallBindings()
         {
             Container.BindAllInterfacesAndSelf<Life>().To<Life>().AsSingle();
-            Container.Bind<DetectStrike>().FromComponent(_owner);
+            Container.Bind<DetectStrike>().FromComponent(_owner).AsSingle();
             Container.BindAllInterfacesAndSelf<ReceiveDamage>().To<ReceiveDamage>().AsSingle();
         }
     }

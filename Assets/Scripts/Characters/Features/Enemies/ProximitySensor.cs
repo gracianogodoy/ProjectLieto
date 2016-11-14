@@ -12,6 +12,7 @@ public class ProximitySensor : MonoBehaviour
     public Sensor ReadySensor { get { return _readySensor; } }
     public Sensor AttackSensor { get { return _attackSensor; } }
 
+    ProximitySensor sensor;
     void Update()
     {
         _readySensor.CheckTarget(transform.position, _targetLayer);

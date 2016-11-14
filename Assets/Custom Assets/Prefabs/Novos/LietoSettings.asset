@@ -41,4 +41,4 @@ MonoBehaviour:
   StrikeSettings:
     Damage: 1
   PushbackSettings:
-    force: {x: 40, y: 50}
+    force: {x: 5, y: 10}

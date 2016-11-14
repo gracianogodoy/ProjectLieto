@@ -32,7 +32,7 @@ namespace GG
             _faceDirection.SetEnable(value);
             _move.SetEnable(value);
 
-            _squireAi.SetState(SquireAI.States.Dead);
+            _squireAi.SetState(SquireAI.State.Dead);
         }
     }
 }

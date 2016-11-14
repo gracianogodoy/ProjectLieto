@@ -15,10 +15,10 @@ namespace GG
 
             Container.BindAllInterfacesAndSelf<Jump>().To<Jump>().AsSingle();
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
-            Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
+            //Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
 
-            Container.BindAllInterfacesAndSelf<LietoDeath>().To<LietoDeath>().AsSingle();
-            Container.BindAllInterfacesAndSelf<LietoPushed>().To<LietoPushed>().AsSingle();
+            //Container.BindAllInterfacesAndSelf<LietoPushed>().To<LietoPushed>().AsSingle();
+            //Container.BindAllInterfacesAndSelf<LietoDeath>().To<LietoDeath>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
 

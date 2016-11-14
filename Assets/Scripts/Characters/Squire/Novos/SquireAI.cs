@@ -8,7 +8,7 @@ namespace GG
 {
     public class SquireAI : IInitializable, ITickable
     {
-        public enum States
+        public enum State
         {
             Idle,
             Moving,
@@ -22,7 +22,7 @@ namespace GG
         private CharacterMotor _motor;
         private Pushback _pushback;
 
-        private StateMachine<States> _stateMachine = new StateMachine<States>();
+        private StateMachine<State> _stateMachine = new StateMachine<State>();
         private Clock _clock = new Clock();
         private float _moveDistance;
         private float _moveCurrentDistance;
@@ -39,15 +39,15 @@ namespace GG
 
         public void Initialize()
         {
-            _stateMachine.AddState(States.Idle, enterIdle, updateIdle);
-            _stateMachine.AddState(States.Moving, enterMoving, updateMoving);
-            _stateMachine.AddState(States.Dead);
-            _stateMachine.AddState(States.TakingHit);
+            _stateMachine.AddState(State.Idle, enterIdle, updateIdle);
+            _stateMachine.AddState(State.Moving, enterMoving, updateMoving);
+            _stateMachine.AddState(State.Dead);
+            _stateMachine.AddState(State.TakingHit);
 
-            _stateMachine.CurrentState = States.Idle;
+            _stateMachine.CurrentState = State.Idle;
 
-            _pushback.OnPushbackStart += () => _stateMachine.CurrentState = States.TakingHit;
-            _pushback.OnPushbackEnd += () => _stateMachine.CurrentState = States.Idle;
+            _pushback.OnPushbackStart += () => _stateMachine.CurrentState = State.TakingHit;
+            _pushback.OnPushbackEnd += () => _stateMachine.CurrentState = State.Idle;
         }
 
         public void Tick()
@@ -55,7 +55,7 @@ namespace GG
             _stateMachine.Update();
         }
 
-        public void SetState(States newState)
+        public void SetState(State newState)
         {
             _stateMachine.CurrentState = newState;
         }
@@ -73,7 +73,7 @@ namespace GG
 
             if (_clock.IsDone)
             {
-                _stateMachine.CurrentState = States.Moving;
+                _stateMachine.CurrentState = State.Moving;
             }
         }
         #endregion
@@ -96,7 +96,7 @@ namespace GG
 
             if (_moveCurrentDistance > _moveDistance)
             {
-                _stateMachine.CurrentState = States.Idle;
+                _stateMachine.CurrentState = State.Idle;
             }
 
             checkForDirectionChange();
@@ -129,7 +129,7 @@ namespace GG
 
         private void onTakeDamage(int damage)
         {
-            _stateMachine.CurrentState = States.TakingHit;
+            _stateMachine.CurrentState = State.TakingHit;
         }
 
         [System.Serializable]
