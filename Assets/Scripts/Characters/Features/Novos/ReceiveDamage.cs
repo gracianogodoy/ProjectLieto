@@ -19,9 +19,9 @@ namespace GG
             _detectStrike.OnStrike += onStrike;
         }
 
-        private void onStrike(int damage, GameObject other)
+        private void onStrike(int damage, Vector2 direction)
         {
-            _life.TakeDamage(damage, other.transform.position);
+            _life.TakeDamage(damage, direction);
         }
     }
 }

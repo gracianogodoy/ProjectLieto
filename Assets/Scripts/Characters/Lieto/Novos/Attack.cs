@@ -25,6 +25,14 @@ namespace GG
             }
         }
 
+        public FaceDirection FaceDirection
+        {
+            get
+            {
+                return _faceDirection;
+            }
+        }
+
         public Attack(Settings settings, FaceDirection faceDirection, [Inject(Id = InjectId.Owner)] GameObject owner)
         {
             _settings = settings;

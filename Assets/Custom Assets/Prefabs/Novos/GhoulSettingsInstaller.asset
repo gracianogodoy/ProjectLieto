@@ -8,24 +8,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5c1c7a4b1a1e9f46bb2d4d5ae50374b, type: 3}
-  m_Name: GolemSettingsInstaller
+  m_Script: {fileID: 11500000, guid: 77711418478700d4fb529ce1549c8bc2, type: 3}
+  m_Name: GhoulSettingsInstaller
   m_EditorClassIdentifier: 
   AttackSettings:
-    Duration: 0.5
-    TimeToAttack: 0.01
-    Distance: 2.4
-    BaseSize: 1.9
-    NumberOfRays: 3
+    Duration: 0.417
+    TimeToAttack: 0.2
+    Distance: 1
+    BaseSize: 1
+    NumberOfRays: 2
     Offset: 1.4
     HitLayer:
       serializedVersion: 2
       m_Bits: 512
+  CharacterMotorSettings:
+    gravity: 0
+    maxFallSpeed: 0
   FaceDirectionSettings:
     InitialDirection: -1
   LifeSettings:
-    TotalLife: 4
+    TotalLife: 3
   StrikeSettings:
     Damage: 2
   EnemyAttackAISettings:
-    timeBetweenAttacks: 5
+    timeBetweenAttacks: 1
+  PushbackSettings:
+    force: {x: 2, y: 1}
+  GhoulAISettings:
+    chaseSpeed: 3
+    patrolSpeed: 2
+    distanceToStop: 1

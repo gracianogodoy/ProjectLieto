@@ -37,9 +37,9 @@ namespace GG
             damage(amount, Vector2.zero, false);
         }
 
-        public void TakeDamage(int amount, Vector2 damageSourcePoint)
+        public void TakeDamage(int amount, Vector2 direction)
         {
-            damage(amount, damageSourcePoint, true);
+            damage(amount, direction, true);
         }
 
         public void Heal(int amount)
@@ -64,7 +64,7 @@ namespace GG
                 OnDead();
         }
 
-        private void damage(int amount, Vector2 damageSourcePoint, bool hasPoint)
+        private void damage(int amount, Vector2 direction, bool hasPoint)
         {
             if (_currentLife <= 0)
                 return;
@@ -72,7 +72,7 @@ namespace GG
             changeLife(-amount);
 
             if (OnTakeDamageFromPoint != null && hasPoint)
-                OnTakeDamageFromPoint(amount, damageSourcePoint);
+                OnTakeDamageFromPoint(amount, direction);
 
             if (OnTakeDamage != null)
                 OnTakeDamage(amount);

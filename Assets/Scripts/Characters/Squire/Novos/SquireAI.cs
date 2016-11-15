@@ -99,7 +99,7 @@ namespace GG
                 _stateMachine.CurrentState = State.Idle;
             }
 
-            checkForDirectionChange();
+            CheckChangeDirection.Check(_faceDirection, _motor.Position, 0.3f, "ChangeSquireDirection");
         }
         #endregion
 
@@ -107,24 +107,6 @@ namespace GG
         {
             var direction = UnityEngine.Random.Range(0, 1.0f) < 0.5f ? -1 : 1;
             _faceDirection.SetDirection(direction);
-        }
-
-        private void checkForDirectionChange()
-        {
-            var direction = new Vector2(_faceDirection.Direction, 0);
-            var position = new Vector2(_motor.Position.x, _motor.Position.y + 0.3f);
-
-            var hits = Physics2D.RaycastAll(position, direction, 0.5f);
-
-            for (int i = 0; i < hits.Length; i++)
-            {
-                var hit = hits[i];
-
-                if (hit.transform.tag == "SquireChangeDirection")
-                {
-                    _faceDirection.SetDirection(-(int)direction.x);
-                }
-            }
         }
 
         private void onTakeDamage(int damage)

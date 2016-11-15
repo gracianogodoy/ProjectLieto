@@ -184,9 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50e0fbfca3e65e4e8e20ca7b857ee61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blinkColor: {r: 1, g: 0, b: 0, a: 1}
-  _numberOfBlinks: 3
-  _intervalBetweenBlinks: 0.08
 --- !u!114 &114000013762806502
 MonoBehaviour:
   m_ObjectHideFlags: 1

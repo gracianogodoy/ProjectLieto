@@ -22,8 +22,8 @@ public class StrikeEnemy : MonoBehaviour
         {
             var strikeable = hit.GetComponent<IStrikeable>();
 
-            if (strikeable != null)
-                strikeable.Striked(_damage, gameObject);
+            //if (strikeable != null)
+            //    strikeable.Striked(_damage, gameObject);
         }
     }
 }

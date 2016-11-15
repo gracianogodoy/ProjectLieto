@@ -81,8 +81,8 @@ public class EnemyController : MonoBehaviour, IStrikeable
         _sensor.enabled = false;
     }
 
-    public void Striked(int damage, GameObject other)
+    public void Striked(int damage, Vector2 direction)
     {
-        _life.TakeDamage(damage, other);
+        //_life.TakeDamage(damage, direction);
     }
 }

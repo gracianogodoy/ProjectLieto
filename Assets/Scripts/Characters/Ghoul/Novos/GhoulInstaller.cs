@@ -2,7 +2,7 @@ using Zenject;
 
 namespace GG
 {
-    public class GolemInstaller : MonoInstaller<GolemInstaller>
+    public class GhoulInstaller : MonoInstaller<GhoulInstaller>
     {
         public override void InstallBindings()
         {
@@ -12,11 +12,13 @@ namespace GG
 
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<EnemyAttackAI>().To<EnemyAttackAI>().AsSingle();
+            Container.BindAllInterfacesAndSelf<GhoulAI>().To<GhoulAI>().AsSingle();
 
-            Container.BindAllInterfacesAndSelf<GolemDeath>().To<GolemDeath>().AsSingle();
+            Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
 
             LifeInstaller.Install(Container, gameObject);
+            CharacterMotorInstaller.Install(Container, gameObject);
             AttackInstaller.Install(Container);
         }
-    }
+    } 
 }

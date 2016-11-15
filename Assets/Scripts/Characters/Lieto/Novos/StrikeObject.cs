@@ -28,7 +28,7 @@ namespace GG
                 var strikeable = gameObject.GetComponent<IStrikeable>();
 
                 if (strikeable != null)
-                    strikeable.Striked(_settings.Damage, _owner);
+                    strikeable.Striked(_settings.Damage, new Vector2(_attack.FaceDirection.Direction, 0));
             }
         }
 

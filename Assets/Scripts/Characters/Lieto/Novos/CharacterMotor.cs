@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using Prime31;
 using Zenject;
-using System;
 
 namespace GG
 {
@@ -26,7 +25,9 @@ namespace GG
 
         public void Tick()
         {
-            applyGravity();
+            if (_settings.gravity != 0)
+                applyGravity();
+
             _controller.move(_velocity * Time.deltaTime);
         }
 

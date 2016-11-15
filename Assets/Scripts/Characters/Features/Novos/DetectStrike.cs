@@ -5,12 +5,12 @@ namespace GG
 {
     public class DetectStrike : MonoBehaviour, IStrikeable
     {
-        public Action<int, GameObject> OnStrike;
+        public Action<int, Vector2> OnStrike;
 
-        public void Striked(int damage, GameObject other)
+        public void Striked(int damage, Vector2 direction)
         {
             if (OnStrike != null)
-                OnStrike(damage, other);
+                OnStrike(damage, direction);
         }
     }
 

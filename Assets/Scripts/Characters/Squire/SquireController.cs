@@ -89,7 +89,7 @@ public class SquireController : MonoBehaviour, IStrikeable
         _motor.enabled = false;
     }
 
-    public void Striked(int damage, GameObject other)
+    public void Striked(int damage, Vector2 other)
     {
         _life.TakeDamage(damage);
     }

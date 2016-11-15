@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GG
 {
-    public class EnemyAttackAI : IInitializable, ITickable
+    public class EnemyAttackAI : BaseCharacterBehaviour, IInitializable, ITickable
     {
         public enum State
         {
@@ -33,7 +33,7 @@ namespace GG
         public void Initialize()
         {
             _stateMachine.AddState(State.Idle);
-            _stateMachine.AddState(State.Attacking, enterAttacking, updateAttacking, stopAttacking);
+            _stateMachine.AddState(State.Attacking, enterAttacking, updateAttacking);
 
             _sensor.ReadySensor.OnInsideSensor += onInsideReadySensor;
 
@@ -45,7 +45,16 @@ namespace GG
 
         public void Tick()
         {
+            if (!_isEnable)
+                return;
+
             _clock.Update(Time.deltaTime);
+
+            if (_clock.IsDone)
+            {
+                _clock.Pause();
+            }
+
             _stateMachine.Update();
         }
 
@@ -71,9 +80,11 @@ namespace GG
         #region Attack State
         private void enterAttacking()
         {
-            _attack.OnAttack();
-            _clock.Reset(_settings.timeBetweenAttacks);
-            _clock.Unpause();
+            if (_clock.IsPaused)
+            {
+                _attack.OnAttack();
+                resetClock();
+            }
         }
 
         private void updateAttacking()
@@ -81,13 +92,14 @@ namespace GG
             if (_clock.IsDone)
             {
                 _attack.OnAttack();
-                _clock.Reset(_settings.timeBetweenAttacks);
+                resetClock();
             }
         }
 
-        private void stopAttacking()
+        private void resetClock()
         {
-            _clock.Pause();
+            _clock.Reset(_settings.timeBetweenAttacks);
+            _clock.Unpause();
         }
         #endregion
 
