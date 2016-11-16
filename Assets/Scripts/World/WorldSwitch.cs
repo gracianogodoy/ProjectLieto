@@ -25,8 +25,6 @@ public class WorldSwitch : MonoBehaviour
 
     public ChangeWorldEvent OnChangeWorld { get; set; }
 
-  
-
     public void Switch()
     {
         if (!_isChanging)
@@ -40,11 +38,6 @@ public class WorldSwitch : MonoBehaviour
         var world1playing = _world1.transform.position.y == playingPositionY;
         var worldToEnable = world1playing ? _world2 : _world1;
         var worldToDisable = world1playing ? _world1 : _world2;
-
-        //toggleWorldElement(worldToDisable.transform, false);
-        //worldToDisable.SetActive(false);
-        //toggleWorldElement(worldToEnable.transform, true);
-        //worldToEnable.SetActive(true);
 
         changePositionY(worldToDisable.transform, hidingPositionY);
         changePositionY(worldToEnable.transform, playingPositionY);

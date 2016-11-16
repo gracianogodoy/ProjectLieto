@@ -1,7 +1,10 @@
-﻿using Zenject;
+﻿using System;
+using Zenject;
 
 namespace GG
 {
+    public class LietoDeathSignal : Signal<LietoDeathSignal> { }
+
     public class LietoDeath : IInitializable
     {
         private FaceDirection _faceDirection;
@@ -10,8 +13,13 @@ namespace GG
         private Move _move;
         private Life _life;
         private LietoPushed _pushed;
+        private LietoDeathSignal _deathSignal;
 
-        public LietoDeath(FaceDirection faceDirection, Attack attack, Jump jump, Move move, Life life, LietoPushed pushed)
+        public LietoDeath(FaceDirection faceDirection, Attack attack, Jump jump,
+            Move move, Life life, LietoPushed pushed,
+            LietoDeathSignal deathSignal,
+            DetectCheckpoint detectCheckpoint, CharacterMotor motor,
+            CameraFollow follow)
         {
             _faceDirection = faceDirection;
             _attack = attack;
@@ -19,6 +27,7 @@ namespace GG
             _move = move;
             _life = life;
             _pushed = pushed;
+            _deathSignal = deathSignal;
         }
 
         public void Initialize()
@@ -30,11 +39,13 @@ namespace GG
         public void OnDead()
         {
             setEnables(false);
+            _deathSignal.Fire();
         }
 
         public void OnRessurect()
         {
             setEnables(true);
+            _faceDirection.Reset();
         }
 
         private void setEnables(bool value)
@@ -45,5 +56,6 @@ namespace GG
             _move.SetEnable(value);
             _pushed.SetEnable(value);
         }
+
     }
 }

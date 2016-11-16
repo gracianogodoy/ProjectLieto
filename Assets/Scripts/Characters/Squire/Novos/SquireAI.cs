@@ -99,7 +99,7 @@ namespace GG
                 _stateMachine.CurrentState = State.Idle;
             }
 
-            CheckChangeDirection.Check(_faceDirection, _motor.Position, 0.3f, "ChangeSquireDirection");
+            CheckChangeDirection.Check(_faceDirection, _motor.Position, 0.3f, "SquireChangeDirection");
         }
         #endregion
 

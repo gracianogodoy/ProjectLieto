@@ -26,7 +26,7 @@ namespace GG
 
         public void Initialize()
         {
-            SetDirection((int)_settings.InitialDirection);
+            Reset();
         }
 
         public void SetDirection(int direction)
@@ -39,6 +39,11 @@ namespace GG
 
             if (OnChangeDirection != null)
                 OnChangeDirection(_direction);
+        }
+
+        public void Reset()
+        {
+            SetDirection((int)_settings.InitialDirection);
         }
 
         [Serializable]

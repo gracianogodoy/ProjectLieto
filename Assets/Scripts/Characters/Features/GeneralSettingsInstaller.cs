@@ -7,10 +7,14 @@ namespace GG
     public class GeneralSettingsInstaller : ScriptableObjectInstaller<GeneralSettingsInstaller>
     {
         public DamageBlink.Settings DamageBlinkSettings;
+        public SwitchWorld.Settings SwitchWorldSettings;
+        public GameFlow.Settings GameFlowSettings;
 
         public override void InstallBindings()
         {
             Container.BindInstance(DamageBlinkSettings);
+            Container.BindInstance(SwitchWorldSettings);
+            Container.BindInstance(GameFlowSettings);
         }
     }
 }

@@ -38,3 +38,5 @@ MonoBehaviour:
     chaseSpeed: 3
     patrolSpeed: 2
     distanceToStop: 1
+  GhoulDeathSettings:
+    timeToDestroy: 1

@@ -26,6 +26,11 @@ public class AnimationController : MonoBehaviour
               _animator.SetTrigger("Dead");
           };
 
+        _life.OnRessurect += () =>
+        {
+            _animator.SetTrigger("Alive");
+        };
+
         _jump.OnJump += () => _animator.SetBool("IsJumping", true);
         _jump.OnStopJump += () => _animator.SetBool("IsJumping", false);
     }

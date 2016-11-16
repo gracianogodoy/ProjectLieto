@@ -12,9 +12,11 @@ namespace GG
 
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<EnemyAttackAI>().To<EnemyAttackAI>().AsSingle();
-            Container.BindAllInterfacesAndSelf<GhoulAI>().To<GhoulAI>().AsSingle();
-
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
+
+            Container.BindAllInterfacesAndSelf<GhoulAI>().To<GhoulAI>().AsSingle();
+            Container.BindAllInterfacesAndSelf<GhoulDeath>().To<GhoulDeath>().AsSingle();
+
 
             LifeInstaller.Install(Container, gameObject);
             CharacterMotorInstaller.Install(Container, gameObject);

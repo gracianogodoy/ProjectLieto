@@ -31,25 +31,25 @@ namespace GG
 
         public void Tick()
         {
-            //if (_motor.IsGrounded && _motor.Velocity.y <= 0 && _isPushed)
-            //{
-            //    _isPushed = false;
-            //    if (OnPushbackEnd != null)
-            //        OnPushbackEnd();
-            //}
-
-            if (_isPushed)
+            if (_motor.IsGrounded && _motor.Velocity.y <= 0 && _isPushed)
             {
-                _distanceMoved += Mathf.Abs(_motor.Position.x - _lastPosition.x);
-                Debug.Log(_distanceMoved);
-                _lastPosition = _motor.Position;
-                if (_distanceMoved >= _settings.force.x)
-                {
-                    _isPushed = false;
-                    if (OnPushbackEnd != null)
-                        OnPushbackEnd();
-                }
+                _isPushed = false;
+                if (OnPushbackEnd != null)
+                    OnPushbackEnd();
             }
+
+            //if (_isPushed)
+            //{
+            //    _distanceMoved += Mathf.Abs(_motor.Position.x - _lastPosition.x);
+            //    Debug.Log(_distanceMoved);
+            //    _lastPosition = _motor.Position;
+            //    if (_distanceMoved >= _settings.force.x)
+            //    {
+            //        _isPushed = false;
+            //        if (OnPushbackEnd != null)
+            //            OnPushbackEnd();
+            //    }
+            //}
         }
 
         private void onTakeDamageFromPoint(int amount, Vector2 direction)

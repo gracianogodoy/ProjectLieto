@@ -171,10 +171,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011514210600, guid: b9418b850a2fe5942885380a27f30a24, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9418b850a2fe5942885380a27f30a24, type: 2}
   m_IsPrefabParent: 0
@@ -249,11 +245,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _installers: []
   _installerPrefabs: []
-  _scriptableObjectInstallers:
-  - {fileID: 11400000, guid: 3be150571f1afe041a8f42af8dbd2d99, type: 2}
+  _scriptableObjectInstallers: []
   _parentNewObjectsUnderRoot: 0
   _contractNames: []
-  _parentContractName: 
+  _parentContractName: core
   _autoRun: 1
 --- !u!4 &1407365911
 Transform:

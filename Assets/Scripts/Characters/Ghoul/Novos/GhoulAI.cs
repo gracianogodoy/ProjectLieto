@@ -5,7 +5,7 @@ using Zenject;
 
 namespace GG
 {
-    public class GhoulAI : IInitializable, ITickable
+    public class GhoulAI : BaseCharacterBehaviour, IInitializable, ITickable
     {
         public enum State
         {
@@ -51,20 +51,26 @@ namespace GG
 
             _initialPosition = _motor.Position;
 
-            _pushback.OnPushbackStart += () =>
-            {
-                _lastState = _stateMachine.CurrentState;
-                _stateMachine.CurrentState = State.Pushback;
-            };
+            //_pushback.OnPushbackStart += () =>
+            //{
+            //    _lastState = _stateMachine.CurrentState;
+            //    _stateMachine.CurrentState = State.Pushback;
+            //};
 
-            _pushback.OnPushbackEnd += () =>
-            {
-                _stateMachine.CurrentState = _lastState;
-            };
+            //_pushback.OnPushbackEnd += () =>
+            //{
+            //    _stateMachine.CurrentState = _lastState;
+            //};
         }
 
         public void Tick()
         {
+            if (!_isEnable)
+            {
+                _motor.SetVelocity(Vector2.zero);
+                return;
+            }
+
             _stateMachine.Update();
         }
 

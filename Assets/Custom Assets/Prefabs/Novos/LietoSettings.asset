@@ -15,7 +15,7 @@ MonoBehaviour:
     horizontalAxis: Horizontal
     jumpButton: Jump
     attackButton: Fire1
-    worldSwitchButton: Fire2
+    worldSwitchButton: Switch
   MotorSettings:
     gravity: 50
     maxFallSpeed: 40
@@ -42,3 +42,9 @@ MonoBehaviour:
     Damage: 1
   PushbackSettings:
     force: {x: 5, y: 10}
+  SwitchSettings:
+    obstacleMask:
+      serializedVersion: 2
+      m_Bits: 256
+    damageOnOverlapping: 2
+    timeToSwitchBackAfterDamage: 0.1
