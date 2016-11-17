@@ -24,6 +24,7 @@ namespace GG
             Assert.IsNotNull(_animator);
 
             _life.OnDead += onDead;
+            _life.OnRessurect += () => { _animator.SetTrigger("Alive"); };
         }
 
         void Update()

@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using System;
+using Zenject;
 
 namespace GG
 {
@@ -20,19 +21,25 @@ namespace GG
         public void Initialize()
         {
             _life.OnDead += OnDead;
+            _life.OnRessurect += OnRessurect;
+        }
+
+        private void OnRessurect()
+        {
+            setEnables(true);
+            _faceDirection.Reset();
         }
 
         public void OnDead()
         {
             setEnables(false);
+            _squireAi.SetState(SquireAI.State.Dead);
         }
 
         private void setEnables(bool value)
         {
             _faceDirection.SetEnable(value);
             _move.SetEnable(value);
-
-            _squireAi.SetState(SquireAI.State.Dead);
         }
     }
 }

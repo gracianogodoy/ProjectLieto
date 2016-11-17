@@ -1,53 +1,39 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Zenject;
 using System;
 
 namespace GG
 {
-    public class LietoRessurectSignal : Signal<LietoRessurectSignal> { }
+    public class LietoResurrectSignal : Signal<LietoResurrectSignal> { }
 
-    public class LietoResurrect : IInitializable, IDisposable
+    public class LietoResurrect : BaseResurrect, IInitializable, IDisposable
     {
-        private LietoRessurectSignal _ressurectSignal;
         private DetectCheckpoint _detectCheckpoint;
-        private CharacterMotor _motor;
         private CameraFollow _cameraFollow;
         private Life _life;
         private Switch _switch;
 
-        private Vector2 _ressurectPosition;
-
         public LietoResurrect(DetectCheckpoint detectCheckpoint, CharacterMotor motor,
-            CameraFollow follow, LietoRessurectSignal ressurectSignal, Life life, Switch _switch)
+            CameraFollow follow, LietoResurrectSignal resurrectSignal, Life life, Switch _switch) : base(resurrectSignal, motor)
         {
             _detectCheckpoint = detectCheckpoint;
             _cameraFollow = follow;
-            _motor = motor;
-            _ressurectSignal = ressurectSignal;
             _life = life;
             this._switch = _switch;
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
-            _ressurectSignal += OnRessurect;
+            base.Initialize();
 
-            _ressurectPosition = _motor.Position;
             _detectCheckpoint.OnDetect += (other) =>
             {
                 _ressurectPosition = other.transform.localPosition;
             };
         }
 
-        public void Dispose()
-        {
-            _ressurectSignal -= OnRessurect;
-        }
-
-        public void OnRessurect()
+        protected override void onResurrect()
         {
             _switch.SwtichToWorld1();
-            _motor.Position = _ressurectPosition;
             _cameraFollow.LockOnTarget();
             _life.Ressurect();
         }

@@ -9,11 +9,11 @@ namespace GG
     public class GameFlow : IInitializable, IDisposable
     {
         private LietoDeathSignal _deathSignal;
-        private LietoRessurectSignal _ressurectSignal;
+        private LietoResurrectSignal _ressurectSignal;
         private CameraFade _fade;
         private Settings _settings;
 
-        public GameFlow(LietoDeathSignal deathSignal, LietoRessurectSignal ressurectSignal, CameraFade fade, Settings settings)
+        public GameFlow(LietoDeathSignal deathSignal, LietoResurrectSignal ressurectSignal, CameraFade fade, Settings settings)
         {
             _deathSignal = deathSignal;
             _ressurectSignal = ressurectSignal;

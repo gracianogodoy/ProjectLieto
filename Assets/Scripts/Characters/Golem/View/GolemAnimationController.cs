@@ -31,6 +31,7 @@ namespace GG
 
             _sensor.ReadySensor.OnEnterSensor += onEnterReadySensor;
             _sensor.ReadySensor.OnLeaveSensor += onLeaveReadySensor;
+            _life.OnRessurect += () => { _animator.SetTrigger("Alive"); };
         }
 
         void Update()
