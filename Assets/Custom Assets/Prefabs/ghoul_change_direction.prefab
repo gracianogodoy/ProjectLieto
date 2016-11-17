@@ -22,7 +22,7 @@ GameObject:
   - 61: {fileID: 61000011276488398}
   m_Layer: 0
   m_Name: ghoul_change_direction
-  m_TagString: ChangeGhoulDirection
+  m_TagString: GhoulChangeDirection
   m_Icon: {fileID: -1462388694956747189, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011190447992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.800001, y: 6.4, z: 0}
+  m_LocalPosition: {x: 3.23, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

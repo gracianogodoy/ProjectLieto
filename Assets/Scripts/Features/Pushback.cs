@@ -54,7 +54,7 @@ namespace GG
 
         private void onTakeDamageFromPoint(int amount, Vector2 direction)
         {
-            _lastPosition = _motor.Position;
+            _lastPosition = _motor.LocalPosition;
             _distanceMoved = 0;
             var pushbackDirection = direction;
 

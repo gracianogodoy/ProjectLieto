@@ -4,14 +4,14 @@ namespace GG
 {
     public class CheckChangeDirection
     {
-        public static bool Check(FaceDirection _faceDirection, Vector2 position, float offsetY, string tag)
+        public static bool Check(FaceDirection _faceDirection, Vector2 position, float distance, float offsetY, string tag)
         {
             var direction = new Vector2(_faceDirection.Direction, 0);
             var finalPosition = new Vector2(position.x, position.y + offsetY);
 
-            var hits = Physics2D.RaycastAll(finalPosition, direction, 0.5f);
+            var hits = Physics2D.RaycastAll(finalPosition, direction, distance);
 
-            Debug.DrawRay(finalPosition, direction * 0.5f, Color.magenta);
+            Debug.DrawRay(finalPosition, direction * distance, Color.magenta);
 
             for (int i = 0; i < hits.Length; i++)
             {

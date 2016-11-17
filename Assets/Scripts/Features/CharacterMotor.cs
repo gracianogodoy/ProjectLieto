@@ -15,7 +15,8 @@ namespace GG
 
         public CharacterController2D.CharacterCollisionState2D CollisionState { get { return _controller.collisionState; } }
         public bool IsGrounded { get { return _controller.isGrounded; } }
-        public Vector2 Position { get { return _controller.transform.localPosition; } set { _controller.transform.localPosition = value; } }
+        public Vector2 LocalPosition { get { return _controller.transform.localPosition; } set { _controller.transform.localPosition = value; } }
+        public Vector2 Position { get { return _controller.transform.position; } set { _controller.transform.position = value; } }
 
         public CharacterMotor(CharacterController2D controller, Settings settings)
         {

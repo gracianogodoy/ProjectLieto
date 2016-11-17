@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: StorySettingsInstaller
   m_EditorClassIdentifier: 
   StoryFlowSettings:
-    timeToStart: 2
+    timeToStart: 3

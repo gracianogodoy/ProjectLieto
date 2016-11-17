@@ -22,7 +22,7 @@ namespace GG
         {
             _resurrectSignal += resurrect;
 
-            _ressurectPosition = _motor.Position;
+            _ressurectPosition = _motor.LocalPosition;
         }
 
         public void Dispose()
@@ -32,7 +32,7 @@ namespace GG
 
         private void resurrect()
         {
-            _motor.Position = _ressurectPosition;
+            _motor.LocalPosition = _ressurectPosition;
             onResurrect();
             _life.Ressurect();
         }

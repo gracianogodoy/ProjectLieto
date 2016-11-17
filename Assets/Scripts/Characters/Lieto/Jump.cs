@@ -35,7 +35,6 @@ namespace GG
             if (_motor.CollisionState.above)
             {
                 _motor.SetVelocityY(0);
-                _isJumping = false;
             }
 
             var fallingDown = _motor.Velocity.y < 0;

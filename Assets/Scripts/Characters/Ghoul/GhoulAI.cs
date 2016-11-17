@@ -51,7 +51,7 @@ namespace GG
 
             _stateMachine.CurrentState = State.Patrolling;
 
-            _initialPosition = _motor.Position;
+            _initialPosition = _motor.LocalPosition;
 
             //_pushback.OnPushbackStart += () =>
             //{
@@ -92,7 +92,7 @@ namespace GG
         {
             patrolling();
 
-            CheckChangeDirection.Check(_faceDirection, _motor.Position, 1, "ChangeGhoulDirection");
+            CheckChangeDirection.Check(_faceDirection, _motor.Position, 1.5f, 1, "GhoulChangeDirection");
         }
 
         private void patrolling()
@@ -107,9 +107,9 @@ namespace GG
             if (_target == null)
                 return;
 
-            var _direction = (Vector2)_target.transform.position - _motor.Position;
+            var _direction = (Vector2)_target.transform.position - _motor.LocalPosition;
 
-            if (Vector2.Distance(_motor.Position, _target.transform.position) <= _settings.distanceToStop)
+            if (Vector2.Distance(_motor.LocalPosition, _target.transform.position) <= _settings.distanceToStop)
             {
                 _motor.SetVelocity(Vector2.zero);
             }
@@ -128,9 +128,9 @@ namespace GG
 
         private void backToInitialPosition()
         {
-            if (Vector2.Distance(_motor.Position, _initialPosition) >= 0.1f)
+            if (Vector2.Distance(_motor.LocalPosition, _initialPosition) >= 0.1f)
             {
-                var direction = _initialPosition - _motor.Position;
+                var direction = _initialPosition - _motor.LocalPosition;
                 _faceDirection.SetDirection((int)Mathf.Sign(direction.x));
 
                 _motor.SetVelocity(direction.normalized * _settings.patrolSpeed);

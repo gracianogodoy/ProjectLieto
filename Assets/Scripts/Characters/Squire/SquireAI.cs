@@ -84,13 +84,13 @@ namespace GG
             randomizeFaceDirection();
             _moveCurrentDistance = 0;
             _moveDistance = UnityEngine.Random.Range(_settings.minMoveDistance, _settings.maxMoveDistance);
-            _lastPositionX = _motor.Position.x;
+            _lastPositionX = _motor.LocalPosition.x;
         }
 
         private void updateMoving()
         {
-            _moveCurrentDistance += Mathf.Abs(_motor.Position.x - _lastPositionX);
-            _lastPositionX = _motor.Position.x;
+            _moveCurrentDistance += Mathf.Abs(_motor.LocalPosition.x - _lastPositionX);
+            _lastPositionX = _motor.LocalPosition.x;
 
             _move.OnMove(_faceDirection.Direction);
 
@@ -99,7 +99,7 @@ namespace GG
                 _stateMachine.CurrentState = State.Idle;
             }
 
-            CheckChangeDirection.Check(_faceDirection, _motor.Position, 0.3f, "SquireChangeDirection");
+            CheckChangeDirection.Check(_faceDirection, _motor.Position, 1, 0.3f, "SquireChangeDirection");
         }
         #endregion
 

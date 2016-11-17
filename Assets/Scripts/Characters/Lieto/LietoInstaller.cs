@@ -15,6 +15,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
             Container.BindAllInterfacesAndSelf<Switch>().To<Switch>().AsSingle();
+            Container.BindAllInterfacesAndSelf<Hazard>().To<Hazard>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<LietoPushed>().To<LietoPushed>().AsSingle();
             Container.BindAllInterfacesAndSelf<LietoResurrect>().To<LietoResurrect>().AsSingle();

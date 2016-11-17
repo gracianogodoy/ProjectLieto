@@ -11,11 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e43973744190c41b1a81b3b9079731, type: 3}
   m_Name: LietoSettings
   m_EditorClassIdentifier: 
-  InputSetttings:
-    horizontalAxis: Horizontal
-    jumpButton: Jump
-    attackButton: Fire1
-    worldSwitchButton: Switch
   MotorSettings:
     gravity: 50
     maxFallSpeed: 40
@@ -48,3 +43,7 @@ MonoBehaviour:
       m_Bits: 256
     damageOnOverlapping: 2
     timeToSwitchBackAfterDamage: 0.1
+  HazardSettings:
+    hazardLayer:
+      serializedVersion: 2
+      m_Bits: 131072

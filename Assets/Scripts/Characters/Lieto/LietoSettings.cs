@@ -15,6 +15,7 @@ namespace GG
         public Strike.Settings StrikeSettings;
         public Pushback.Settings PushbackSettings;
         public Switch.Settings SwitchSettings;
+        public Hazard.Settings HazardSettings;
 
         public override void InstallBindings()
         {
@@ -27,6 +28,7 @@ namespace GG
             Container.BindInstance(StrikeSettings);
             Container.BindInstance(PushbackSettings);
             Container.BindInstance(SwitchSettings);
+            Container.BindInstance(HazardSettings);
         }
     }
 }
