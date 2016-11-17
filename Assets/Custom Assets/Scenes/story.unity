@@ -187,6 +187,48 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013025246808, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 4a05a7a785a0a6e47a30e347e083dbf3,
+        type: 3}
+    - target: {fileID: 114000011952636568, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 4a05a7a785a0a6e47a30e347e083dbf3,
+        type: 3}
+    - target: {fileID: 114000013025246808, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a05a7a785a0a6e47a30e347e083dbf3, type: 3}
+    - target: {fileID: 114000011952636568, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a05a7a785a0a6e47a30e347e083dbf3, type: 3}
+    - target: {fileID: 114000013025246808, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013025246808, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011952636568, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011952636568, guid: e95f6c5126d95ee4689b5367fda1dca7,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e95f6c5126d95ee4689b5367fda1dca7, type: 2}
   m_IsPrefabParent: 0
@@ -237,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565fd263440bd45fa9ba0925c60f54f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOnAwake: 1
+  startOnAwake: 0
   showWithDialog:
   - {fileID: 803203045}
   textUI: {fileID: 477773050}
