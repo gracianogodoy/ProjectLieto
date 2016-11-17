@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Prime31;
 
 public class SlopeRotate : MonoBehaviour
 {
@@ -8,17 +8,17 @@ public class SlopeRotate : MonoBehaviour
     [SerializeField]
     private float _viewPositionOffset;
 
-    private CharacterMotor _motor;
+    private CharacterController2D _controller;
     private Vector3 _angle;
 
     void Start()
     {
-        _motor = GetComponentInParent<CharacterMotor>();
+        _controller = GetComponentInParent<CharacterController2D>();
     }
 
     void Update()
     {
-        var targetAngle = _motor.CollisionState.slopeAngle;
+        var targetAngle = _controller.collisionState.slopeAngle;
 
         var targetAngleVector = new Vector3(0, 0, targetAngle);
 

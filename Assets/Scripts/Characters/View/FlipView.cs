@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class FlipView : MonoBehaviour
 {
-    private FaceDirection _faceDirection;
+    private GG.FaceDirection _faceDirection;
+
+    [Inject]
+    public void Construct(GG.FaceDirection faceDirection)
+    {
+        _faceDirection = faceDirection;
+    }
 
     void OnValidate()
     {
-        if (_faceDirection == null)
-            _faceDirection = GetComponentInParent<FaceDirection>();
-
         if (_faceDirection != null)
         {
             _faceDirection.OnChangeDirection -= onChangeDirection;
@@ -18,14 +22,13 @@ public class FlipView : MonoBehaviour
 
     void Start()
     {
-        if (_faceDirection == null)
-            _faceDirection = GetComponentInParent<FaceDirection>();
-
         if (_faceDirection != null)
         {
             _faceDirection.OnChangeDirection -= onChangeDirection;
             _faceDirection.OnChangeDirection += onChangeDirection;
         }
+
+        onChangeDirection(_faceDirection.Direction);
     }
 
     private void onChangeDirection(int direction)

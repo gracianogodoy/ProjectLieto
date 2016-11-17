@@ -1,41 +1,47 @@
 ﻿using UnityEngine;
-using UniRx;
 using UnityEngine.Assertions;
 
-public class GhoulAnimationController : MonoBehaviour
+namespace GG
 {
-    private Animator _animator;
-    private Attack _attack;
-    private Life _life;
-
-    private bool _doAttack;
-
-    void Start()
+    public class GhoulAnimationController : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        Assert.IsNotNull(_animator);
+        private Animator _animator;
+        private Attack _attack;
+        private Life _life;
 
-        _attack = GetComponentInParent<Attack>();
-        Assert.IsNotNull(_attack);
+        private bool _doAttack;
 
-        _life = GetComponentInParent<Life>();
-        _life.OnDead += onDead;
-    }
-
-    void Update()
-    {
-        if (_attack.enabled && !_doAttack)
+        [Zenject.Inject]
+        public void Construct(Attack attack, Life life)
         {
-            _animator.SetTrigger("Attack");
-            _doAttack = true;
+            _attack = attack;
+            _life = life;
         }
 
-        if (!_attack.enabled && _doAttack)
-            _doAttack = false;
-    }
+        void Start()
+        {
+            _animator = GetComponent<Animator>();
+            Assert.IsNotNull(_animator);
 
-    private void onDead()
-    {
-        _animator.SetTrigger("Die");
+            _life.OnDead += onDead;
+            _life.OnRessurect += () => { _animator.SetTrigger("Alive"); };
+        }
+
+        void Update()
+        {
+            if (_attack.IsAttacking && !_doAttack)
+            {
+                _animator.SetTrigger("Attack");
+                _doAttack = true;
+            }
+
+            if (!_attack.IsAttacking && _doAttack)
+                _doAttack = false;
+        }
+
+        private void onDead()
+        {
+            _animator.SetTrigger("Die");
+        }
     }
 }
