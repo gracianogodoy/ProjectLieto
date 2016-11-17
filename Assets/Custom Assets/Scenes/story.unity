@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565fd263440bd45fa9ba0925c60f54f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOnAwake: 0
+  startOnAwake: 1
   showWithDialog:
   - {fileID: 803203045}
   textUI: {fileID: 477773050}
