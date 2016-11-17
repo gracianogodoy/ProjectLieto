@@ -126,11 +126,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   tileInfo:
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
@@ -294,8 +294,8 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
-    intVal: 0
+  - stringVal: c
+    intVal: 90
     floatVal: 0
     enablePrefabOffset: 0
   - stringVal: 
@@ -350,8 +350,8 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
-    intVal: 0
+  - stringVal: c
+    intVal: 75
     floatVal: 0
     enablePrefabOffset: 0
   - stringVal: 
@@ -406,7 +406,7 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
