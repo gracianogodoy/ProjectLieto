@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611128f40859f4a459414c0427e9b121, type: 3}
+  m_Name: GeneralSettingsInstaller
+  m_EditorClassIdentifier: 
+  DamageBlinkSettings:
+    blinkColor: {r: 1, g: 0, b: 0, a: 1}
+    numberOfBlinks: 3
+    intervalBetweenBlinks: 0.08
+  SwitchWorldSettings:
+    playingPositionY: 0
+    hidingPositionY: -83
+    numberOfGlitches: 3
+    intervalBetweenGlitches: 0.01
+  GameFlowSettings:
+    afterDeathTime: 2
+    fadeInTime: 3
+    fadeOutTime: 1

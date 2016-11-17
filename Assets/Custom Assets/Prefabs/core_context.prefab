@@ -68,6 +68,7 @@ MonoBehaviour:
   _installerPrefabs: []
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 3be150571f1afe041a8f42af8dbd2d99, type: 2}
+  - {fileID: 11400000, guid: 84ebc9bcf4a5357459dc40190367cfd4, type: 2}
   _parentNewObjectsUnderRoot: 0
   _contractNames:
   - core

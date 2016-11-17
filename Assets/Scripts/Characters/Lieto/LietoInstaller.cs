@@ -1,5 +1,3 @@
-using System;
-using UnityEngine;
 using Zenject;
 
 namespace GG
@@ -9,9 +7,7 @@ namespace GG
         public override void InstallBindings()
         {
             Container.BindInstance(gameObject).WithId(InjectId.Owner).AsSingle();
-
             Container.BindAllInterfacesAndSelf<WireEvents>().To<WireEvents>().AsSingle();
-            Container.BindAllInterfacesAndSelf<InputHandler>().To<InputHandler>().AsSingle();
 
             Container.Bind<Move>().AsSingle();
 

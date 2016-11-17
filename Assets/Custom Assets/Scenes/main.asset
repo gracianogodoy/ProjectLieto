@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e3b938301dbef4ca49f723fc5afe0f, type: 3}
+  m_Name: main
+  m_EditorClassIdentifier: 
+  Setups:
+  - m_Path: Assets/Custom Assets/Scenes/core.unity
+    m_IsLoaded: 1
+    m_IsActive: 1
+  - m_Path: Assets/Custom Assets/Scenes/lieto.unity
+    m_IsLoaded: 1
+    m_IsActive: 0
+  - m_Path: Assets/Custom Assets/Scenes/final.unity
+    m_IsLoaded: 1
+    m_IsActive: 0
+  - m_Path: Assets/Custom Assets/Scenes/bg.unity
+    m_IsLoaded: 1
+    m_IsActive: 0
+  - m_Path: Assets/Custom Assets/Scenes/gui.unity
+    m_IsLoaded: 1
+    m_IsActive: 0

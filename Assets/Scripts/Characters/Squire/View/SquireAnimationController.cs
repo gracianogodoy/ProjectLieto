@@ -16,7 +16,7 @@ namespace GG
         {
             _animator = GetComponent<Animator>();
             _life.OnDead += onDead;
-            _life.OnRessurect += () => { _animator.SetTrigger("Alive"); };
+            _life.OnResurrect += () => { _animator.SetTrigger("Alive"); };
         }
 
         void Update()

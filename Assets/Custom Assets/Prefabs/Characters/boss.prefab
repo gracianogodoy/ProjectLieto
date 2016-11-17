@@ -20,10 +20,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012051594552}
   - 114: {fileID: 114000013462114876}
-  - 114: {fileID: 114000011100103816}
-  - 114: {fileID: 114000010599650278}
-  - 114: {fileID: 114000011628331874}
-  - 114: {fileID: 114000010380885392}
   - 61: {fileID: 61000011899880166}
   m_Layer: 16
   m_Name: boss
@@ -42,8 +38,6 @@ GameObject:
   - 4: {fileID: 4000011053684914}
   - 212: {fileID: 212000010848438064}
   - 95: {fileID: 95000010810835406}
-  - 114: {fileID: 114000012815082914}
-  - 114: {fileID: 114000012385815054}
   m_Layer: 16
   m_Name: view
   m_TagString: Untagged
@@ -71,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011628328580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.44, y: 4.25, z: 0}
+  m_LocalPosition: {x: 485.03, y: -2.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -109,90 +103,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010380885392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011628328580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30d092da3465ed46b3ae66b6bf19e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _settings:
-    Duration: 0
-    TimeToAttack: 0
-    Distance: 0
-    BaseSize: 0
-    NumberOfRays: 0
-    Offset: 0
-    HitLayer:
-      serializedVersion: 2
-      m_Bits: 0
---- !u!114 &114000010599650278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011628328580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277273546340d694891e71203dac2ab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalLife: 10
-  _scriptsToDisable: []
---- !u!114 &114000011100103816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011628328580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4479e33d654df489161cf23bd70ff3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _strikeDamage: 1
-  _timeBetweenAttacks: 1
---- !u!114 &114000011628331874
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011628328580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae3dcffa8f9f7641b6a9be1fa16ac1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialDirection: 1
---- !u!114 &114000012385815054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013392620082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50e0fbfca3e65e4e8e20ca7b857ee61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _blinkColor: {r: 1, g: 0, b: 0, a: 1}
-  _numberOfBlinks: 3
-  _intervalBetweenBlinks: 0.03
---- !u!114 &114000012815082914
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013392620082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb6efc5d36dc6e140974a62fdad32880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013462114876
 MonoBehaviour:
   m_ObjectHideFlags: 1

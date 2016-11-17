@@ -26,7 +26,7 @@ public class AnimationController : MonoBehaviour
               _animator.SetTrigger("Dead");
           };
 
-        _life.OnRessurect += () =>
+        _life.OnResurrect += () =>
         {
             _animator.SetTrigger("Alive");
         };
