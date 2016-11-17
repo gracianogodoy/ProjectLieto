@@ -71,7 +71,7 @@ namespace GG
 
         private void onInsideReadySensor(GameObject target)
         {
-            var direction = (target.transform.localPosition - _owner.transform.localPosition).normalized;
+            var direction = (target.transform.position - _owner.transform.position).normalized;
 
             _faceDirection.SetDirection((int)Mathf.Sign(direction.x));
         }

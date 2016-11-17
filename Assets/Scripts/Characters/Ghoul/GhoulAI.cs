@@ -107,9 +107,9 @@ namespace GG
             if (_target == null)
                 return;
 
-            var _direction = (Vector2)_target.transform.position - _motor.LocalPosition;
+            var _direction = (Vector2)_target.transform.position - _motor.Position;
 
-            if (Vector2.Distance(_motor.LocalPosition, _target.transform.position) <= _settings.distanceToStop)
+            if (Vector2.Distance(_motor.Position, _target.transform.position) <= _settings.distanceToStop)
             {
                 _motor.SetVelocity(Vector2.zero);
             }

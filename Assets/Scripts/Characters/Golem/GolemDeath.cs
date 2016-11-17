@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace GG
@@ -9,13 +10,16 @@ namespace GG
         private EnemyAttackAI _attackAi;
         private ProximitySensor _sensor;
         private FaceDirection _faceDirection;
+        private Collider2D _collider;
 
-        public GolemDeath(FaceDirection faceDirection, Life life, ProximitySensor sensor, EnemyAttackAI attackAi)
+        public GolemDeath(FaceDirection faceDirection, Life life, ProximitySensor sensor, 
+            EnemyAttackAI attackAi, [Inject(Id = InjectId.Owner)] GameObject owner)
         {
             _life = life;
             _sensor = sensor;
             _attackAi = attackAi;
             _faceDirection = faceDirection;
+            _collider = owner.GetComponent<Collider2D>();
         }
 
         public void Initialize()
@@ -40,6 +44,7 @@ namespace GG
             _attackAi.SetEnable(value);
             _sensor.enabled = value;
             _faceDirection.SetEnable(value);
+            _collider.enabled = value;
         }
     }
 }
