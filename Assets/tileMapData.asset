@@ -580,7 +580,7 @@ MonoBehaviour:
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
-  - name: Platforms
+  - name: platform
     hash: 1194567778
     useColor: 1
     generateCollider: 1
