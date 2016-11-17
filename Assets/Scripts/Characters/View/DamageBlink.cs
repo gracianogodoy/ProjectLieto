@@ -1,58 +1,64 @@
 ﻿using UnityEngine;
-using UniRx;
 using System.Collections;
-using UnityEngine.Assertions;
 
-public class DamageBlink : MonoBehaviour
+namespace GG
 {
-    [SerializeField]
-    private Color _blinkColor;
-    [SerializeField]
-    private float _numberOfBlinks;
-    [SerializeField]
-    private float _intervalBetweenBlinks;
-
-    private Life _life;
-    private bool _isBlinking;
-    private SpriteRenderer _renderer;
-
-    void Start()
+    public class DamageBlink : MonoBehaviour
     {
-        _life = GetComponentInParent<Life>();
-        Assert.IsNotNull(_life);
+        private Settings _settings;
+        private Life _life;
+        private bool _isBlinking;
+        private SpriteRenderer _renderer;
 
-        _renderer = GetComponent<SpriteRenderer>();
-        _life.OnTakeDamage += onTakeDamage;
-    }
-
-    private void onTakeDamage(int amount)
-    {
-        if (!_isBlinking)
+        [Zenject.Inject]
+        public void Construct(Life life, Settings settings)
         {
-            _isBlinking = true;
-            StartCoroutine(blink());
-        }
-    }
-
-    private IEnumerator blink()
-    {
-        var currentBlink = 0;
-        var changeColor = false;
-
-        while (currentBlink < _numberOfBlinks)
-        {
-            _renderer.color = changeColor ? Color.white : _blinkColor;
-
-            yield return new WaitForSeconds(_intervalBetweenBlinks);
-
-            if (!changeColor)
-                currentBlink++;
-
-            changeColor = !changeColor;
+            _life = life;
+            _settings = settings;
         }
 
-        _renderer.color = Color.white;
-        _isBlinking = false;
+        void Start()
+        {
+            _renderer = GetComponent<SpriteRenderer>();
+            _life.OnTakeDamage += onTakeDamage;
+        }
+
+        private void onTakeDamage(int amount)
+        {
+            if (!_isBlinking)
+            {
+                _isBlinking = true;
+                StartCoroutine(blink());
+            }
+        }
+
+        private IEnumerator blink()
+        {
+            var currentBlink = 0;
+            var changeColor = false;
+
+            while (currentBlink < _settings.numberOfBlinks)
+            {
+                _renderer.color = changeColor ? Color.white : _settings.blinkColor;
+
+                yield return new WaitForSeconds(_settings.intervalBetweenBlinks);
+
+                if (!changeColor)
+                    currentBlink++;
+
+                changeColor = !changeColor;
+            }
+
+            _renderer.color = Color.white;
+            _isBlinking = false;
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public Color blinkColor = Color.red;
+            public float numberOfBlinks = 3;
+            public float intervalBetweenBlinks = 0.01f;
+        }
     }
 }
-

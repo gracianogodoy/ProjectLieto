@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e43973744190c41b1a81b3b9079731, type: 3}
+  m_Name: LietoSettings
+  m_EditorClassIdentifier: 
+  InputSetttings:
+    horizontalAxis: Horizontal
+    jumpButton: Jump
+    attackButton: Fire1
+    worldSwitchButton: Switch
+  MotorSettings:
+    gravity: 50
+    maxFallSpeed: 40
+  MoveSettings:
+    speed: 6
+  JumpSettings:
+    jumpPower: 20
+    shortJumpPower: 10
+  AttackSettings:
+    Duration: 0.2
+    TimeToAttack: 0.1
+    Distance: 1.3
+    BaseSize: 0.9
+    NumberOfRays: 3
+    Offset: 0.8
+    HitLayer:
+      serializedVersion: 2
+      m_Bits: 35840
+  FaceDirectionSettings:
+    InitialDirection: 1
+  LifeSettings:
+    TotalLife: 10
+  StrikeSettings:
+    Damage: 1
+  PushbackSettings:
+    force: {x: 5, y: 10}
+  SwitchSettings:
+    obstacleMask:
+      serializedVersion: 2
+      m_Bits: 256
+    damageOnOverlapping: 2
+    timeToSwitchBackAfterDamage: 0.1
