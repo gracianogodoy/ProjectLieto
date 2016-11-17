@@ -11,6 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c1c7a4b1a1e9f46bb2d4d5ae50374b, type: 3}
   m_Name: GolemSettingsInstaller
   m_EditorClassIdentifier: 
+  CharacterMotorSettings:
+    gravity: 0
+    maxFallSpeed: 0
   AttackSettings:
     Duration: 0.5
     TimeToAttack: 0.01
@@ -28,4 +31,4 @@ MonoBehaviour:
   StrikeSettings:
     Damage: 2
   EnemyAttackAISettings:
-    timeBetweenAttacks: 5
+    timeBetweenAttacks: 2

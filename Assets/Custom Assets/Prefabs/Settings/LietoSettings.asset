@@ -40,7 +40,7 @@ MonoBehaviour:
   SwitchSettings:
     obstacleMask:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 1280
     damageOnOverlapping: 2
     timeToSwitchBackAfterDamage: 0.1
   HazardSettings:

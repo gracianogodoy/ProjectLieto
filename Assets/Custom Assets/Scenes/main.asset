@@ -21,3 +21,6 @@ MonoBehaviour:
   - m_Path: Assets/Custom Assets/Scenes/bg.unity
     m_IsLoaded: 1
     m_IsActive: 0
+  - m_Path: Assets/Custom Assets/Scenes/lieto.unity
+    m_IsLoaded: 1
+    m_IsActive: 0

@@ -21,7 +21,6 @@ GameObject:
   - 4: {fileID: 4000011933502328}
   - 212: {fileID: 212000011084546954}
   - 95: {fileID: 95000012310779534}
-  - 114: {fileID: 114000010852586976}
   - 114: {fileID: 114000013497441700}
   - 114: {fileID: 114000012859290702}
   - 114: {fileID: 114000010522941210}
@@ -91,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011514210600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.76, y: -0.33, z: 0}
+  m_LocalPosition: {x: -1.76, y: -2.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -226,19 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0979d63171c314641a83459eeb14db50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000010852586976
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011191479724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7354076a483df842a6bae9b278c9c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotateSpeed: 360
-  _viewPositionOffset: -0.1
 --- !u!114 &114000011702433270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,7 +262,7 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 132352
   triggerMask:
     serializedVersion: 2
     m_Bits: 0

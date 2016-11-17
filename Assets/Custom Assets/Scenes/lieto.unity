@@ -131,8 +131,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013400136632, guid: b9418b850a2fe5942885380a27f30a24,
         type: 2}
-      propertyPath: platformMask.m_Bits
-      value: 131328
+      propertyPath: slopeLimit
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9418b850a2fe5942885380a27f30a24, type: 2}
