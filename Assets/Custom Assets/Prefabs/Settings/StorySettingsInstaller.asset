@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Name: StorySettingsInstaller
   m_EditorClassIdentifier: 
   StoryFlowSettings:
-    timeToStart: 3
+    timeToStart: 1
+    acts:
+    - dialogueText: {fileID: 4900000, guid: f7610b27c803a294dbc34356df552750, type: 3}
+      startLine: 1
+      endLine: 10
+    - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
+      startLine: 1
+      endLine: 1
+    - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
+      startLine: 3
+      endLine: 5
+    - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
+      startLine: 7
+      endLine: 10
+    - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
+      startLine: 12
+      endLine: 12
