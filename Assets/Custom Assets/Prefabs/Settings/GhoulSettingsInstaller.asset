@@ -40,3 +40,7 @@ MonoBehaviour:
     distanceToStop: 1
   GhoulDeathSettings:
     timeToDestroy: 1
+  DropPowerupSettings:
+    dropChance: 40
+    minDropAmount: 1
+    maxDropAmount: 3

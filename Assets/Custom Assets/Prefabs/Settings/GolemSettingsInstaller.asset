@@ -32,3 +32,7 @@ MonoBehaviour:
     Damage: 2
   EnemyAttackAISettings:
     timeBetweenAttacks: 2
+  DropPowerupSettings:
+    dropChance: 50
+    minDropAmount: 1
+    maxDropAmount: 3

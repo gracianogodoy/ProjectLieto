@@ -29,4 +29,4 @@ MonoBehaviour:
   DropPowerupSettings:
     dropChance: 100
     minDropAmount: 1
-    maxDropAmount: 5
+    maxDropAmount: 1
