@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Name: main
   m_EditorClassIdentifier: 
   Setups:
-  - m_Path: Assets/Custom Assets/Scenes/core.unity
+  - m_Path: Assets/Custom Assets/Scenes/bootstrap.unity
     m_IsLoaded: 1
     m_IsActive: 1
+  - m_Path: Assets/Custom Assets/Scenes/core.unity
+    m_IsLoaded: 1
+    m_IsActive: 0
   - m_Path: Assets/Custom Assets/Scenes/final.unity
     m_IsLoaded: 1
     m_IsActive: 0

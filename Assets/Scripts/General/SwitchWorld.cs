@@ -16,6 +16,8 @@ namespace GG
         private bool _isOnFirstWorld = true;
         private bool _isSwitching;
 
+        public Action OnSwitch;
+
         public SwitchWorld(Settings settings)
         {
             _settings = settings;
@@ -63,6 +65,10 @@ namespace GG
             changePositionY(worldToEnable.transform, _settings.playingPositionY);
 
             world1playing = _world1.transform.position.y == _settings.playingPositionY;
+
+            if (OnSwitch != null)
+                OnSwitch();
+
             return world1playing;
         }
 

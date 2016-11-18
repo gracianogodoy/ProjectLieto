@@ -2,27 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using MovementEffects;
+using UnityEngine.Events;
 
 public class LoadScene : MonoBehaviour
 {
     [SerializeField]
     private string[] _scenes;
+    [SerializeField]
+    private string[] _startMenuScenes;
+
+    public UnityEvent OnLoad;
 
     public void StartGame()
     {
-        Timing.RunCoroutine(loadAll());
+        Timing.RunCoroutine(loadAll(_scenes, _startMenuScenes));
     }
 
-    private IEnumerator<float> loadAll()
+    public void BackToMenu()
     {
-        for (int i = 0; i < _scenes.Length; i++)
+        Timing.RunCoroutine(loadAll(_startMenuScenes, _scenes));
+    }
+
+    private IEnumerator<float> loadAll(string[] scenes, string[] scenesToUnload)
+    {
+        for (int i = 0; i < scenes.Length; i++)
         {
-            var scene = _scenes[i];
+            var scene = scenes[i];
 
             yield return Timing.WaitUntilDone(Timing.RunCoroutine(load(scene)));
         }
 
-        SceneManager.UnloadScene("start");
+        for (int i = 0; i < scenesToUnload.Length; i++)
+        {
+            var scene = scenesToUnload[i];
+            SceneManager.UnloadScene(scene);
+        }
+
+        if (OnLoad != null)
+            OnLoad.Invoke();
     }
 
     private IEnumerator<float> load(string scene)

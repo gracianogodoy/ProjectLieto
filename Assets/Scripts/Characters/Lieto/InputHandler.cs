@@ -4,8 +4,13 @@ using System;
 
 namespace GG
 {
-    public class InputHandler : BaseCharacterBehaviour, ITickable
+    public class InputHandler : BaseCharacterBehaviour, ITickable, IInitializable, IDisposable
     {
+        [Zenject.Inject]
+        private PauseSignal _pauseSignal;
+        [Zenject.Inject]
+        private UnpauseSignal _unpauseSignal;
+
         private Settings _settings;
 
         public Action<int> OnMove;
@@ -17,6 +22,18 @@ namespace GG
         public InputHandler(Settings settings)
         {
             _settings = settings;
+        }
+
+        public void Initialize()
+        {
+            _pauseSignal += onPause;
+            _unpauseSignal += onUnpause;
+        }
+
+        public void Dispose()
+        {
+            _pauseSignal -= onPause;
+            _unpauseSignal -= onUnpause;
         }
 
         public void Tick()
@@ -63,6 +80,17 @@ namespace GG
             if (Input.GetButtonDown(_settings.worldSwitchButton))
                 if (OnSwitch != null)
                     OnSwitch();
+        }
+
+        private void onPause()
+        {
+            SetEnable(false);
+
+        }
+
+        private void onUnpause()
+        {
+            SetEnable(true);
         }
 
         [System.Serializable]

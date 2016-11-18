@@ -14,6 +14,8 @@ namespace GG
 
             Container.BindSignal<LietoDeathSignal>();
             Container.BindSignal<LietoResurrectSignal>();
+            Container.BindSignal<PauseSignal>();
+            Container.BindSignal<UnpauseSignal>();
 
             Container.BindInstance(GameObject.FindObjectOfType<CameraFade>()).AsSingle();
             Container.BindInstance(GameObject.FindObjectOfType<CameraFollow>()).AsSingle();
