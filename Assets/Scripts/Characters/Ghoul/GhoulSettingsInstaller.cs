@@ -15,6 +15,7 @@ namespace GG
         public Pushback.Settings PushbackSettings;
         public GhoulAI.Settings GhoulAISettings;
         public GhoulDeath.Settings GhoulDeathSettings;
+        public DropPowerup.Settings DropPowerupSettings;
 
         public override void InstallBindings()
         {
@@ -27,6 +28,7 @@ namespace GG
             Container.BindInstance(EnemyAttackAISettings);
             Container.BindInstance(GhoulAISettings);
             Container.BindInstance(GhoulDeathSettings);
+            Container.BindInstance(DropPowerupSettings);
         }
     } 
 }

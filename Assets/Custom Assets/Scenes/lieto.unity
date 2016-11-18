@@ -129,14 +129,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013400136632, guid: b9418b850a2fe5942885380a27f30a24,
-        type: 2}
-      propertyPath: slopeLimit
-      value: 60
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9418b850a2fe5942885380a27f30a24, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &833940713 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010737833624, guid: b9418b850a2fe5942885380a27f30a24,
+    type: 2}
+  m_PrefabInternal: {fileID: 833940712}
+  m_Script: {fileID: 11500000, guid: 0979d63171c314641a83459eeb14db50, type: 3}
 --- !u!1 &1407365909
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,11 +165,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _installers: []
+  _installers:
+  - {fileID: 833940713}
   _installerPrefabs: []
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: ec29c1d4ae448404eabf562e2c79235c, type: 2}
   _parentNewObjectsUnderRoot: 0
-  _contractNames: []
+  _contractNames:
+  - lieto
   _parentContractName: core
   _autoRun: 1
 --- !u!4 &1407365911

@@ -24,10 +24,10 @@ namespace GG
         public void Initialize()
         {
             _world1 = GameObject.Find("world1");
-            Assert.IsNotNull(_world1);
+            //Assert.IsNotNull(_world1);
 
             _world2 = GameObject.Find("world2");
-            Assert.IsNotNull(_world2);
+            //Assert.IsNotNull(_world2);
         }
 
         public void Switch()
@@ -73,6 +73,15 @@ namespace GG
 
         private IEnumerator<float> glitch()
         {
+            if (_world1 == null)
+            {
+                _world1 = GameObject.Find("world1");
+                //Assert.IsNotNull(_world1);
+
+                _world2 = GameObject.Find("world2");
+                //Assert.IsNotNull(_world2);
+            }
+
             _isSwitching = true;
             var currentGlitch = 0;
             var changeColor = false;

@@ -9,12 +9,14 @@ namespace GG
         public DamageBlink.Settings DamageBlinkSettings;
         public SwitchWorld.Settings SwitchWorldSettings;
         public GameFlow.Settings GameFlowSettings;
+        public ConsumePowerup.Settings PowerupSettings;
 
         public override void InstallBindings()
         {
             Container.BindInstance(DamageBlinkSettings);
             Container.BindInstance(SwitchWorldSettings);
             Container.BindInstance(GameFlowSettings);
+            Container.BindInstance(PowerupSettings);
         }
     }
 }

@@ -10,6 +10,14 @@ public class Camera2D : MonoBehaviour
 
     private Camera _camera;
 
+    public Camera Camera
+    {
+        get
+        {
+            return _camera;
+        }
+    }
+
     void OnValidate()
     {
         _camera = GetComponent<Camera>();

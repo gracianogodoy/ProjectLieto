@@ -19,10 +19,14 @@ MonoBehaviour:
   FaceDirectionSettings:
     InitialDirection: 1
   LifeSettings:
-    TotalLife: 3
+    TotalLife: 1
   AISettings:
     idleTime: 3.2
     minMoveDistance: 1
     maxMoveDistance: 3
   PushbackSettings:
     force: {x: 5, y: 10}
+  DropPowerupSettings:
+    dropChance: 100
+    minDropAmount: 1
+    maxDropAmount: 5

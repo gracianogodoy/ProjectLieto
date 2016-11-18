@@ -158,16 +158,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013762806502, guid: 275e6862b353e4f4e86c553ef4d1c074,
-        type: 2}
-      propertyPath: _skinWidth
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013762806502, guid: 275e6862b353e4f4e86c553ef4d1c074,
-        type: 2}
-      propertyPath: triggerMask.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 275e6862b353e4f4e86c553ef4d1c074, type: 2}
   m_IsPrefabParent: 0

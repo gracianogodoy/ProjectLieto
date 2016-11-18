@@ -16,6 +16,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
             Container.BindAllInterfacesAndSelf<Switch>().To<Switch>().AsSingle();
             Container.BindAllInterfacesAndSelf<Hazard>().To<Hazard>().AsSingle();
+            Container.BindAllInterfacesAndSelf<ConsumePowerup>().To<ConsumePowerup>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<LietoPushed>().To<LietoPushed>().AsSingle();
             Container.BindAllInterfacesAndSelf<LietoResurrect>().To<LietoResurrect>().AsSingle();
@@ -24,6 +25,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
 
             Container.Bind<DetectCheckpoint>().FromComponent(gameObject).AsSingle();
+            Container.Bind<DetectPowerup>().FromComponent(gameObject).AsSingle();
 
             AttackInstaller.Install(Container);
             LifeInstaller.Install(Container, gameObject);

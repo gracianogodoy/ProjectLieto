@@ -24,3 +24,9 @@ MonoBehaviour:
     afterDeathTime: 2
     fadeInTime: 3
     fadeOutTime: 1
+  PowerupSettings:
+    powerupPrefab: {fileID: 1000011556219662, guid: d2e22385b18b93d45b5c6c93633031f9,
+      type: 2}
+    maxDropForce: {x: 2, y: 8}
+    minDropForce: {x: -2, y: 5}
+    lifeRestoredAmout: 1

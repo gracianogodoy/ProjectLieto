@@ -12,6 +12,7 @@ namespace GG
         public Life.Settings LifeSettings;
         public Strike.Settings StrikeSettings;
         public EnemyAttackAI.Settings EnemyAttackAISettings;
+        public DropPowerup.Settings DropPowerupSettings;
 
         public override void InstallBindings()
         {
@@ -21,6 +22,7 @@ namespace GG
             Container.BindInstance(StrikeSettings);
             Container.BindInstance(EnemyAttackAISettings);
             Container.BindInstance(CharacterMotorSettings);
+            Container.BindInstance(DropPowerupSettings);
         }
     }
 }

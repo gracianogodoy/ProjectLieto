@@ -21,6 +21,8 @@ namespace GG
 
         void Update()
         {
+            //if (name == "squire 2") 
+            //Debug.Log(_motor.Velocity.x);
             _animator.SetBool("IsWalking", Mathf.Abs(_motor.Velocity.x) > 0f);
         }
 

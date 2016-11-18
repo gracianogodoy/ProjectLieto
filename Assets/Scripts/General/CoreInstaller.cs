@@ -10,6 +10,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<SwitchWorld>().To<SwitchWorld>().AsSingle();
             Container.BindAllInterfacesAndSelf<GameFlow>().To<GameFlow>().AsSingle();
             Container.BindAllInterfacesAndSelf<InputHandler>().To<InputHandler>().AsSingle();
+            Container.BindAllInterfacesAndSelf<CleanPowerups>().To<CleanPowerups>().AsSingle();
 
             Container.BindSignal<LietoDeathSignal>();
             Container.BindSignal<LietoResurrectSignal>();

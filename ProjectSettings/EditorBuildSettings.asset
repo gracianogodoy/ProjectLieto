@@ -10,6 +10,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Custom Assets/Scenes/core.unity
   - enabled: 1
-    path: Assets/Custom Assets/Scenes/bootcamp2.unity
-  - enabled: 1
     path: Assets/Custom Assets/Scenes/bg.unity
+  - enabled: 1
+    path: Assets/Custom Assets/Scenes/final.unity
+  - enabled: 1
+    path: Assets/Custom Assets/Scenes/gui.unity
+  - enabled: 1
+    path: Assets/Custom Assets/Scenes/story.unity
+  - enabled: 1
+    path: Assets/Custom Assets/Scenes/lieto.unity

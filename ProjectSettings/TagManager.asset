@@ -10,6 +10,7 @@ TagManager:
   - Hazard
   - SquireChangeDirection
   - GhoulChangeDirection
+  - Powerup
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Boss
   - Hazard
   - GhoulChangeDirection
-  - 
+  - Powerup
   - 
   - 
   - 
@@ -49,4 +50,7 @@ TagManager:
     locked: 1
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GUI
+    uniqueID: 3880553357
     locked: 0

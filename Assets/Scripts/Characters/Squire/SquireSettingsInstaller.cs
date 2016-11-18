@@ -12,6 +12,7 @@ namespace GG
         public Life.Settings LifeSettings;
         public SquireAI.Settings AISettings;
         public Pushback.Settings PushbackSettings;
+        public DropPowerup.Settings DropPowerupSettings;
 
         public override void InstallBindings()
         {
@@ -21,6 +22,7 @@ namespace GG
             Container.BindInstance(AISettings);
             Container.BindInstance(LifeSettings);
             Container.BindInstance(PushbackSettings);
+            Container.BindInstance(DropPowerupSettings);
         }
     }
 }

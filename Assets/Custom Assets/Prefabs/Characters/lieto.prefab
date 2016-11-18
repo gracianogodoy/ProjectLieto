@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010582667198}
-  - 114: {fileID: 114000010332062832}
   - 114: {fileID: 114000010737833624}
   - 61: {fileID: 61000013019585132}
   - 50: {fileID: 50000011667916542}
@@ -164,7 +163,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0.7641213}
   serializedVersion: 2
@@ -186,23 +185,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010332062832
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011514210600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _installers:
-  - {fileID: 114000010737833624}
-  _installerPrefabs: []
-  _scriptableObjectInstallers:
-  - {fileID: 11400000, guid: ec29c1d4ae448404eabf562e2c79235c, type: 2}
-  _kernel: {fileID: 0}
 --- !u!114 &114000010522941210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +251,7 @@ MonoBehaviour:
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
-  slopeLimit: 30
+  slopeLimit: 60
   jumpingThreshold: 0.07
   slopeSpeedMultiplier:
     serializedVersion: 2

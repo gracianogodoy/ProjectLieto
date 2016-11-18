@@ -9,6 +9,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<Move>().To<Move>().AsSingle();
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
+            Container.BindAllInterfacesAndSelf<DropPowerup>().To<DropPowerup>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<SquireResurrect>().To<SquireResurrect>().AsSingle();
             Container.BindAllInterfacesAndSelf<SquireDeath>().To<SquireDeath>().AsSingle();

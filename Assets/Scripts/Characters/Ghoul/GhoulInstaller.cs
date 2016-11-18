@@ -13,6 +13,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<EnemyAttackAI>().To<EnemyAttackAI>().AsSingle();
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
+            Container.BindAllInterfacesAndSelf<DropPowerup>().To<DropPowerup>().AsSingle();
 
             Container.BindAllInterfacesAndSelf<GhoulAI>().To<GhoulAI>().AsSingle();
             Container.BindAllInterfacesAndSelf<GhoulResurrect>().To<GhoulResurrect>().AsSingle();

@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1000011556219662, guid: d2e22385b18b93d45b5c6c93633031f9, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -466,7 +466,7 @@ MonoBehaviour:
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0
-  - stringVal: 
+  - stringVal: n
     intVal: 0
     floatVal: 0
     enablePrefabOffset: 0

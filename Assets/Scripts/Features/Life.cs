@@ -12,6 +12,7 @@ namespace GG
         public Action OnDead { get; set; }
         public Action OnResurrect { get; set; }
         public Action<int> OnTakeDamage { get; set; }
+        public Action<int> OnHeal { get; set; }
         public Action<int, Vector2> OnTakeDamageFromPoint { get; set; }
 
         public int CurrentLife
@@ -20,6 +21,11 @@ namespace GG
             {
                 return _currentLife;
             }
+        }
+
+        public bool IsFull
+        {
+            get { return _currentLife >= _settings.TotalLife; }
         }
 
         public Life(Settings settings)
@@ -44,7 +50,13 @@ namespace GG
 
         public void Heal(int amount)
         {
+            if (IsFull)
+                return;
+
             changeLife(amount);
+
+            if (OnHeal != null)
+                OnHeal(amount);
         }
 
         public void Ressurect()
