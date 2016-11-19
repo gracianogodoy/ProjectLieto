@@ -8,7 +8,7 @@ namespace GG
         public override void InstallBindings()
         {
             Container.BindAllInterfacesAndSelf<StoryFlow>().To<StoryFlow>().AsSingle();
-
+            Container.BindAllInterfacesAndSelf<CountDeadSquires>().To<CountDeadSquires>().AsSingle();
         }
     } 
 }

@@ -9,13 +9,15 @@ namespace GG
         private Move _move;
         private SquireAI _squireAi;
         private Life _life;
+        private SquireDeathSignal _deathSignal;
 
-        public SquireDeath(FaceDirection faceDirection, Move move, SquireAI squireAi, Life life)
+        public SquireDeath(FaceDirection faceDirection, Move move, SquireAI squireAi, Life life, SquireDeathSignal deathSignal)
         {
             _faceDirection = faceDirection;
             _move = move;
             _squireAi = squireAi;
             _life = life;
+            _deathSignal = deathSignal;
         }
 
         public void Initialize()
@@ -33,6 +35,7 @@ namespace GG
         public void OnDead()
         {
             setEnables(false);
+            _deathSignal.Fire();
             _squireAi.SetState(SquireAI.State.Dead);
         }
 

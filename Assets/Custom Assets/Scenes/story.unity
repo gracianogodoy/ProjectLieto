@@ -133,6 +133,10 @@ Prefab:
       propertyPath: m_Name
       value: story_advancer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013490092288, guid: f5fca591487d96f49b336e110df38aac, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fca591487d96f49b336e110df38aac, type: 2}
   m_IsPrefabParent: 0
@@ -313,7 +317,11 @@ MonoBehaviour:
   animatorIntName: 
   textSpeed: 50
   blinkWhenReady: {fileID: 191424067}
-  variables: []
+  variables:
+  - variableName: DeadSquires
+    variableValue: 0
+  - variableName: TotalSquires
+    variableValue: 0
   shouldUsePhotos: 0
   photos: []
   UIPhoto: {fileID: 0}
@@ -510,6 +518,10 @@ Prefab:
       propertyPath: m_Name
       value: story_advancer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013490092288, guid: f5fca591487d96f49b336e110df38aac, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fca591487d96f49b336e110df38aac, type: 2}
   m_IsPrefabParent: 0
@@ -562,6 +574,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013490092288, guid: f5fca591487d96f49b336e110df38aac, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fca591487d96f49b336e110df38aac, type: 2}
   m_IsPrefabParent: 0
@@ -613,6 +629,10 @@ Prefab:
     - target: {fileID: 1000013490092288, guid: f5fca591487d96f49b336e110df38aac, type: 2}
       propertyPath: m_Name
       value: story_advancer (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013490092288, guid: f5fca591487d96f49b336e110df38aac, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fca591487d96f49b336e110df38aac, type: 2}

@@ -182,8 +182,7 @@ public class RPGTalk : MonoBehaviour {
 
 			while (line != null) {
 				
-				if (currentLine >= actualLineToStart) {
-					if (actualLineToBreak == -1 || currentLine <= actualLineToBreak) {
+				if (currentLine >= actualLineToStart) {					if (actualLineToBreak == -1 || currentLine <= actualLineToBreak) {
 
 						if (wordWrap) {
 							CheckIfTheTextFits (line);

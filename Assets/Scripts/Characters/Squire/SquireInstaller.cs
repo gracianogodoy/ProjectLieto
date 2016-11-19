@@ -11,7 +11,7 @@ namespace GG
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();
             Container.BindAllInterfacesAndSelf<DropPowerup>().To<DropPowerup>().AsSingle();
 
-            Container.BindAllInterfacesAndSelf<SquireResurrect>().To<SquireResurrect>().AsSingle();
+            //Container.BindAllInterfacesAndSelf<SquireResurrect>().To<SquireResurrect>().AsSingle();
             Container.BindAllInterfacesAndSelf<SquireDeath>().To<SquireDeath>().AsSingle();
             Container.BindAllInterfacesAndSelf<SquireAI>().To<SquireAI>().AsSingle();
 

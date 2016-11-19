@@ -47,7 +47,7 @@ GameObject:
   - 114: {fileID: 114000013762806502}
   m_Layer: 11
   m_Name: squire
-  m_TagString: Untagged
+  m_TagString: Squire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

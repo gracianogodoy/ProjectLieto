@@ -11,14 +11,20 @@ namespace GG
         private RPGTalk _talk;
         private InputHandler _input;
         private Settings _settings;
-        private int _currentAct;
+        private CountDeadSquires _countDeadSquires;
+        private CameraFade _cameraFade;
 
-        public StoryFlow(TalkCallback talkCallback, InputHandler input, Settings settings, RPGTalk talk)
+        private int _currentAct;
+        private bool _isFinalAct;
+
+        public StoryFlow(TalkCallback talkCallback, InputHandler input, Settings settings, RPGTalk talk, CountDeadSquires countDeadSquires, CameraFade cameraFade)
         {
             _talkCallback = talkCallback;
             _input = input;
             _settings = settings;
             _talk = talk;
+            _countDeadSquires = countDeadSquires;
+            _cameraFade = cameraFade;
         }
 
         public void Initialize()
@@ -34,12 +40,31 @@ namespace GG
         {
             _currentAct++;
             _input.SetEnable(false);
+            _currentAct = Mathf.Clamp(_currentAct, 0, _settings.acts.Length - 1);
+
+            if (_currentAct == _settings.acts.Length - 1)
+            {
+                finalAct();
+            }
+
             startAct(_settings.acts[_currentAct]);
+        }
+
+        private void finalAct()
+        {
+            _talk.variables[0].variableValue = _countDeadSquires.Count.ToString();
+            _talk.variables[1].variableValue = _countDeadSquires.TotalSquires.ToString();
+            _isFinalAct = true;
         }
 
         private void onTalkFinish()
         {
-            _input.SetEnable(true);
+            if (_isFinalAct)
+            {
+                Timing.RunCoroutine(fadeIn());
+            }
+            else
+                _input.SetEnable(true);
         }
 
         private IEnumerator<float> startStory()
@@ -58,10 +83,19 @@ namespace GG
             _talk.NewTalk();
         }
 
+        private IEnumerator<float> fadeIn()
+        {
+            _cameraFade.StartFade(Color.black, _settings.finalActFadeTime);
+            yield return Timing.WaitForSeconds(_settings.finalActFadeTime);
+
+
+        }
+
         [System.Serializable]
         public class Settings
         {
             public float timeToStart;
+            public float finalActFadeTime;
             public Act[] acts;
 
             [System.Serializable]

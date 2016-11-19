@@ -11,6 +11,7 @@ TagManager:
   - SquireChangeDirection
   - GhoulChangeDirection
   - Powerup
+  - Squire
   layers:
   - Default
   - TransparentFX

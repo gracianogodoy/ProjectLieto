@@ -9,4 +9,4 @@ Refém: Mas eu não sou a única a ser resgatada...
 Refém: Ele transformou todos os moradores de uma aldeia próxima em esquilos.
 Refém: Precisamos salvar todos eles, você não viu nenhum no caminho?!
 
-Você matou XX/XX esquilos (aldeões) sem nenhum motivo!
+Você matou DeadSquires/TotalSquires esquilos (aldeões) sem nenhum motivo!
