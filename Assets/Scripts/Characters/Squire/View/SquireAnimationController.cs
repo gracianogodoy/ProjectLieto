@@ -3,6 +3,7 @@ using Zenject;
 
 namespace GG
 {
+    [SelectionBase]
     public class SquireAnimationController : MonoBehaviour
     {
         private Animator _animator;
@@ -10,7 +11,7 @@ namespace GG
         [Inject]
         private CharacterMotor _motor;
         [Inject]
-        private Life _life;
+        private Life _life; 
 
         void Start()
         {

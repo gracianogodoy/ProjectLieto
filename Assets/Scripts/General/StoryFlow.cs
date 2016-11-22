@@ -16,6 +16,7 @@ namespace GG
 
         private int _currentAct;
         private bool _isFinalAct;
+        private bool _isBossAct;
 
         public StoryFlow(TalkCallback talkCallback, InputHandler input, Settings settings, RPGTalk talk, CountDeadSquires countDeadSquires, CameraFade cameraFade)
         {
@@ -34,6 +35,7 @@ namespace GG
             _input.SetEnable(false);
 
             Timing.RunCoroutine(startStory());
+            SoundKit.instance.playBackgroundMusic(_settings.bgm, 1);
         }
 
         public void NextAct()
@@ -41,20 +43,43 @@ namespace GG
             _currentAct++;
             _input.SetEnable(false);
             _currentAct = Mathf.Clamp(_currentAct, 0, _settings.acts.Length - 1);
+            var act = _settings.acts[_currentAct];
 
-            if (_currentAct == _settings.acts.Length - 1)
+            if (act.actType == Settings.ActType.FinalAct)
             {
                 finalAct();
             }
 
-            startAct(_settings.acts[_currentAct]);
+            switch (act.actType)
+            {
+                case Settings.ActType.FinalAct:
+                    finalAct();
+                    break;
+                case Settings.ActType.BossAct:
+                    bossAct();
+                    break;
+            }
+
+            startAct(act);
         }
 
         private void finalAct()
         {
+            _isFinalAct = true;
             _talk.variables[0].variableValue = _countDeadSquires.Count.ToString();
             _talk.variables[1].variableValue = _countDeadSquires.TotalSquires.ToString();
-            _isFinalAct = true;
+        }
+
+        private void bossAct()
+        {
+            _isBossAct = true;
+            fadeTo(_settings.bgm_boss);
+        }
+
+        private void fadeTo(AudioClip nextMusic)
+        {
+            var backgroundMusic = SoundKit.instance.backgroundSound;
+            backgroundMusic.fadeOut(1f, () => SoundKit.instance.playBackgroundMusic(nextMusic, 1).fadeIn(1f));
         }
 
         private void onTalkFinish()
@@ -62,6 +87,11 @@ namespace GG
             if (_isFinalAct)
             {
                 Timing.RunCoroutine(fadeIn());
+            }
+            else if (_isBossAct)
+            {
+                _input.SetEnable(true);
+                fadeTo(_settings.bgm);
             }
             else
                 _input.SetEnable(true);
@@ -98,6 +128,16 @@ namespace GG
             public float timeToStart;
             public float finalActFadeTime;
             public Act[] acts;
+            public AudioClip bgm;
+            public AudioClip bgm_boss;
+
+            public enum ActType
+            {
+                NormalAct,
+                BossAct,
+                FinalAct,
+                TutorialAct,
+            }
 
             [System.Serializable]
             public class Act
@@ -105,6 +145,7 @@ namespace GG
                 public TextAsset dialogueText;
                 public int startLine;
                 public int endLine;
+                public ActType actType;
             }
         }
     }

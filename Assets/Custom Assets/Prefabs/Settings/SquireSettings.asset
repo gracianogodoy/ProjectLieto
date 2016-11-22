@@ -25,7 +25,7 @@ MonoBehaviour:
     minMoveDistance: 1
     maxMoveDistance: 3
   PushbackSettings:
-    force: {x: 5, y: 10}
+    force: {x: 0, y: 0}
   DropPowerupSettings:
     dropChance: 100
     minDropAmount: 1

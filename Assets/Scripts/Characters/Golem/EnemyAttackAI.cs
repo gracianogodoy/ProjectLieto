@@ -82,7 +82,7 @@ namespace GG
         {
             if (_clock.IsPaused)
             {
-                _attack.OnAttack();
+                _attack.DoAttack();
                 resetClock();
             }
         }
@@ -91,7 +91,7 @@ namespace GG
         {
             if (_clock.IsDone)
             {
-                _attack.OnAttack();
+                _attack.DoAttack();
                 resetClock();
             }
         }

@@ -6,6 +6,7 @@ namespace GG
     {
         public override void InstallBindings()
         {
+            Container.BindInstance(gameObject).WithId(InjectId.Owner).AsSingle();
             Container.BindAllInterfacesAndSelf<FaceDirection>().To<FaceDirection>().AsSingle();
             Container.BindAllInterfacesAndSelf<Move>().To<Move>().AsSingle();
             Container.BindAllInterfacesAndSelf<Pushback>().To<Pushback>().AsSingle();

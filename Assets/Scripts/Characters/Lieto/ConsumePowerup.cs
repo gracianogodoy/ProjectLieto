@@ -9,6 +9,8 @@ namespace GG
         private Settings _settings;
         private Life _life;
 
+        public System.Action OnConsume;
+
         public ConsumePowerup(DetectPowerup detectPowerup, Settings settings, Life life)
         {
             _detectPowerup = detectPowerup;
@@ -23,6 +25,9 @@ namespace GG
 
         private void onDetectPowerup()
         {
+            if (OnConsume != null)
+                OnConsume();
+
             _life.Heal(_settings.lifeRestoredAmout);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace GG
@@ -10,14 +11,17 @@ namespace GG
         private SquireAI _squireAi;
         private Life _life;
         private SquireDeathSignal _deathSignal;
+        private Collider2D _collider;
 
-        public SquireDeath(FaceDirection faceDirection, Move move, SquireAI squireAi, Life life, SquireDeathSignal deathSignal)
+        public SquireDeath(FaceDirection faceDirection, Move move, SquireAI squireAi, Life life, SquireDeathSignal deathSignal, 
+            [Inject(Id = InjectId.Owner)] GameObject owner)
         {
             _faceDirection = faceDirection;
             _move = move;
             _squireAi = squireAi;
             _life = life;
             _deathSignal = deathSignal;
+            _collider = owner.GetComponent<Collider2D>();
         }
 
         public void Initialize()
@@ -43,6 +47,7 @@ namespace GG
         {
             _faceDirection.SetEnable(value);
             _move.SetEnable(value);
+            _collider.enabled = value;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace GG
 
         public System.Action<GameObject[]> OnAttackHit { get; set; }
         public System.Action OnAttackMiss { get; set; }
+        public System.Action OnAttack { get; set; }
 
         public bool IsAttacking
         {
@@ -40,12 +41,14 @@ namespace GG
             _faceDirection = faceDirection;
         }
 
-        public void OnAttack()
+        public void DoAttack()
         {
             if (!_isAttacking && _isEnable)
             {
                 _isAttacking = true;
                 _direction = _faceDirection.Direction;
+                if (OnAttack != null)
+                    OnAttack();
             }
         }
 

@@ -62,7 +62,7 @@ namespace GG
                 _input.OnMove += _move.OnMove;
                 _input.OnMove += _faceDirection.SetDirection;
                 _input.OnJump += _jump.StartJump;
-                _input.OnAttack += _attack.OnAttack;
+                _input.OnAttack += _attack.DoAttack;
                 _input.OnStopJump += _jump.StopJump;
                 _input.OnSwitch += _switch.OnSwitch;
             }

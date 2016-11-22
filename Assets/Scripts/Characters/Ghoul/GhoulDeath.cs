@@ -13,6 +13,7 @@ namespace GG
         private FaceDirection _faceDirection;
         private GhoulAI _ghoulAi;
         private ProximitySensor _sensor;
+        private Collider2D _collider;
 
         public GhoulDeath([Inject(Id = InjectId.Owner)] GameObject owner, Settings settings,
             Life life, Attack attack, FaceDirection faceDirection, GhoulAI ghoulAi, ProximitySensor sensor)
@@ -24,6 +25,7 @@ namespace GG
             _attack = attack;
             _ghoulAi = ghoulAi;
             _sensor = sensor;
+            _collider = owner.GetComponent<Collider2D>();
         }
 
         public void Initialize()
@@ -49,6 +51,7 @@ namespace GG
             _faceDirection.SetEnable(value);
             _sensor.enabled = value;
             _ghoulAi.SetState(GhoulAI.State.Dead);
+            _collider.enabled = value;
         }
 
         [Serializable]

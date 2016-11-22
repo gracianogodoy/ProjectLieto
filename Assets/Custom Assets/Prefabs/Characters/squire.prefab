@@ -25,6 +25,7 @@ GameObject:
   - 114: {fileID: 114000011145674030}
   - 114: {fileID: 114000013804887760}
   - 114: {fileID: 114000013707007430}
+  - 114: {fileID: 114000011994192196}
   m_Layer: 11
   m_Name: view
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012442465520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.49, y: -1.86, z: 0}
+  m_LocalPosition: {x: 0.023335457, y: -1.7952776, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -142,9 +143,22 @@ MonoBehaviour:
   - {fileID: 114000012146296208}
   - {fileID: 114000013804887760}
   - {fileID: 114000013707007430}
+  - {fileID: 114000011994192196}
   _identifier: 
   _context: {fileID: 114000012823695912}
   _bindType: 0
+--- !u!114 &114000011994192196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011756015500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6986add8c2611644685f98245ca48c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squireDeathSound: {fileID: 8300000, guid: b80961c4e61ab7d48817ac0c32925e84, type: 3}
 --- !u!114 &114000012146296208
 MonoBehaviour:
   m_ObjectHideFlags: 1
