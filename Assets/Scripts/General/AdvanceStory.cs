@@ -12,6 +12,7 @@ namespace GG
             if (other.tag == "Player")
             {
                 _storyFlow.NextAct();
+                gameObject.SetActive(false);
             }
         }
     }

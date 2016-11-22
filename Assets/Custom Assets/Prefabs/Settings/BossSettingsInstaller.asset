@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70192bd9d35bd6543ad9d8db2f6ebf86, type: 3}
+  m_Name: BossSettingsInstaller
+  m_EditorClassIdentifier: 
+  BossAISettings:
+    timeToStartAttack: 1
+    timeBetweenPowers: 0.5
+    timeVulnerable: 1
+    minPowerNumber: 0
+    maxPowerNumber: 0
+    numberOfPowers: 5
+    powerAreaLeftPosition: 475.68
+    powerAreaRightPosition: 482.51
+    powerYPosition: -2
+    powerPrefab: {fileID: 1000010257632870, guid: 312485f7e2a922b42be2e53f2ee52f10,
+      type: 2}
+  LifeSettings:
+    TotalLife: 0

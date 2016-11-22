@@ -1,27 +1,44 @@
 ﻿using UnityEngine;
+using Zenject;
 
-public class BossViewController : MonoBehaviour
+namespace GG
 {
-    //private Life _life;
-    //private Animator _animator;
+    public class BossViewController : MonoBehaviour
+    {
+        [Inject]
+        private Life _life;
+        [Inject]
+        private BossAI _ai;
 
-    //void Start()
-    //{
-    //    _life = GetComponentInParent<Life>();
-    //    _animator = GetComponent<Animator>();
+        private Animator _animator;
 
-    //    _life.OnDead += onDead;
-    //    _life.OnTakeDamage += onTakeDamage;
-    //}
+        void Start()
+        {
+            _animator = GetComponent<Animator>();
 
-    //private void onTakeDamage(int damage)
-    //{
-    //    if (_life.CurrentLife > 0)
-    //        _animator.SetTrigger("Hit");
-    //}
+            _life.OnDead += onDead;
+            _life.OnTakeDamage += onTakeDamage;
+        }
 
-    //private void onDead()
-    //{
-    //    _animator.SetTrigger("Dead");
-    //}
+        void Update()
+        {
+            if (_ai.CurrentState == BossAI.State.Attacking)
+                _animator.SetBool("IsAttacking", true);
+
+            if (_ai.CurrentState == BossAI.State.Idle)
+                _animator.SetBool("IsAttacking", false);
+        }
+
+        private void onTakeDamage(int damage)
+        {
+            if (_life.CurrentLife > 0)
+                _animator.SetTrigger("Hit");
+        }
+
+        private void onDead()
+        {
+            _animator.SetTrigger("Dead");
+        }
+    }
+
 }

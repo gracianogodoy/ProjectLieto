@@ -99,7 +99,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011174512300, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.105
+      value: 480.51
       objectReference: {fileID: 0}
     - target: {fileID: 4000011174512300, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
       propertyPath: m_LocalPosition.y
@@ -132,7 +132,7 @@ Prefab:
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: orthographic size
-      value: 3.375
+      value: 3.3785617
       objectReference: {fileID: 0}
     - target: {fileID: 1000012800250282, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
       propertyPath: m_IsActive
@@ -141,12 +141,16 @@ Prefab:
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: orthographic size
-      value: 3.375
+      value: 3.3785617
       objectReference: {fileID: 0}
     - target: {fileID: 114000011763578896, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: MaxCameraPosition.x
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012800250282, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
@@ -167,6 +171,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb6b7f35e70b6c4fa5ffd2addca2101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1524997690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1524997681}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -6.842283, y: -0.012958765}
+  serializedVersion: 2
+  m_Size: {x: 1.6220255, y: 6.779661}
 --- !u!1001 &1763905292
 Prefab:
   m_ObjectHideFlags: 0

@@ -37,3 +37,4 @@ MonoBehaviour:
       actType: 2
     bgm: {fileID: 8300000, guid: e5619046146c11940903382f3b5751ac, type: 3}
     bgm_boss: {fileID: 8300000, guid: 8f8ba31f9dc8e3148a52522ec069052d, type: 3}
+    startAct: 1

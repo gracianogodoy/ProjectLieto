@@ -12,6 +12,8 @@ TagManager:
   - GhoulChangeDirection
   - Powerup
   - Squire
+  - BossCameraTarget
+  - Fire
   layers:
   - Default
   - TransparentFX
