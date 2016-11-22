@@ -150,7 +150,7 @@ namespace GG
         {
             if (_currentState == State.FinalAct)
             {
-                Timing.RunCoroutine(fadeIn());
+                Timing.RunCoroutine(backToMenu());
             }
             else if (_currentState == State.BossAct)
             {
@@ -176,7 +176,6 @@ namespace GG
 
         private IEnumerator<float> wait()
         {
-            Timing.RunCoroutine(fadeIn());
             yield return Timing.WaitForSeconds(2);
             NextAct();
         }
@@ -190,9 +189,8 @@ namespace GG
             _talk.NewTalk();
         }
 
-        private IEnumerator<float> fadeIn()
+        private IEnumerator<float> backToMenu()
         {
-            //_cameraFade.StartFade(Color.black, _settings.finalActFadeTime);
             yield return Timing.WaitForSeconds(_settings.finalActFadeTime);
 
             var loadScenes = GameObject.FindObjectOfType<LoadScene>();

@@ -37,17 +37,19 @@ namespace GG
             Attacking,
             Waiting,
             Idle,
+            NonAct,
         }
 
         private StateMachine<State> _stateMachine = new StateMachine<State>();
 
         public void Initialize()
         {
+            _stateMachine.AddState(State.NonAct);
             _stateMachine.AddState(State.Waiting);
             _stateMachine.AddState(State.Idle, enterIdle, null, leaveIdle);
             _stateMachine.AddState(State.Attacking, enterAttack, null, leaveAttack);
 
-            _stateMachine.CurrentState = State.Waiting;
+            _stateMachine.CurrentState = State.NonAct;
 
             _bossFightStartSignal += bossFightStart;
 
@@ -78,13 +80,19 @@ namespace GG
 
         private void onResurrect()
         {
-            _stateMachine.CurrentState = State.Attacking;
-            _life.Reset();
+            if (_stateMachine.CurrentState != State.NonAct)
+            {
+                _stateMachine.CurrentState = State.Attacking;
+                _life.Reset();
+            }
         }
 
         private void onDeath()
         {
-            _stateMachine.CurrentState = State.Waiting;
+            if (_stateMachine.CurrentState != State.NonAct)
+            {
+                _stateMachine.CurrentState = State.Waiting;
+            }
         }
 
         #region Idle State
@@ -145,7 +153,7 @@ namespace GG
                 var numberOfPowers = UnityEngine.Random.Range(_settings.minPowerNumber, _settings.maxPowerNumber + 1);
 
                 var powerIndexes = new int[numberOfPowers];
-                    var rnd = new System.Random();
+                var rnd = new System.Random();
 
                 for (int i = 0; i < powerIndexes.Length; i++)
                 {

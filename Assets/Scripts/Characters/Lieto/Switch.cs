@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using System;
 
 namespace GG
 {
-    public class DisableSwitchSignal : Signal<DisableSwitchSignal> { }
+    public class DisableSwitchSignal :  Signal<DisableSwitchSignal> { }
 
-    public class Switch : BaseCharacterBehaviour
+    public class Switch : BaseCharacterBehaviour, IInitializable
     {
         private SwitchWorld _switchWorld;
         private CharacterMotor _motor;
@@ -50,7 +51,6 @@ namespace GG
             _isOnBadWorld = !_isOnBadWorld;
             checkForCollider();
             SoundKit.instance.playSound(_settings.switchSound);
-            _disableSignal += () => { SetEnable(false); };
         }
 
         public void SwtichToWorld1()
@@ -89,6 +89,11 @@ namespace GG
 
             yield return Timing.WaitForSeconds(0.1f);
             //_motor.ToggleGravity(true);
+        }
+
+        public void Initialize()
+        {
+            _disableSignal += () => { SetEnable(false); };
         }
 
         [System.Serializable]

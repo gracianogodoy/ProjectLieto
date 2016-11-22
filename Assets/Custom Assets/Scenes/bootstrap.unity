@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffectVolume: 1
-  musicVolume: 0.4
+  musicVolume: 0.1
   ambienceVolume: 1
   initialCapacity: 10
   maxCapacity: 15
