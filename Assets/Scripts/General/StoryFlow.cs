@@ -88,7 +88,8 @@ namespace GG
             _cameraFade.StartFade(Color.black, _settings.finalActFadeTime);
             yield return Timing.WaitForSeconds(_settings.finalActFadeTime);
 
-
+            var loadScenes = GameObject.FindObjectOfType<LoadScene>();
+            loadScenes.BackToMenu();
         }
 
         [System.Serializable]
