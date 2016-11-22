@@ -20,7 +20,7 @@ MonoBehaviour:
     numberOfPowers: 5
     powerAreaLeftPosition: 475.68
     powerAreaRightPosition: 482.51
-    powerYPosition: -2
+    powerYPosition: -1
     powerPrefab: {fileID: 1000010257632870, guid: 312485f7e2a922b42be2e53f2ee52f10,
       type: 2}
   LifeSettings:

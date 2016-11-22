@@ -13,17 +13,22 @@ public class LoadScene : MonoBehaviour
 
     public UnityEvent OnLoad;
 
+    void Start()
+    {
+        Timing.RunCoroutine(loadAll(_startMenuScenes, null, false));
+    }
+
     public void StartGame()
     {
-        Timing.RunCoroutine(loadAll(_scenes, _startMenuScenes));
+        Timing.RunCoroutine(loadAll(_scenes, _startMenuScenes, true));
     }
 
     public void BackToMenu()
     {
-        Timing.RunCoroutine(loadAll(_startMenuScenes, _scenes));
+        Timing.RunCoroutine(loadAll(_startMenuScenes, _scenes, true));
     }
 
-    private IEnumerator<float> loadAll(string[] scenes, string[] scenesToUnload)
+    private IEnumerator<float> loadAll(string[] scenes, string[] scenesToUnload, bool unload)
     {
         for (int i = 0; i < scenes.Length; i++)
         {
@@ -32,11 +37,12 @@ public class LoadScene : MonoBehaviour
             yield return Timing.WaitUntilDone(Timing.RunCoroutine(load(scene)));
         }
 
-        for (int i = 0; i < scenesToUnload.Length; i++)
-        {
-            var scene = scenesToUnload[i];
-            SceneManager.UnloadScene(scene);
-        }
+        if (unload)
+            for (int i = 0; i < scenesToUnload.Length; i++)
+            {
+                var scene = scenesToUnload[i];
+                SceneManager.UnloadScene(scene);
+            }
 
         if (OnLoad != null)
             OnLoad.Invoke();

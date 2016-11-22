@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Custom Assets/Scenes/bootstrap.unity
+  - enabled: 1
     path: Assets/Custom Assets/Scenes/start.unity
   - enabled: 1
     path: Assets/Custom Assets/Scenes/core.unity

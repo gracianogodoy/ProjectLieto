@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedX: 0.6
-  SpeedY: 0.6
+  SpeedY: 0.35
   InvertDirection: 0
 --- !u!212 &212000010581788618
 SpriteRenderer:
