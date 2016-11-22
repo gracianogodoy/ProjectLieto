@@ -1,14 +1,24 @@
 ﻿using MovementEffects;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace GG
 {
     public class BossFightStartSignal : Signal<BossFightStartSignal> { }
+    public class BossDeathSignal : Signal<BossDeathSignal> { }
 
     public class StoryFlow : IInitializable
     {
+        public enum State
+        {
+            BossAct,
+            PrincessAct,
+            FinalAct,
+            None
+        }
+
         private TalkCallback _talkCallback;
         private RPGTalk _talk;
         private InputHandler _input;
@@ -17,10 +27,11 @@ namespace GG
         private CameraFade _cameraFade;
         [Inject]
         private BossFightStartSignal _bossFightStartSignal;
+        [Inject]
+        private BossDeathSignal _bossDeathSignal;
 
         private int _currentAct;
-        private bool _isFinalAct;
-        private bool _isBossAct;
+        private State _currentState;
 
         public StoryFlow(TalkCallback talkCallback, InputHandler input, Settings settings, RPGTalk talk,
             CountDeadSquires countDeadSquires, CameraFade cameraFade)
@@ -45,6 +56,10 @@ namespace GG
             }
 
             SoundKit.instance.playBackgroundMusic(_settings.bgm, 1);
+
+            _bossDeathSignal += onBossDeath;
+
+            _currentState = State.None;
         }
 
         public void NextAct()
@@ -67,6 +82,9 @@ namespace GG
                 case Act.ActType.BossAct:
                     bossAct();
                     break;
+                case Act.ActType.PrincessAct:
+                    _currentState = State.PrincessAct;
+                    break;
             }
 
             startAct(act);
@@ -74,27 +92,30 @@ namespace GG
 
         private void finalAct()
         {
-            _isFinalAct = true;
+            _currentState = State.FinalAct;
+            _talk.textUI = GameObject.FindWithTag("Text").GetComponent<Text>();
+            _talk.textUI.enabled = true;
             _talk.variables[0].variableValue = _countDeadSquires.Count.ToString();
             _talk.variables[1].variableValue = _countDeadSquires.TotalSquires.ToString();
+            var storyCanvas = GameObject.Find("story_canvas").GetComponent<Image>();
+            storyCanvas.enabled = true;
         }
 
         #region Boss Act
         private void bossAct()
         {
-            _isBossAct = true;
+            _currentState = State.BossAct;
             fadeToMusic(_settings.bgm_boss);
 
             _cameraFade.GetComponent<CameraFollow>().enabled = false;
             Timing.RunCoroutine(moveCameraTo("camera_target"));
 
-            //fadeToMusic(_settings.bgm);
         }
 
-        private void controlFlame(string trigger)
+        private void controlFlame()
         {
-            var fire = GameObject.FindGameObjectWithTag("Fire");
-            fire.GetComponent<Animator>().SetTrigger(trigger);
+            var fire = GameObject.FindObjectOfType<BossFire>();
+            fire.LightOn();
         }
 
         private IEnumerator<float> moveCameraTo(string targetName)
@@ -109,6 +130,13 @@ namespace GG
                 yield return 0;
             }
         }
+
+        private void onBossDeath()
+        {
+            fadeToMusic(_settings.bgm);
+            Timing.RunCoroutine(moveCameraTo("camera_target"));
+            NextAct();
+        }
         #endregion
 
         private void fadeToMusic(AudioClip nextMusic)
@@ -120,25 +148,36 @@ namespace GG
 
         private void onTalkFinish()
         {
-            if (_isFinalAct)
+            if (_currentState == State.FinalAct)
             {
                 Timing.RunCoroutine(fadeIn());
             }
-            else if (_isBossAct)
+            else if (_currentState == State.BossAct)
             {
                 _input.SetEnable(true);
-                controlFlame("LightUp");
+                controlFlame();
                 Timing.RunCoroutine(moveCameraTo("camera_target2"));
                 _bossFightStartSignal.Fire();
             }
-
-            _input.SetEnable(true);
+            else if (_currentState == State.PrincessAct)
+            {
+                Timing.RunCoroutine(wait());
+            }
+            else
+                _input.SetEnable(true);
         }
 
         private IEnumerator<float> startStory()
         {
             yield return Timing.WaitForSeconds(_settings.timeToStart);
 
+            NextAct();
+        }
+
+        private IEnumerator<float> wait()
+        {
+            Timing.RunCoroutine(fadeIn());
+            yield return Timing.WaitForSeconds(2);
             NextAct();
         }
 
@@ -153,7 +192,7 @@ namespace GG
 
         private IEnumerator<float> fadeIn()
         {
-            _cameraFade.StartFade(Color.black, _settings.finalActFadeTime);
+            //_cameraFade.StartFade(Color.black, _settings.finalActFadeTime);
             yield return Timing.WaitForSeconds(_settings.finalActFadeTime);
 
             var loadScenes = GameObject.FindObjectOfType<LoadScene>();
@@ -180,6 +219,7 @@ namespace GG
                 BossAct,
                 FinalAct,
                 TutorialAct,
+                PrincessAct,
             }
 
             public TextAsset dialogueText;

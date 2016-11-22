@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoryFlowSettings:
     timeToStart: 1
-    finalActFadeTime: 0
+    finalActFadeTime: 2
     acts:
     - dialogueText: {fileID: 4900000, guid: f7610b27c803a294dbc34356df552750, type: 3}
       startLine: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
     - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
       startLine: 7
       endLine: 10
-      actType: 0
+      actType: 4
     - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
       startLine: 12
       endLine: 12

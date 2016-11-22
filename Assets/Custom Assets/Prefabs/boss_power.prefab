@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011691396150}
   - 61: {fileID: 61000012153073046}
+  - 114: {fileID: 114000013556791674}
   m_Layer: 0
   m_Name: boss_power
   m_TagString: Untagged
@@ -102,6 +103,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000013556791674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010257632870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9015171faf0bad24f9b94a5ac95a06a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToExplode: 1
+  explosionAudio: {fileID: 8300000, guid: 9ab12bbf1afca7147b2a9453b33bc0d1, type: 3}
 --- !u!212 &212000013723777518
 SpriteRenderer:
   m_ObjectHideFlags: 1

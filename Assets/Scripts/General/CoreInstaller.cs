@@ -18,6 +18,8 @@ namespace GG
             Container.BindSignal<UnpauseSignal>();
             Container.BindSignal<SquireDeathSignal>();
             Container.BindSignal<BossFightStartSignal>();
+            Container.BindSignal<BossDeathSignal>();
+            Container.BindSignal<DisableSwitchSignal>();
 
             Container.BindInstance(GameObject.FindObjectOfType<CameraFade>()).AsSingle();
             Container.BindInstance(GameObject.FindObjectOfType<CameraFollow>()).AsSingle();

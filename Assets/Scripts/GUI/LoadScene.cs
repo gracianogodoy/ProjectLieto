@@ -15,7 +15,9 @@ public class LoadScene : MonoBehaviour
 
     void Start()
     {
+#if UNITY_STANDALONE
         Timing.RunCoroutine(loadAll(_startMenuScenes, null, false));
+#endif
     }
 
     public void StartGame()

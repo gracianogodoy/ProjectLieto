@@ -28,7 +28,7 @@ MonoBehaviour:
     Offset: 0.8
     HitLayer:
       serializedVersion: 2
-      m_Bits: 35840
+      m_Bits: 101376
   FaceDirectionSettings:
     InitialDirection: 1
   LifeSettings:
@@ -43,6 +43,7 @@ MonoBehaviour:
       m_Bits: 1280
     damageOnOverlapping: 2
     timeToSwitchBackAfterDamage: 0.1
+    switchSound: {fileID: 8300000, guid: 20bf988554436cc47b3eecc75f625a63, type: 3}
   HazardSettings:
     hazardLayer:
       serializedVersion: 2

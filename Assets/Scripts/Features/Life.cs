@@ -100,6 +100,11 @@ namespace GG
             _currentLife = Mathf.Clamp(_currentLife, 0, _settings.TotalLife);
         }
 
+        public void Reset()
+        {
+            _currentLife = _settings.TotalLife;
+        }
+
         [Serializable]
         public class Settings
         {

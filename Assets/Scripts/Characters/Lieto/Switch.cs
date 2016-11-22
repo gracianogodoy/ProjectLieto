@@ -5,13 +5,18 @@ using Zenject;
 
 namespace GG
 {
-    public class Switch
+    public class DisableSwitchSignal : Signal<DisableSwitchSignal> { }
+
+    public class Switch : BaseCharacterBehaviour
     {
         private SwitchWorld _switchWorld;
         private CharacterMotor _motor;
         private Life _life;
         private Jump _jump;
         private Settings _settings;
+
+        [Inject]
+        private DisableSwitchSignal _disableSignal;
 
         private Collider2D _collider;
         private bool _isOnBadWorld;
@@ -38,9 +43,14 @@ namespace GG
 
         public void OnSwitch()
         {
+            if (!_isEnable)
+                return;
+
             _switchWorld.Switch();
             _isOnBadWorld = !_isOnBadWorld;
             checkForCollider();
+            SoundKit.instance.playSound(_settings.switchSound);
+            _disableSignal += () => { SetEnable(false); };
         }
 
         public void SwtichToWorld1()
@@ -87,6 +97,7 @@ namespace GG
             public LayerMask obstacleMask;
             public int damageOnOverlapping;
             public float timeToSwitchBackAfterDamage;
+            public AudioClip switchSound;
         }
     }
 }

@@ -43,6 +43,9 @@ public class CameraFollow : MonoBehaviour
 
     public void SetPosition(Vector2 position)
     {
+        if (!enabled)
+            return;
+
         var posX = position.x;
         var posY = position.y;
 

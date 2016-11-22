@@ -58,7 +58,7 @@ namespace GG
             _distanceMoved = 0;
             var pushbackDirection = direction;
 
-            var pushBackVelocity = new Vector2(Mathf.Sign(pushbackDirection.x) * _settings.force.x, _settings.force.y);
+            var pushBackVelocity = new Vector2(pushbackDirection.x * _settings.force.x, _settings.force.y);
             _motor.SetVelocity(pushBackVelocity);
 
             _isPushed = true;

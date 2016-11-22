@@ -21,7 +21,10 @@ namespace GG
 
         private void onStrike(int damage, Vector2 direction)
         {
-            _life.TakeDamage(damage, direction);
+            if (direction.x == 0 && direction.y == 0)
+                _life.TakeDamage(damage);
+            else
+                _life.TakeDamage(damage, direction);
         }
     }
 }

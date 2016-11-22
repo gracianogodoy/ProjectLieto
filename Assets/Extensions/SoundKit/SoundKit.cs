@@ -77,7 +77,8 @@ public class SoundKit : MonoBehaviour
     {
         if (backgroundSound != null)
         {
-            checkSound(backgroundSound);
+            if (!backgroundSound._playingLoopingAudio)
+                checkSound(backgroundSound);
         }
 
         for (var i = _playingSounds.Count - 1; i >= 0; i--)
@@ -170,7 +171,7 @@ public class SoundKit : MonoBehaviour
     /// <returns>The sound.</returns>
     /// <param name="audioClip">Audio clip.</param>
     /// <param name="volume">Volume.</param>
-    public SKSound playSound(AudioClip audioClip,  float volume, SoundType soundType = SoundType.SFX)
+    public SKSound playSound(AudioClip audioClip, float volume, SoundType soundType = SoundType.SFX)
     {
         AudioSource source = null;
         return playSound(audioClip, volume, 1f, 0f, soundType);
