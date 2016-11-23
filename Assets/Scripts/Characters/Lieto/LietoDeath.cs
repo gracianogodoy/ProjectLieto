@@ -14,12 +14,13 @@ namespace GG
         private Life _life;
         private LietoPushed _pushed;
         private LietoDeathSignal _deathSignal;
+        private Switch _switch;
 
         public LietoDeath(FaceDirection faceDirection, Attack attack, Jump jump,
             Move move, Life life, LietoPushed pushed,
             LietoDeathSignal deathSignal,
             DetectCheckpoint detectCheckpoint, CharacterMotor motor,
-            CameraFollow follow)
+            CameraFollow follow, Switch mySwitch)
         {
             _faceDirection = faceDirection;
             _attack = attack;
@@ -28,6 +29,7 @@ namespace GG
             _life = life;
             _pushed = pushed;
             _deathSignal = deathSignal;
+            _switch = mySwitch;
         }
 
         public void Initialize()
@@ -55,6 +57,7 @@ namespace GG
             _jump.SetEnable(value);
             _move.SetEnable(value);
             _pushed.SetEnable(value);
+            _switch.SetEnable(value);
         }
 
     }

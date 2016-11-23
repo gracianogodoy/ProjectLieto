@@ -27,6 +27,6 @@ MonoBehaviour:
   PushbackSettings:
     force: {x: 0, y: 0}
   DropPowerupSettings:
-    dropChance: 100
+    dropChance: 80
     minDropAmount: 1
     maxDropAmount: 1

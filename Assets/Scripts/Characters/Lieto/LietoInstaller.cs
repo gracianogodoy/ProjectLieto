@@ -22,8 +22,6 @@ namespace GG
             Container.BindAllInterfacesAndSelf<LietoResurrect>().To<LietoResurrect>().AsSingle();
             Container.BindAllInterfacesAndSelf<LietoDeath>().To<LietoDeath>().AsSingle();
 
-            Container.BindAllInterfacesAndSelf<TestLife>().To<TestLife>().AsSingle();
-
             Container.Bind<DetectCheckpoint>().FromComponent(gameObject).AsSingle();
             Container.Bind<DetectPowerup>().FromComponent(gameObject).AsSingle();
 

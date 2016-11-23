@@ -55,7 +55,14 @@ namespace GG
                 Timing.RunCoroutine(startStory());
             }
 
-            SoundKit.instance.playBackgroundMusic(_settings.bgm, 1);
+            var backgroundMusic = SoundKit.instance.backgroundSound;
+
+            if (backgroundMusic == null)
+            {
+                SoundKit.instance.playBackgroundMusic(_settings.bgm, 1);
+            }
+            else if (backgroundMusic.audioSource.clip != _settings.bgm)
+                SoundKit.instance.playBackgroundMusic(_settings.bgm, 1);
 
             _bossDeathSignal += onBossDeath;
 
@@ -194,7 +201,7 @@ namespace GG
             yield return Timing.WaitForSeconds(_settings.finalActFadeTime);
 
             var loadScenes = GameObject.FindObjectOfType<LoadScene>();
-            loadScenes.BackToMenu();
+            loadScenes.Credits();
         }
 
         [System.Serializable]

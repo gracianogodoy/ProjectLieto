@@ -90,28 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &521201714 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011191479724, guid: b9418b850a2fe5942885380a27f30a24,
-    type: 2}
-  m_PrefabInternal: {fileID: 833940712}
---- !u!114 &521201722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 521201714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d560c334a96e41ad217d906b99c2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackSound: {fileID: 8300000, guid: 6ae7acf4a06dd9049bdb49252a2b42a9, type: 3}
-  _jumpSound: {fileID: 8300000, guid: 1f3bf5b4a2561b54198239135800db02, type: 3}
-  _attackHitSound: {fileID: 8300000, guid: 7bf6d7f6ae132884e810efc0414c07bc, type: 3}
-  _landedSound: {fileID: 8300000, guid: f0a563d2500de0245b6e541045e375f5, type: 3}
-  _strikedSound: {fileID: 8300000, guid: 5a1fc9531d6192e469b51fc410c19a20, type: 3}
-  consumePowerupSound: {fileID: 8300000, guid: 0954a1b7abb9b514fb28cea64727226f, type: 3}
 --- !u!1001 &833940712
 Prefab:
   m_ObjectHideFlags: 0
@@ -119,11 +97,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000013497441700, guid: b9418b850a2fe5942885380a27f30a24,
-        type: 2}
-      propertyPath: _components.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4000010582667198, guid: b9418b850a2fe5942885380a27f30a24, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -156,11 +129,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013497441700, guid: b9418b850a2fe5942885380a27f30a24,
-        type: 2}
-      propertyPath: _components.Array.data[3]
-      value: 
-      objectReference: {fileID: 521201722}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9418b850a2fe5942885380a27f30a24, type: 2}
   m_IsPrefabParent: 0

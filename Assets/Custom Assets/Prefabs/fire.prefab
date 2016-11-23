@@ -22,9 +22,10 @@ GameObject:
   - 212: {fileID: 212000011115291648}
   - 95: {fileID: 95000012126764112}
   - 61: {fileID: 61000014012095194}
+  - 114: {fileID: 114000010487553892}
   m_Layer: 0
   m_Name: fire
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,9 +54,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.031560063, y: 2.4867857}
+  m_Offset: {x: -0.16663086, y: 2.4867857}
   serializedVersion: 2
-  m_Size: {x: 0.6844009, y: 5.190928}
+  m_Size: {x: 0.9545411, y: 5.190928}
 --- !u!95 &95000012126764112
 Animator:
   serializedVersion: 3
@@ -73,6 +74,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010487553892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013379841848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a05c3daa808d4ea80c1a6e0db0a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011115291648
 SpriteRenderer:
   m_ObjectHideFlags: 1

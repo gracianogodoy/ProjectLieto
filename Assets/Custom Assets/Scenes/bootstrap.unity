@@ -126,6 +126,10 @@ MonoBehaviour:
   - story
   _startMenuScenes:
   - start
+  _creditsScene:
+  - credits
+  _introScenes:
+  - intro
   OnLoad:
     m_PersistentCalls:
       m_Calls:

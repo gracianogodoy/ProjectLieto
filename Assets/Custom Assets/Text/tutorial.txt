@@ -1,0 +1,3 @@
+﻿Tutorial: Para saltar, pressione 'barra de espaço'!
+Tutorial: Para passar por certos desafios, aperte 'S' para alternar entre o mundo dos vivos e o mundo dos mortos.
+Tutorial: Para derrotar inimigos, aperte 'A' para atacar com sua adaga.

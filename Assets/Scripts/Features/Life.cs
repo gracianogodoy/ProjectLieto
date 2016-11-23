@@ -10,6 +10,7 @@ namespace GG
         private int _currentLife;
 
         public Action OnDead { get; set; }
+        public Action OnReset { get; set; }
         public Action OnResurrect { get; set; }
         public Action<int> OnTakeDamage { get; set; }
         public Action<int> OnHeal { get; set; }
@@ -22,6 +23,8 @@ namespace GG
                 return _currentLife;
             }
         }
+
+        public int TotalLife { get { return _settings.TotalLife; } }
 
         public bool IsFull
         {
@@ -102,6 +105,9 @@ namespace GG
 
         public void Reset()
         {
+            if (OnReset != null)
+                OnReset();
+
             _currentLife = _settings.TotalLife;
         }
 

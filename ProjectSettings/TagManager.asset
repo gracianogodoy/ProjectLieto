@@ -15,6 +15,7 @@ TagManager:
   - BossCameraTarget
   - Fire
   - Text
+  - BGProps
   layers:
   - Default
   - TransparentFX

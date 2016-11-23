@@ -15,8 +15,8 @@ MonoBehaviour:
     timeToStartAttack: 1
     timeBetweenPowers: 1
     timeVulnerable: 2.5
-    timeToExplode: 1
-    minPowerNumber: 2
+    timeToExplode: 0.8
+    minPowerNumber: 3
     maxPowerNumber: 4
     randomChance: 50
     numberOfPowers: 5
@@ -26,4 +26,4 @@ MonoBehaviour:
     powerPrefab: {fileID: 1000010257632870, guid: 312485f7e2a922b42be2e53f2ee52f10,
       type: 2}
   LifeSettings:
-    TotalLife: 20
+    TotalLife: 26

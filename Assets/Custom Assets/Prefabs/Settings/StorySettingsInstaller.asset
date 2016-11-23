@@ -19,6 +19,18 @@ MonoBehaviour:
       startLine: 1
       endLine: 10
       actType: 0
+    - dialogueText: {fileID: 4900000, guid: 654a275a2e37e5b4387323fef928bf06, type: 3}
+      startLine: 1
+      endLine: 1
+      actType: 0
+    - dialogueText: {fileID: 4900000, guid: 654a275a2e37e5b4387323fef928bf06, type: 3}
+      startLine: 2
+      endLine: 2
+      actType: 0
+    - dialogueText: {fileID: 4900000, guid: 654a275a2e37e5b4387323fef928bf06, type: 3}
+      startLine: 3
+      endLine: 3
+      actType: 0
     - dialogueText: {fileID: 4900000, guid: 4dbae12a23a53164091e6aed673e0236, type: 3}
       startLine: 1
       endLine: 1
@@ -37,4 +49,4 @@ MonoBehaviour:
       actType: 2
     bgm: {fileID: 8300000, guid: e5619046146c11940903382f3b5751ac, type: 3}
     bgm_boss: {fileID: 8300000, guid: 8f8ba31f9dc8e3148a52522ec069052d, type: 3}
-    startAct: 1
+    startAct: -1
