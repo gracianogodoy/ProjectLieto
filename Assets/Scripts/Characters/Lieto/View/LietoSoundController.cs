@@ -62,7 +62,7 @@ namespace GG
 
         private void onJump()
         {
-            SoundKit.instance.playSound(_jumpSound);
+            SoundKit.instance.playSound(_jumpSound, 0.3f);
         }
 
         private void onAttack()

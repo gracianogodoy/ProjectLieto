@@ -14,7 +14,7 @@ public class IntroScene : MonoBehaviour
 
     private IEnumerator<float> wait()
     {
-        yield return Timing.WaitForSeconds(3);
+        yield return Timing.WaitForSeconds(2);
 
         var loadScene = GameObject.FindObjectOfType<LoadScene>();
 

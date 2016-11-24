@@ -58,14 +58,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.1252259
     width: 1
-    height: 1
+    height: 0.7495482
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.375
+  orthographic size: 2.749461
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
