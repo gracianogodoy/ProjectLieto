@@ -132,7 +132,7 @@ Prefab:
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: orthographic size
-      value: 3.371442
+      value: 3.3729668
       objectReference: {fileID: 0}
     - target: {fileID: 1000012800250282, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
       propertyPath: m_IsActive
@@ -141,7 +141,7 @@ Prefab:
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: orthographic size
-      value: 3.371442
+      value: 3.3729668
       objectReference: {fileID: 0}
     - target: {fileID: 114000011763578896, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012800250282, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114000013558226492, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
@@ -160,22 +160,22 @@ Prefab:
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.7495482
       objectReference: {fileID: 0}
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.1252259
       objectReference: {fileID: 0}
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.00015056133
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20000010871447072, guid: 7adfa713a0f21e3449e85f0ce3cb1f34,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9996989
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7adfa713a0f21e3449e85f0ce3cb1f34, type: 2}

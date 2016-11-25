@@ -6,8 +6,11 @@ public class BossPower : MonoBehaviour
 {
     public float timeToExplode;
     public AudioClip explosionAudio;
+    public float volume;
     private Animator _animator;
     private Collider2D _collider;
+
+    private static bool _isPlaying;
 
     void Start()
     {
@@ -25,11 +28,24 @@ public class BossPower : MonoBehaviour
 
         _animator.SetTrigger("Explode");
         _collider.enabled = true;
-        SoundKit.instance.playSound(explosionAudio);
+
+        if (!_isPlaying)
+        {
+            var sound = SoundKit.instance.playSound(explosionAudio, volume);
+            _isPlaying = true;
+            Timing.RunCoroutine(wait());
+        }
 
         yield return Timing.WaitForSeconds(0.667f);
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator<float> wait()
+    {
+        yield return Timing.WaitForSeconds(0.1f);
+
+        _isPlaying = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
